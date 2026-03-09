@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Media Dashboard — G4 · Março 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
-#netlify-login-overlay{display:none;position:fixed;inset:0;background:#0f0f13;z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px}
-#netlify-login-overlay.show{display:flex}
-#netlify-login-overlay h2{color:#f1f5f9;font-size:18px;font-family:-apple-system,sans-serif}
-#netlify-login-overlay p{color:#64748b;font-size:13px;font-family:-apple-system,sans-serif}
-#netlify-login-btn{background:#6366f1;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,sans-serif}
-#netlify-login-btn:hover{background:#4f46e5}
+#auth-overlay{position:fixed;inset:0;background:#0f0f13;z-index:9999;display:flex;align-items:center;justify-content:center}
+#auth-box{background:#18181f;border:1px solid #2a2a35;border-radius:14px;padding:36px 40px;width:340px;text-align:center}
+#auth-box h2{color:#f1f5f9;font-size:17px;font-weight:700;font-family:-apple-system,sans-serif;margin-bottom:6px}
+#auth-box p{color:#64748b;font-size:12px;font-family:-apple-system,sans-serif;margin-bottom:24px}
+#auth-input{width:100%;background:#0f0f13;border:1px solid #2a2a35;border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:14px;font-family:-apple-system,sans-serif;outline:none;margin-bottom:12px}
+#auth-input:focus{border-color:#6366f1}
+#auth-btn{width:100%;background:#6366f1;color:#fff;border:none;border-radius:8px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,sans-serif}
+#auth-btn:hover{background:#4f46e5}
+#auth-error{color:#ef4444;font-size:12px;font-family:-apple-system,sans-serif;margin-top:8px;display:none}
 </style>
 <style>
 :root{
@@ -172,33 +174,44 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 </head>
 <body>
 
-<!-- Tela de login Netlify Identity -->
-<div id="netlify-login-overlay">
-  <h2>Social Media Dashboard — G4</h2>
-  <p>Acesso restrito. Faça login com seu e-mail corporativo.</p>
-  <button id="netlify-login-btn" onclick="netlifyIdentity.open('login')">Entrar</button>
+<!-- Tela de acesso -->
+<div id="auth-overlay">
+  <div id="auth-box">
+    <h2>Social Media Dashboard — G4</h2>
+    <p>Acesso restrito ao time de Social Media</p>
+    <input id="auth-input" type="password" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')checkAuth()">
+    <button id="auth-btn" onclick="checkAuth()">Entrar</button>
+    <div id="auth-error">Senha incorreta. Tente novamente.</div>
+  </div>
 </div>
 
 <script>
-(function() {
-  // Esconde todo o conteúdo até autenticar
-  document.addEventListener('DOMContentLoaded', function() {
-    var overlay = document.getElementById('netlify-login-overlay');
-    var user = netlifyIdentity.currentUser();
-    if (!user) {
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
+(function(){
+  // Hash SHA-256 da senha "g4social2026" — a senha não fica exposta em texto puro
+  var SENHA_HASH = 'bd4892a9e2c78805de41b1785a864d5d272459d57c44ee62ef9cca69ec1e629e';
+
+  async function hashStr(str) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  window.checkAuth = async function() {
+    var val = document.getElementById('auth-input').value;
+    var h = await hashStr(val);
+    if (h === SENHA_HASH) {
+      sessionStorage.setItem('g4auth','1');
+      document.getElementById('auth-overlay').style.display='none';
+    } else {
+      document.getElementById('auth-error').style.display='block';
+      document.getElementById('auth-input').value='';
+      document.getElementById('auth-input').focus();
     }
-    netlifyIdentity.on('login', function() {
-      overlay.classList.remove('show');
-      document.body.style.overflow = '';
-      netlifyIdentity.close();
-    });
-    netlifyIdentity.on('logout', function() {
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    });
-  });
+  };
+
+  // Verificar se já autenticou nesta sessão
+  if (sessionStorage.getItem('g4auth') === '1') {
+    document.getElementById('auth-overlay').style.display='none';
+  }
 })();
 </script>
 
