@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Media Dashboard — G4 · Março 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<style>
+#netlify-login-overlay{display:none;position:fixed;inset:0;background:#0f0f13;z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#netlify-login-overlay.show{display:flex}
+#netlify-login-overlay h2{color:#f1f5f9;font-size:18px;font-family:-apple-system,sans-serif}
+#netlify-login-overlay p{color:#64748b;font-size:13px;font-family:-apple-system,sans-serif}
+#netlify-login-btn{background:#6366f1;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,sans-serif}
+#netlify-login-btn:hover{background:#4f46e5}
+</style>
 <style>
 :root{
   --bg:#0f0f13;--surface:#18181f;--border:#2a2a35;
@@ -162,6 +171,36 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 </style>
 </head>
 <body>
+
+<!-- Tela de login Netlify Identity -->
+<div id="netlify-login-overlay">
+  <h2>Social Media Dashboard — G4</h2>
+  <p>Acesso restrito. Faça login com seu e-mail corporativo.</p>
+  <button id="netlify-login-btn" onclick="netlifyIdentity.open('login')">Entrar</button>
+</div>
+
+<script>
+(function() {
+  // Esconde todo o conteúdo até autenticar
+  document.addEventListener('DOMContentLoaded', function() {
+    var overlay = document.getElementById('netlify-login-overlay');
+    var user = netlifyIdentity.currentUser();
+    if (!user) {
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    netlifyIdentity.on('login', function() {
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      netlifyIdentity.close();
+    });
+    netlifyIdentity.on('logout', function() {
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+})();
+</script>
 
 <div class="header">
   <div class="header-left">
