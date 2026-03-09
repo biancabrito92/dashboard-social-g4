@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Dashboard — G4 · Março 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0f0f13;--surface:#18181f;--border:#2a2a35;
+  --accent:#6366f1;--green:#22c55e;--yellow:#eab308;--red:#ef4444;
+  --text:#f1f5f9;--muted:#64748b;--card:#1e1e28;
+  --purple:#a855f7;--blue:#3b82f6;--orange:#f97316;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh}
+.header{padding:16px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-left h1{font-size:16px;font-weight:700}
+.header-left p{color:var(--muted);font-size:11px;margin-top:2px}
+.header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:4px 10px;font-size:11px;color:var(--muted);white-space:nowrap}
+.badge.warn{border-color:#eab30844;background:#eab30811;color:var(--yellow)}
+.badge.live{border-color:#22c55e44;background:#22c55e11;color:var(--green)}
+.badge.info{border-color:#6366f144;background:#6366f111;color:var(--accent)}
+/* TABS */
+.tabs{display:flex;padding:0 28px;border-bottom:1px solid var(--border);background:var(--surface);overflow-x:auto}
+.tab{padding:11px 16px;font-size:13px;cursor:pointer;border-bottom:2px solid transparent;color:var(--muted);transition:all .15s;white-space:nowrap;font-weight:500}
+.tab.active{color:var(--text);border-bottom-color:var(--accent)}
+.tab:hover:not(.active){color:var(--text)}
+.pane{padding:24px 28px;display:none}
+.pane.active{display:block}
+/* GRIDS */
+.kgrid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
+.kgrid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.kgrid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:900px){.kgrid-5,.kgrid-4,.kgrid-3{grid-template-columns:repeat(2,1fr)}}
+.kcard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.kcard.hi{border-color:#6366f144}
+.klabel{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kval{font-size:26px;font-weight:700;letter-spacing:-.5px}
+.kval.sm{font-size:20px}
+.ksub{font-size:11px;margin-top:4px}
+.g{color:var(--green)}.y{color:var(--yellow)}.r{color:var(--red)}.m{color:var(--muted)}.a{color:var(--accent)}.p{color:var(--purple)}.b{color:var(--blue)}.o{color:var(--orange)}
+.pbar{height:4px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.pfill{height:100%;border-radius:2px;transition:width .6s}
+.pfill.g{background:var(--green)}.pfill.y{background:var(--yellow)}.pfill.r{background:var(--red)}.pfill.a{background:var(--accent)}
+/* CHARTS */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.cfull{margin-bottom:20px}
+@media(max-width:800px){.cgrid{grid-template-columns:1fr}}
+.ccard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px}
+.ctitle{font-size:13px;font-weight:600;margin-bottom:3px}
+.csub{font-size:11px;color:var(--muted);margin-bottom:14px}
+.cwrap{position:relative;height:200px}
+.cwrap-t{position:relative;height:240px}
+.cwrap-l{position:relative;height:280px}
+/* TABLE */
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.thead-row{padding:12px 18px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.thead-row .sub{font-size:11px;color:var(--muted);font-weight:400}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;padding:9px 18px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);font-weight:600}
+td{padding:9px 18px;font-size:13px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
+.pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.pill.g{background:rgba(34,197,94,.15);color:var(--green)}
+.pill.y{background:rgba(234,179,8,.15);color:var(--yellow)}
+.pill.r{background:rgba(239,68,68,.15);color:var(--red)}
+.pill.a{background:rgba(99,102,241,.15);color:var(--accent)}
+.pill.p{background:rgba(168,85,247,.15);color:var(--purple)}
+.pill.m{background:rgba(100,116,139,.15);color:var(--muted)}
+.pill.o{background:rgba(249,115,22,.15);color:var(--orange)}
+/* FUNIL VISUAL */
+.funil-wrap{display:flex;flex-direction:column;gap:6px;padding:8px 0}
+.funil-step{display:flex;align-items:center;gap:12px}
+.funil-label{font-size:12px;color:var(--muted);width:110px;flex-shrink:0;text-align:right}
+.funil-bar-outer{flex:1;height:28px;background:var(--border);border-radius:5px;overflow:hidden;position:relative}
+.funil-bar-inner{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:10px;font-size:12px;font-weight:700;color:#fff;transition:width .6s}
+.funil-count{font-size:13px;font-weight:700;width:60px;text-align:right;flex-shrink:0}
+.funil-pct{font-size:11px;color:var(--muted);width:50px;text-align:right;flex-shrink:0}
+/* CANAL LIST */
+.canal-item{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.canal-item:last-child{border-bottom:none}
+.canal-rank{font-size:20px;font-weight:700;width:28px;text-align:center;flex-shrink:0}
+.canal-info{flex:1;min-width:0}
+.canal-name{font-size:13px;font-weight:600}
+.canal-handle{font-size:11px;color:var(--muted)}
+.canal-bar-wrap{width:120px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;flex-shrink:0}
+.canal-bar{height:100%;border-radius:3px}
+.canal-val{font-size:14px;font-weight:700;width:70px;text-align:right;flex-shrink:0}
+.canal-sub{font-size:11px;color:var(--muted);width:46px;text-align:right;flex-shrink:0}
+/* CANAL BUTTONS */
+.canal-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 14px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .15s}
+.canal-btn:hover{color:var(--text);border-color:var(--accent)}
+.canal-btn.active{background:rgba(99,102,241,.15);border-color:var(--accent);color:var(--text)}
+/* INSIGHT CANAL CARD */
+.insight-canal{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:4px}
+.insight-canal h4{font-size:13px;font-weight:600;margin-bottom:10px;color:var(--text)}
+.insight-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.insight-tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:600}
+.insight-tag.format{background:rgba(99,102,241,.15);color:var(--accent)}
+.insight-tag.topic{background:rgba(34,197,94,.15);color:var(--green)}
+.insight-tag.avoid{background:rgba(239,68,68,.15);color:var(--red)}
+.insight-tag.action{background:rgba(249,115,22,.15);color:var(--orange)}
+/* POST LISTA */
+.posts-grid{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;gap:14px;padding:12px 16px;text-decoration:none;color:inherit;transition:border-color .15s}
+.post-card:hover{border-color:var(--accent)}
+.post-rank-num{font-size:18px;font-weight:700;color:var(--muted);width:28px;text-align:center;flex-shrink:0}
+.post-type-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(99,102,241,.15);color:var(--accent);text-transform:uppercase;letter-spacing:.4px;flex-shrink:0}
+.post-body{flex:1;min-width:0}
+.post-account{font-size:11px;font-weight:600;margin-bottom:2px}
+.post-caption{font-size:12px;line-height:1.4;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.post-metrics{display:flex;gap:16px;flex-shrink:0;align-items:center;flex-wrap:wrap}
+.pm{font-size:12px;color:var(--muted);white-space:nowrap}.pm span{color:var(--text);font-weight:600}
+.post-date-link{font-size:11px;color:var(--muted);flex-shrink:0}
+/* FORMATO */
+.fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:600px){.fmt-grid{grid-template-columns:1fr}}
+.fmt-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.fmt-icon{font-size:24px;margin-bottom:8px}
+.fmt-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.fmt-val{font-size:22px;font-weight:700;margin-bottom:4px}
+.fmt-sub{font-size:11px;color:var(--muted)}
+/* INSIGHTS */
+.insight-panel{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.insight-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;cursor:pointer}
+.insight-header:hover{background:rgba(255,255,255,.02)}
+.insight-header-left{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.insight-toggle{font-size:10px;color:var(--muted);transition:transform .2s;display:inline-block}
+.insight-toggle.open{transform:rotate(0deg)}
+.insight-toggle:not(.open){transform:rotate(180deg)}
+.insight-body{display:flex;flex-direction:column;gap:0;padding:0 18px 12px}
+.insight-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.insight-item:last-child{border-bottom:none}
+.insight-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.insight-text{font-size:12px;line-height:1.6}
+.insight-text strong{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.insight-item.ok .insight-text strong{color:var(--green)}
+.insight-item.warn .insight-text strong{color:var(--yellow)}
+.insight-item.crit .insight-text strong{color:var(--red)}
+.insight-item.info .insight-text strong{color:var(--accent)}
+/* MISC */
+.stitle{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:12px}
+.nota{background:#6366f111;border:1px solid #6366f133;border-radius:8px;padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.nota strong{color:var(--text)}
+.nota.warn{background:#eab30811;border-color:#eab30833}
+.nota.ok{background:#22c55e11;border-color:#22c55e33}
+.divider{height:1px;background:var(--border);margin:20px 0}
+.footer{padding:12px 28px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;margin-top:40px}
+/* ALCANCE DIARIO POR CANAL - mini table */
+.day-canal-grid{display:grid;grid-template-columns:80px repeat(7,1fr);gap:0;font-size:11px}
+.day-canal-grid .hdr{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:8px 6px;border-bottom:1px solid var(--border);text-align:right}
+.day-canal-grid .hdr:first-child{text-align:left}
+.day-canal-grid .cell{padding:7px 6px;text-align:right;border-bottom:1px solid var(--border)}
+.day-canal-grid .cell:first-child{text-align:left;color:var(--muted);font-weight:600}
+.day-canal-grid .cell.hi{color:var(--green);font-weight:700}
+.day-canal-grid .cell.lo{color:var(--red)}
+.day-canal-grid .cell.mid{color:var(--yellow)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>Social Media Dashboard — G4</h1>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 08/03/2026</p>
+  </div>
+  <div class="header-right">
+    <span class="badge live">Mídia: até 06/03</span>
+    <span class="badge info">MQL: até 05/03 (584)</span>
+    <span class="badge warn">Pipeline: latência ~2 dias</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active"  onclick="showTab('overview',this)">Visão Geral</div>
+  <div class="tab"         onclick="showTab('mql',this)">MQL &amp; Funil</div>
+  <div class="tab"         onclick="showTab('receita',this)">Potencial de Receita</div>
+  <div class="tab"         onclick="showTab('midia',this)">Mídia Orgânica</div>
+  <div class="tab"         onclick="showTab('posts',this)">Top Posts</div>
+</div>
+
+<!-- ============================= OVERVIEW ============================= -->
+<div class="pane active" id="pane-overview">
+
+  <!-- KPIs unificados -->
+  <div class="stitle">KPIs integrados — Março 2026 (parcial)</div>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:20px">
+    <div class="kcard hi">
+      <div class="klabel">MQLs Social</div>
+      <div class="kval g">584</div>
+      <div class="ksub m">01–05/03 · ~117/dia</div>
+      <div class="pbar"><div class="pfill g" style="width:15%"></div></div>
+    </div>
+    <div class="kcard hi">
+      <div class="klabel">Projeção Mês</div>
+      <div class="kval y">~3.620</div>
+      <div class="ksub m">base: 117 MQL/dia × 31d</div>
+    </div>
+    <div class="kcard">
+      <div class="klabel">Alcance Total</div>
+      <div class="kval g">8,7M</div>
+      <div class="ksub m">01–06/03 · todos canais</div>
+    </div>
+    <div class="kcard">
+      <div class="klabel">Posts Feed</div>
+      <div class="kval">127</div>
+      <div class="ksub m">01–07/03 · feed + reels</div>
+    </div>
+    <div class="kcard">
+      <div class="klabel">Stories</div>
+      <div class="kval">431</div>
+      <div class="ksub m">01–07/03 · todos canais</div>
+    </div>
+    <div class="kcard hi">
+      <div class="klabel">Receita Potencial</div>
+      <div class="kval sm o">R$ 3,8M</div>
+      <div class="ksub m">projeção mês × pipeline</div>
+    </div>
+  </div>
+
+  <!-- Insights integrados -->
+  <div class="insight-panel">
+    <div class="insight-header" onclick="toggleIns('ins-main')">
+      <div class="insight-header-left">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--yellow)"></span>
+        Insights Acionáveis — Mídia + MQL integrados
+      </div>
+      <span class="insight-toggle open" id="arr-ins-main">&#9650;</span>
+    </div>
+    <div class="insight-body" id="ins-main">
+      <div class="insight-item ok">
+        <span class="insight-icon">📈</span>
+        <div class="insight-text ok"><strong>Pace de MQL acima de fevereiro</strong>Média de 117 MQL/dia em março vs 114,8/dia em fevereiro (+2%). Melhor dia foi 03/03 com 178 MQLs. Se mantiver o ritmo, projeção fecha em ~3.620 MQLs — 13% acima de fev.</div>
+      </div>
+      <div class="insight-item ok">
+        <span class="insight-icon">🔗</span>
+        <div class="insight-text ok"><strong>Tallis = 62% do alcance, 14% dos MQLs</strong>O canal com mais alcance (788k) gera 81 MQLs (Form G4 Instagram Tallis) — taxa alcance→MQL baixa. Os MQLs do G4 Instagram (201) têm alcance menor mas convertem mais. Tallis precisa de CTA mais direto.</div>
+      </div>
+      <div class="insight-item warn">
+        <span class="insight-icon">⚠️</span>
+        <div class="insight-text warn"><strong>Form G4 Instagram G4 é o principal gerador de MQL</strong>201 MQLs em março (34% do total Social) com 93k de alcance — melhor taxa de conversão do período. Prioridade: aumentar frequência e qualidade no @g4educacao.</div>
+      </div>
+      <div class="insight-item info">
+        <span class="insight-icon">💰</span>
+        <div class="insight-text info"><strong>DM Social (Social DM) com custo baixo mas 47 MQLs</strong>[IM] Social DM gerou 47 MQLs sem anúncio. É o canal com melhor custo por MQL do portfólio Social. Escalar abordagem de DM ativo nos principais perfis pode multiplicar resultado com baixo investimento.</div>
+      </div>
+      <div class="insight-item warn">
+        <span class="insight-icon">📉</span>
+        <div class="insight-text warn"><strong>Alfredo e Nardon subconvertendo vs alcance</strong>Alfredo: 317k alcance mas só 17 MQLs (Form Instagram Alfredo). Nardon: 29k alcance, 16 MQLs. Ambos têm CTAs fracos ou sem link no bio. Inserir CTA de formulário nos posts de maior alcance.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráfico: MQL diário + alcance diário lado a lado -->
+  <div class="cgrid">
+    <div class="ccard">
+      <div class="ctitle">MQL diário — Social Media</div>
+      <div class="csub">01/03 a 05/03/2026 (latência ~2 dias)</div>
+      <div class="cwrap"><canvas id="ch-mql-daily"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Alcance diário — todos os canais</div>
+      <div class="csub">01/03 a 06/03/2026</div>
+      <div class="cwrap"><canvas id="ch-alcance-daily-ov"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Grid 4 canais: alcance diário + MQL -->
+  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 05/03/2026</div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
+    <div class="ccard">
+      <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
+      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="cwrap"><canvas id="ch-canal-tallis"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle" style="color:#3b82f6">Alfredo Soares</div>
+      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="cwrap"><canvas id="ch-canal-alfredo"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle" style="color:#6366f1">G4 Educação</div>
+      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="cwrap"><canvas id="ch-canal-g4"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle" style="color:#64748b">Bruno Nardon</div>
+      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="cwrap"><canvas id="ch-canal-nardon"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Tabela de correlação alcance x MQL por canal -->
+  <div class="tcard">
+    <div class="thead-row"><span>Correlação Alcance × MQL por canal</span><span class="sub">snapshot 06/03 (alcance) · 01–05/03 (MQL)</span></div>
+    <table>
+      <thead><tr>
+        <th>Canal</th><th>MQLs</th><th>% MQL total</th><th>Alcance</th><th>Taxa conv.</th><th>Ação recomendada</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><strong>Form G4 Instagram G4</strong></td><td class="g">201</td><td>34%</td><td class="m">93k</td><td class="g">0,22%</td><td><span class="pill g">Escalar</span></td></tr>
+        <tr><td><strong>Form G4 Incompleto Inst.</strong></td><td>118</td><td>20%</td><td class="m">—</td><td class="m">—</td><td><span class="pill y">Otimizar form</span></td></tr>
+        <tr><td><strong>Form G4 Instagram Tallis</strong></td><td>81</td><td>14%</td><td class="m">788k</td><td class="r">0,01%</td><td><span class="pill r">Melhorar CTA</span></td></tr>
+        <tr><td><strong>[IM] Social DM</strong></td><td>47</td><td>8%</td><td class="m">—</td><td class="m">—</td><td><span class="pill g">Escalar DM</span></td></tr>
+        <tr><td><strong>Form G4 - K Instagram</strong></td><td>46</td><td>8%</td><td class="m">—</td><td class="m">—</td><td><span class="pill a">Monitorar</span></td></tr>
+        <tr><td><strong>Form G4 Instagram Alfredo</strong></td><td>17</td><td>3%</td><td class="m">317k</td><td class="r">0,01%</td><td><span class="pill r">Melhorar CTA</span></td></tr>
+        <tr><td><strong>Form G4 Instagram Nardon</strong></td><td>16</td><td>3%</td><td class="m">29k</td><td class="y">0,06%</td><td><span class="pill y">Testar CTA</span></td></tr>
+        <tr><td><strong>Outros Social</strong></td><td>58</td><td>10%</td><td class="m">—</td><td class="m">—</td><td><span class="pill m">—</span></td></tr>
+        <tr class="total-row"><td>TOTAL Social</td><td class="g">584</td><td>100%</td><td class="g">1,27M</td><td>0,046%</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ============================= MQL & FUNIL ============================= -->
+<div class="pane" id="pane-mql">
+
+  <div class="stitle">Funil Social Media — Março 2026 (01–05/03)</div>
+
+  <!-- KPIs funil -->
+  <div class="kgrid-4">
+    <div class="kcard"><div class="klabel">MQL</div><div class="kval g">584</div><div class="ksub m">leads qualificados</div></div>
+    <div class="kcard"><div class="klabel">SAL</div><div class="kval">513</div><div class="ksub g">88% de MQL → SAL</div></div>
+    <div class="kcard"><div class="klabel">Oportunidade</div><div class="kval">149</div><div class="ksub m">29% de SAL → OPP</div></div>
+    <div class="kcard"><div class="klabel">Ganho (Won)</div><div class="kval y">11</div><div class="ksub m">7,4% de OPP → Won</div></div>
+  </div>
+
+  <!-- Funil visual -->
+  <div class="cfull">
+    <div class="ccard">
+      <div class="ctitle">Funil de conversão</div>
+      <div class="csub">Social Media · março 2026 (01–05/03) vs fevereiro 2026 (mês completo)</div>
+      <div class="funil-wrap" id="funil-viz"></div>
+    </div>
+  </div>
+
+  <!-- MQL diário -->
+  <div class="cgrid">
+    <div class="ccard">
+      <div class="ctitle">MQL diário — Social</div>
+      <div class="csub">01/03 a 05/03/2026</div>
+      <div class="cwrap"><canvas id="ch-mql-daily-2"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">MQL por canal — março vs fevereiro</div>
+      <div class="csub">Principais linhas de receita</div>
+      <div class="cwrap"><canvas id="ch-mql-canal"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Histórico mensal -->
+  <div class="cfull">
+    <div class="ccard">
+      <div class="ctitle">Histórico de MQL Social Media</div>
+      <div class="csub">Set/2025 a Mar/2026 (parcial) — média de 3.416/mês</div>
+      <div class="cwrap"><canvas id="ch-mql-hist"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Tabela por canal -->
+  <div class="tcard">
+    <div class="thead-row"><span>MQL por canal — março vs fevereiro</span><span class="sub">Social Media</span></div>
+    <table>
+      <thead><tr><th>Canal</th><th>Mar/26 (5 dias)</th><th>Fev/26 (28 dias)</th><th>Média/dia Mar</th><th>Média/dia Fev</th><th>Tendência</th></tr></thead>
+      <tbody>
+        <tr><td>Form G4 Instagram G4</td><td class="g">201</td><td>991</td><td class="g">40,2</td><td>35,4</td><td><span class="pill g">+14%</span></td></tr>
+        <tr><td>Form G4 Incompleto Inst.</td><td>118</td><td>744</td><td>23,6</td><td>26,6</td><td><span class="pill r">-11%</span></td></tr>
+        <tr><td>Form G4 Instagram Tallis</td><td>81</td><td>468</td><td>16,2</td><td>16,7</td><td><span class="pill m">Estável</span></td></tr>
+        <tr><td>Form G4 - K Instagram</td><td>46</td><td>315</td><td>9,2</td><td>11,3</td><td><span class="pill r">-19%</span></td></tr>
+        <tr><td>[IM] Social DM</td><td>47</td><td>195</td><td>9,4</td><td>7,0</td><td><span class="pill g">+34%</span></td></tr>
+        <tr><td>Form G4 Instagram Alfredo</td><td>17</td><td>141</td><td>3,4</td><td>5,0</td><td><span class="pill r">-32%</span></td></tr>
+        <tr><td>Form G4 Instagram Outros</td><td>22</td><td>114</td><td>4,4</td><td>4,1</td><td><span class="pill g">+7%</span></td></tr>
+        <tr><td>Form G4 Instagram Nardon</td><td>16</td><td>57</td><td>3,2</td><td>2,0</td><td><span class="pill g">+60%</span></td></tr>
+        <tr><td>[CM] Form G4 - Instagram</td><td>11</td><td>76</td><td>2,2</td><td>2,7</td><td><span class="pill m">Estável</span></td></tr>
+        <tr><td>Outros</td><td>25</td><td>113</td><td>5,0</td><td>4,0</td><td><span class="pill a">—</span></td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">584</td><td>3.214</td><td class="g">116,8</td><td>114,8</td><td><span class="pill g">+2%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota ok">
+    <strong>Destaque:</strong> [IM] Social DM cresceu +34% na média diária. Form G4 Instagram G4 cresceu +14%. Form G4 Instagram Nardon cresceu +60% (base pequena, mas sinal positivo). Alfredo caiu -32% — canal com maior alcance mas menor conversão.
+  </div>
+
+  <!-- MQL por Perfil ABC -->
+  <div class="stitle" style="margin-top:8px">MQL por Perfil — 01–05/03/2026</div>
+
+  <!-- KPIs A, B, C em destaque -->
+  <div class="kgrid-3" style="margin-bottom:12px">
+    <div class="kcard" style="border-color:#22c55e44;background:rgba(34,197,94,.04)">
+      <div class="klabel" style="color:#22c55e">Perfil A — Alto valor</div>
+      <div class="kval g">64 <span style="font-size:16px;font-weight:500">MQL</span></div>
+      <div class="kval sm g" style="font-size:28px;margin-top:2px">11,0%</div>
+      <div class="ksub m">Receita média R$ 50k/lead · maior potencial</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill g" style="width:11%"></div></div>
+    </div>
+    <div class="kcard" style="border-color:#3b82f644;background:rgba(59,130,246,.04)">
+      <div class="klabel" style="color:#3b82f6">Perfil B — Médio-alto</div>
+      <div class="kval b">14 <span style="font-size:16px;font-weight:500">MQL</span></div>
+      <div class="kval sm b" style="font-size:28px;margin-top:2px">2,4%</div>
+      <div class="ksub m">Receita média R$ 41k/lead</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:2.4%;background:#3b82f6"></div></div>
+    </div>
+    <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.04)">
+      <div class="klabel" style="color:#6366f1">Perfil C — Volume</div>
+      <div class="kval a">154 <span style="font-size:16px;font-weight:500">MQL</span></div>
+      <div class="kval sm a" style="font-size:28px;margin-top:2px">26,4%</div>
+      <div class="ksub m">Receita média R$ 22k/lead · maior volume</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill a" style="width:26.4%"></div></div>
+    </div>
+  </div>
+
+  <div class="cgrid">
+    <div class="ccard">
+      <div class="ctitle">Distribuição completa por perfil</div>
+      <div class="csub">584 MQLs · A+B+C = 39,8% do total</div>
+      <div class="cwrap-t"><canvas id="ch-mql-abc-donut"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Evolução diária — Perfis A, B, C</div>
+      <div class="csub">01–05/03/2026</div>
+      <div class="cwrap-t"><canvas id="ch-mql-abc-line"></canvas></div>
+    </div>
+  </div>
+
+  <div class="tcard">
+    <div class="thead-row"><span>Todos os perfis — 01 a 05/03/2026</span><span class="sub">Ordenado por receita média histórica</span></div>
+    <table>
+      <thead><tr><th>Perfil</th><th>MQL Social Mar</th><th>% do total</th><th>Receita média/lead</th><th>Ação de conteúdo</th></tr></thead>
+      <tbody>
+        <tr style="background:rgba(34,197,94,.04)"><td><span class="pill g">A</span></td><td class="g"><strong>64</strong></td><td class="g"><strong>11,0%</strong></td><td class="g">R$ 50.486</td><td>Cases de ROI, dados, impacto direto. CTA de contato direto.</td></tr>
+        <tr style="background:rgba(59,130,246,.04)"><td><span class="pill b">B</span></td><td>14</td><td>2,4%</td><td>R$ 41.293</td><td>Conteúdo de liderança e escala. Depoimentos de founders.</td></tr>
+        <tr style="background:rgba(99,102,241,.04)"><td><span class="pill a">C</span></td><td><strong>154</strong></td><td><strong>26,4%</strong></td><td>R$ 22.333</td><td>Maior volume. Topo de funil, sequências de nutrição.</td></tr>
+        <tr><td><span class="pill y">E</span></td><td>36</td><td>6,2%</td><td>R$ 33.253</td><td>Bom potencial. Conteúdo de primeiros passos e crescimento.</td></tr>
+        <tr><td><span class="pill m">D</span></td><td>9</td><td>1,5%</td><td>R$ 22.464</td><td>—</td></tr>
+        <tr><td><span class="pill m">F</span></td><td>8</td><td>1,4%</td><td>R$ 34.952</td><td>Ticket alto mas baixo volume. Conteúdo nichado.</td></tr>
+        <tr><td><span class="pill m">G</span></td><td>21</td><td>3,6%</td><td>R$ 19.670</td><td>—</td></tr>
+        <tr><td><span class="pill m">H</span></td><td>1</td><td>0,2%</td><td>R$ 21.017</td><td>—</td></tr>
+        <tr><td><span class="pill p">I</span></td><td>104</td><td>17,8%</td><td>R$ 15.879</td><td>Carrosseis de frameworks. Perfil técnico/gestor.</td></tr>
+        <tr><td><span class="pill p">J</span></td><td>118</td><td>20,2%</td><td>R$ 17.096</td><td>Alto volume. Território: crescimento e escala.</td></tr>
+        <tr><td><span class="pill o">K</span></td><td>55</td><td>9,4%</td><td>R$ 10.557</td><td>Sensível a preço. Posts de valor percebido.</td></tr>
+        <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>584</strong></td><td><strong>100%</strong></td><td>—</td><td>A+B+C = 39,8% do total · maior receita/lead</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota info">
+    <strong>Leitura A/B/C:</strong> Os perfis A (11%) e B (2,4%) têm a maior receita média por lead — R$ 50k e R$ 41k respectivamente. O perfil C domina o volume (26,4%) com R$ 22k/lead. <strong>Ação prática:</strong> conteúdo de cases com dados duros e ROI claro converte perfil A; Reels de negócios e carrosseis educativos alimentam o volume de C e J.
+  </div>
+
+</div>
+
+<!-- ============================= RECEITA ============================= -->
+<div class="pane" id="pane-receita">
+
+  <div class="stitle">Potencial de Receita — Social Media · Março 2026</div>
+
+  <div class="nota">
+    <strong>Metodologia:</strong> Ticket médio R$ 5.800 (G4 presencial). Taxa MQL→Oportunidade: 25,5% (baseado em fevereiro 2026: 768 OPP / 3.214 MQL). Taxa OPP→Won: 26% (fevereiro: 139 won / 542 negociação).
+  </div>
+
+  <!-- KPIs receita projetada -->
+  <div class="kgrid-4">
+    <div class="kcard hi">
+      <div class="klabel">MQL Projetado (mês)</div>
+      <div class="kval g">~3.620</div>
+      <div class="ksub m">117/dia × 31 dias</div>
+    </div>
+    <div class="kcard hi">
+      <div class="klabel">OPP Projetado</div>
+      <div class="kval y">~924</div>
+      <div class="ksub m">3.620 × 25,5% conv. MQL→OPP</div>
+    </div>
+    <div class="kcard hi">
+      <div class="klabel">Won Projetado</div>
+      <div class="kval o">~240</div>
+      <div class="ksub m">924 × 26% conv. OPP→Won</div>
+    </div>
+    <div class="kcard hi">
+      <div class="klabel">Receita Potencial</div>
+      <div class="kval sm o">R$ 3,8M</div>
+      <div class="ksub m">240 won × R$ 5.800 avg ticket</div>
+    </div>
+  </div>
+
+
+  <!-- Funil de receita visual -->
+  <div class="cgrid">
+    <div class="ccard">
+      <div class="ctitle">Pipeline de receita projetado</div>
+      <div class="csub">Março 2026 — baseado em taxas de fev/26</div>
+      <div class="cwrap-t"><canvas id="ch-receita-funil"></canvas></div>
+    </div>
+    <div class="ccard">
+      <div class="ctitle">Receita potencial por canal</div>
+      <div class="csub">Projeção baseada em MQL/dia de março</div>
+      <div class="cwrap-t"><canvas id="ch-receita-canal"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Cenários -->
+  <div class="tcard">
+    <div class="thead-row"><span>Cenários de receita — março 2026</span><span class="sub">ticket médio R$ 5.800</span></div>
+    <table>
+      <thead><tr><th>Cenário</th><th>MQL/dia</th><th>MQL mês</th><th>OPP</th><th>Won</th><th>Receita</th><th>ROI</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill r">Pessimista</span> (–20%)</td><td>93</td><td>2.890</td><td>737</td><td>192</td><td class="y">R$ 1,1M</td><td>14x</td></tr>
+        <tr style="background:rgba(99,102,241,.05)"><td><span class="pill a">Base</span> (ritmo atual)</td><td class="g">117</td><td class="g">3.620</td><td class="g">924</td><td class="g">240</td><td class="g"><strong>R$ 3,8M</strong></td><td class="g"><strong>47x</strong></td></tr>
+        <tr><td><span class="pill g">Otimista</span> (+20%)</td><td>140</td><td>4.344</td><td>1.108</td><td>288</td><td class="g">R$ 1,7M</td><td>21x</td></tr>
+        <tr><td><span class="pill g">Meta</span> (3.809 MQL)</td><td>123</td><td>3.809</td><td>971</td><td>253</td><td class="g">R$ 1,5M</td><td>18x</td></tr>
+      </tbody>
+    </table>
+    <div style="padding:10px 18px;font-size:10px;color:var(--muted)">* Receita = Won × R$ 5.800 ticket médio presencial. Taxas: MQL→OPP 25,5% · OPP→Won 26% (base fevereiro 2026).</div>
+  </div>
+
+  <div class="nota warn">
+    <strong>Atenção:</strong> Estes são dados projetados com base em taxas históricas de fevereiro 2026. O pipeline real de março ainda está em processamento — os won efetivos serão confirmados quando o CRM fechar o mês.
+  </div>
+
+</div>
+
+<!-- ============================= MIDIA ============================= -->
+<div class="pane" id="pane-midia">
+
+  <div class="stitle">Mídia orgânica — 01/03 a 06/03/2026</div>
+
+  <div class="kgrid-5">
+    <div class="kcard"><div class="klabel">Alcance Total</div><div class="kval g">8,7M</div><div class="ksub m">acumulado 6 dias</div></div>
+    <div class="kcard"><div class="klabel">Views / Plays</div><div class="kval g">2,6M</div><div class="ksub m">reels + feed</div></div>
+    <div class="kcard"><div class="klabel">Likes</div><div class="kval">96,6k</div><div class="ksub m">todos os canais</div></div>
+    <div class="kcard"><div class="klabel">Shares</div><div class="kval">11,5k</div><div class="ksub m">compartilhamentos</div></div>
+    <div class="kcard"><div class="klabel">Posts Feed</div><div class="kval">127</div><div class="ksub m">feed + reels únicos</div></div>
+    <div class="kcard"><div class="klabel">Stories</div><div class="kval">431</div><div class="ksub m">stories únicos</div></div>
+  </div>
+
+  <!-- Alcance diário POR CANAL — tabela heat map -->
+  <div class="tcard">
+    <div class="thead-row"><span>Alcance diário por canal</span><span class="sub">01/03 a 06/03 · verde = acima da média · vermelho = abaixo</span></div>
+    <div style="padding:16px 18px;overflow-x:auto">
+      <div class="day-canal-grid">
+        <div class="hdr">Canal</div>
+        <div class="hdr">01/03</div><div class="hdr">02/03</div><div class="hdr">03/03</div>
+        <div class="hdr">04/03</div><div class="hdr">05/03</div><div class="hdr">06/03</div>
+        <div class="hdr">Média</div>
+        <!-- Tallis: média 654,9k -->
+        <div class="cell">Tallis</div>
+        <div class="cell mid">593k</div><div class="cell hi">734k</div><div class="cell mid">682k</div>
+        <div class="cell lo">404k</div><div class="cell hi">728k</div><div class="cell hi">788k</div>
+        <div class="cell">655k</div>
+        <!-- Alfredo: média 527,6k -->
+        <div class="cell">Alfredo</div>
+        <div class="cell mid">527k</div><div class="cell mid">469k</div><div class="cell mid">407k</div>
+        <div class="cell mid">437k</div><div class="cell hi">530k</div><div class="cell lo">317k</div>
+        <div class="cell">448k</div>
+        <!-- G4: média 177,8k -->
+        <div class="cell">G4 Educ.</div>
+        <div class="cell mid">133k</div><div class="cell mid">156k</div><div class="cell hi">279k</div>
+        <div class="cell mid">136k</div><div class="cell hi">229k</div><div class="cell lo">93k</div>
+        <div class="cell">171k</div>
+        <!-- Nardon: média 66,5k -->
+        <div class="cell">Nardon</div>
+        <div class="cell mid">70k</div><div class="cell mid">49k</div><div class="cell hi">82k</div>
+        <div class="cell hi">95k</div><div class="cell mid">75k</div><div class="cell lo">29k</div>
+        <div class="cell">67k</div>
+        <!-- Skills: média 81,6k -->
+        <div class="cell">G4 Skills</div>
+        <div class="cell hi">164k</div><div class="cell hi">119k</div><div class="cell mid">55k</div>
+        <div class="cell mid">73k</div><div class="cell mid">51k</div><div class="cell lo">27k</div>
+        <div class="cell">82k</div>
+        <!-- Club: média 22,9k -->
+        <div class="cell">G4 Club</div>
+        <div class="cell mid">16k</div><div class="cell mid">14k</div><div class="cell mid">11k</div>
+        <div class="cell mid">21k</div><div class="cell hi">58k</div><div class="cell mid">17k</div>
+        <div class="cell">23k</div>
+        <!-- Scale: média 4k -->
+        <div class="cell">G4 Scale</div>
+        <div class="cell mid">3,6k</div><div class="cell mid">3,2k</div><div class="cell hi">6,2k</div>
+        <div class="cell hi">6,4k</div><div class="cell mid">2,8k</div><div class="cell lo">1,9k</div>
+        <div class="cell">4,0k</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráfico evolução por canal -->
+  <div class="cfull">
+    <div class="ccard">
+      <div class="ctitle">Evolução de alcance por canal</div>
+      <div class="csub">01/03 a 06/03/2026 — principais canais</div>
+      <div class="cwrap-l"><canvas id="ch-canal-line"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Ranking + tabela detalhada -->
+  <div class="tcard">
+    <div class="thead-row"><span>Detalhamento por canal</span><span class="sub">snapshot 06/03/2026</span></div>
+    <table>
+      <thead><tr><th>Canal</th><th>Alcance</th><th>Likes</th><th>Follows</th><th>Posts</th><th>Alcance/post</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tallis Gomes</strong></td><td class="g">788.109</td><td>81.821</td><td>306</td><td>144</td><td class="g">5.473</td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td>316.962</td><td>11.554</td><td>87</td><td>179</td><td class="y">1.770</td></tr>
+        <tr><td><strong>G4 Educação</strong></td><td>93.149</td><td>1.413</td><td>11</td><td>102</td><td>914</td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td>29.104</td><td>1.259</td><td>34</td><td>71</td><td>410</td></tr>
+        <tr><td><strong>G4 Skills</strong></td><td>27.441</td><td>85</td><td>0</td><td>47</td><td>584</td></tr>
+        <tr><td><strong>G4 Club</strong></td><td>16.758</td><td>431</td><td>38</td><td>38</td><td>441</td></tr>
+        <tr><td><strong>G4 Scale</strong></td><td class="r">1.912</td><td>72</td><td>3</td><td>32</td><td class="r">60</td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">1.273.435</td><td>96.635</td><td>479</td><td>613</td><td>2.077</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Formatos -->
+  <div class="fmt-grid">
+    <div class="fmt-card"><div class="fmt-icon">📸</div><div class="fmt-label">Feed</div><div class="fmt-val g">1,11M</div><div class="fmt-sub">422 posts · 87%</div></div>
+    <div class="fmt-card"><div class="fmt-icon">🎬</div><div class="fmt-label">Reels</div><div class="fmt-val">171k</div><div class="fmt-sub">193 posts · 13%</div></div>
+    <div class="fmt-card"><div class="fmt-icon">⏱</div><div class="fmt-label">Stories</div><div class="fmt-val m">186k</div><div class="fmt-sub">múltiplos canais</div></div>
+  </div>
+
+</div>
+
+<!-- ============================= TOP POSTS ============================= -->
+<div class="pane" id="pane-posts">
+  <div class="stitle">Top Posts por Canal — 01/03 a 06/03/2026</div>
+
+  <!-- Seletor de canal -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+    <button class="canal-btn active" onclick="showCanal('todos',this)">Todos</button>
+    <button class="canal-btn" onclick="showCanal('tallis',this)">Tallis Gomes</button>
+    <button class="canal-btn" onclick="showCanal('alfredo',this)">Alfredo Soares</button>
+    <button class="canal-btn" onclick="showCanal('g4',this)">G4</button>
+    <button class="canal-btn" onclick="showCanal('nardon',this)">Bruno Nardon</button>
+    <button class="canal-btn" onclick="showCanal('skills',this)">G4 Skills</button>
+    <button class="canal-btn" onclick="showCanal('club',this)">G4 Club</button>
+  </div>
+
+  <!-- Insights acionáveis por canal -->
+  <div id="insights-canal" style="margin-bottom:20px"></div>
+
+  <!-- Grid de posts feed -->
+  <div class="posts-grid" id="posts-grid"></div>
+
+  <!-- Top Stories -->
+  <div class="stitle" style="margin-top:24px">Top Stories por canal — 01/03 a 07/03/2026</div>
+  <div class="nota" style="margin-bottom:14px">Stories ordenados por alcance. <strong>tap_forward</strong> = audiência avançou (engajada). <strong>tap_exit</strong> = audiência saiu (ponto de atrito).</div>
+  <div class="tcard">
+    <div class="thead-row"><span>Top 3 stories por canal</span><span class="sub">431 stories únicos no período</span></div>
+    <table>
+      <thead><tr><th>#</th><th>Canal</th><th>Tipo</th><th>Caption</th><th>Alcance</th><th>Views</th><th>Tap Forward</th><th>Tap Exit</th><th>Data</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td style="color:#eab308;font-weight:600">Tallis</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">—</td><td class="g">30.023</td><td>38.347</td><td>—</td><td>—</td><td>03/03</td><td><a href="https://www.instagram.com/stories/tallisgomes/3844038872421899873" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>2</td><td style="color:#3b82f6;font-weight:600">Alfredo</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Alinhamento c/ @tallisgomes</td><td class="g">29.929</td><td>42.700</td><td class="g">13%</td><td class="g">1%</td><td>03/03</td><td><a href="https://www.instagram.com/stories/alfredosoares/3844096020007999118" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>3</td><td style="color:#eab308;font-weight:600">Tallis</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Tarde mais intensa no escritório</td><td>28.141</td><td>36.342</td><td>—</td><td>—</td><td>03/03</td><td><a href="https://www.instagram.com/stories/tallisgomes/3844109875932037676" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>4</td><td style="color:#eab308;font-weight:600">Tallis</td><td><span class="pill m">Imagem</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">—</td><td>26.923</td><td>36.526</td><td class="g">78%</td><td class="y">2%</td><td>01/03</td><td><a href="https://www.instagram.com/stories/tallisgomes/3842617257104569554" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>5</td><td style="color:#64748b;font-weight:600">Nardon</td><td><span class="pill m">Imagem</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Seguindo o gancho do story anterior</td><td>22.259</td><td>28.435</td><td>—</td><td>—</td><td>01/03</td><td><a href="https://www.instagram.com/stories/bruno.nardon/3842658753183705505" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>6</td><td style="color:#3b82f6;font-weight:600">Alfredo</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">10 anos como cliente @prudentialdobrasil</td><td>21.562</td><td>30.479</td><td class="g">29%</td><td class="y">2%</td><td>05/03</td><td><a href="https://www.instagram.com/stories/alfredosoares/3845508157255046368" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>7</td><td style="color:#64748b;font-weight:600">Nardon</td><td><span class="pill m">Imagem</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Eu comecei a estudar IA por curiosidade</td><td>11.045</td><td>13.696</td><td class="g">72%</td><td class="y">4%</td><td>01/03</td><td><a href="https://www.instagram.com/stories/bruno.nardon/3842734878224226297" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>8</td><td style="color:#3b82f6;font-weight:600">Alfredo</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">@avanttooficial @diogogaspar</td><td>10.784</td><td>14.028</td><td class="g">55%</td><td class="y">4%</td><td>05/03</td><td><a href="https://www.instagram.com/stories/alfredosoares/3845520509572596615" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>9</td><td style="color:#64748b;font-weight:600">Nardon</td><td><span class="pill m">Imagem</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">A maioria das empresas usa IA do jeito errado</td><td>9.859</td><td>11.745</td><td class="g">78%</td><td class="y">4%</td><td>01/03</td><td><a href="https://www.instagram.com/stories/bruno.nardon/3842735085213175948" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+        <tr><td>10</td><td style="color:#6366f1;font-weight:600">G4</td><td><span class="pill m">Video</span></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">—</td><td>7.416</td><td>8.375</td><td class="g">64%</td><td class="r">6%</td><td>02/03</td><td><a href="https://www.instagram.com/stories/g4.business/3843424650986074039" target="_blank" style="color:var(--accent);font-size:11px">Ver ↗</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota info" style="margin-top:8px">
+    <strong>Padrão stories:</strong> Tallis e Alfredo dominam alcance (20–30k). Alfredo tem os melhores dados de tap_forward (13–55%), indicando conteúdo que retém a audiência dentro do story. Nardon lidera em tap_forward rate (72–78%) — stories de IA têm altíssimo engajamento sequencial. G4 tem tap_exit mais alto (6%) — stories institucionais sem narrativa fazem a audiência sair.
+  </div>
+</div>
+
+<div class="footer">
+  <span>G4 OS · Social Media Dashboard · Março 2026</span>
+  <span>Fontes: funil_marketing (MQL) + g4_social_media (mídia) · ref: 08/03/2026</span>
+</div>
+
+<script>
+// ===== DADOS =====
+var DIAS_MQL   = ['01/03','02/03','03/03','04/03','05/03'];
+var MQL_DAILY  = [75, 111, 178, 115, 105];
+var META_DIA   = 123; // 3.809 / 31 dias
+
+var DIAS_MIDIA = ['01/03','02/03','03/03','04/03','05/03','06/03'];
+var DAILY_ALCANCE = [1506906, 1544216, 1523569, 1172123, 1674634, 1273435];
+
+var CANAL_DAILY = {
+  'Tallis':  [593017, 733739, 682372, 403846, 728291, 788109],
+  'Alfredo': [527385, 468720, 407279, 437019, 530375, 316962],
+  'G4':      [133477, 156173, 278857, 136389, 229003,  93149],
+  'Nardon':  [ 69515,  49317,  81893,  94627,  75022,  29104]
+};
+
+var MQL_CANAL_MAR = [201,118,81,47,46,22,17,16,11,25];
+var MQL_CANAL_FEV = [991,744,468,195,315,114,141,57,76,113];
+var MQL_CANAL_LABELS = ['G4 Inst.','Incompl.','Tallis','Social DM','K Inst.','Outros','Alfredo','Nardon','Club','Demais'];
+
+var MQL_HIST_MES   = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
+var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 584];
+
+// canal slug helper
+function canalSlug(name){
+  var n=(name||'').toLowerCase();
+  if(n.includes('tallis'))return'tallis';
+  if(n.includes('alfredo'))return'alfredo';
+  if(n.includes('nardon'))return'nardon';
+  if(n.includes('skills'))return'skills';
+  if(n.includes('club'))return'club';
+  if(n.includes('g4 scale'))return'scale';
+  if(n.includes('podcasts'))return'podcasts';
+  return'g4';
+}
+
+var CANAL_COLORS={'tallis':'#eab308','alfredo':'#3b82f6','g4':'#6366f1','nardon':'#64748b','skills':'#22c55e','club':'#a855f7','scale':'#f97316','podcasts':'#ef4444'};
+
+var TOP_POSTS = [
+  // TALLIS GOMES
+  {canal:'tallis',account:'Tallis Gomes',type:'Carrossel',reach:492394,likes:67592,shares:6407,saved:1373,comments:2759,date:'06/03',url:'https://www.instagram.com/p/DVg7ThOjtaT/',caption:'Quanto mais o tempo passa, mais claro fica que o sistema sacrificou Bolsonaro pelo simples fato de que ele se negou a se corromper.'},
+  {canal:'tallis',account:'Tallis Gomes',type:'Carrossel',reach:356709,likes:19221,shares:2069,saved:694,comments:888,date:'02/03',url:'https://www.instagram.com/p/DVWkTrPjmLx/',caption:'C.S. Lewis escreveu que o mal raramente se apresenta como mal. Ele chega disfarçado de progresso, de bondade, de necessidade.'},
+  {canal:'tallis',account:'Tallis Gomes',type:'Carrossel',reach:182192,likes:17599,shares:237,saved:556,comments:849,date:'03/03',url:'https://www.instagram.com/p/DVZVNbdDiv5/',caption:'Seis meses atrás, quando começaram a me ameaçar publicamente…'},
+  {canal:'tallis',account:'Tallis Gomes',type:'Carrossel',reach:120971,likes:3854,shares:648,saved:576,date:'05/03',url:'https://www.instagram.com/p/DVeXhTZkXL9/',caption:'Nessa thread, eu mostro como a China realmente opera, o que Taiwan tem a ver com isso, e por que o Brasil está no meio dessa geopolítica.'},
+  {canal:'tallis',account:'Tallis Gomes',type:'Carrossel',reach:111917,likes:9544,shares:237,saved:288,date:'01/03',url:'https://www.instagram.com/p/DVTwIE9AMxq/',caption:'Sabadão de trabalho pós-treino…'},
+  // ALFREDO SOARES
+  {canal:'alfredo',account:'Alfredo Soares',type:'Feed',reach:97281,likes:2365,shares:671,saved:382,date:'01/03',url:'https://www.instagram.com/p/DVTXFwUDXYp/',caption:'Sabe o que vicia de verdade? Resultado. Quando você vê o negócio crescendo por causa das suas decisões, não tem droga que segure.'},
+  {canal:'alfredo',account:'Alfredo Soares',type:'Feed',reach:89833,likes:398,shares:240,saved:95,date:'02/03',url:'https://www.instagram.com/p/DVHCYVqCWwX/',caption:'Se tu cresceu nos anos 90 ou 2000, sua memória afetiva do McDonald\'s é basicamente um produto de estratégia de marketing.'},
+  {canal:'alfredo',account:'Alfredo Soares',type:'Feed',reach:71197,likes:183,shares:42,saved:14,date:'03/03',url:'https://www.instagram.com/p/DVZxvfojefZ/',caption:'Poucos entenderam o LTV por trás do meme. Esse aqui sim.'},
+  {canal:'alfredo',account:'Alfredo Soares',type:'Feed',reach:70581,likes:1408,shares:147,saved:125,date:'06/03',url:'https://www.instagram.com/p/DVhdVC-jSOI/',caption:'Em pleno 2026 e ainda tem empresário rindo do meme enquanto o mercado joga xadrez.'},
+  {canal:'alfredo',account:'Alfredo Soares',type:'Feed',reach:53828,likes:2557,shares:417,saved:204,date:'05/03',url:'https://www.instagram.com/p/DVJm3BbEWpN/',caption:'Vender a verdade atrasou muita gente que queria atalho. E acelerou muito quem estava pronto.'},
+  // G4
+  {canal:'g4',account:'G4',type:'Carrossel',reach:165833,likes:2947,shares:444,saved:444,date:'03/03',url:'https://www.instagram.com/p/DVZYG1VFT21/',caption:'Como o "tênis de pai" conseguiu desbancar a Nike nos últimos anos? A New Balance entendeu o jogo da nostalgia antes de todo mundo.'},
+  {canal:'g4',account:'G4',type:'Carrossel',reach:75169,likes:841,shares:434,saved:307,date:'05/03',url:'https://www.instagram.com/p/DVeh1hklXZh/',caption:'Como uma empresa que faturava US$ 2,6 bilhões por ano acabou à beira da falência — e o que todo empresário deveria aprender com isso.'},
+  {canal:'g4',account:'G4',type:'Carrossel',reach:57078,likes:781,shares:739,saved:214,date:'02/03',url:'https://www.instagram.com/p/DVYZvo8lT2D/',caption:'O que o McDonald\'s enxergou antes da maioria das empresas sobre as canetas emagrecedoras?'},
+  {canal:'g4',account:'G4',type:'Carrossel',reach:52874,likes:1210,shares:416,saved:158,date:'03/03',url:'https://www.instagram.com/p/DVa-uualQ4n/',caption:'Como uma marca brasileira colocou Monster e Red Bull no bolso e fechou 2025 como líder de mercado.'},
+  {canal:'g4',account:'G4',type:'Carrossel',reach:50908,likes:623,shares:180,saved:289,comments:107,date:'01/03',url:'https://www.instagram.com/p/DVTlRMNFdM9/',caption:'A arte da negociação. Princípios que separam quem fecha negócio de quem perde na mesa.'},
+  // BRUNO NARDON
+  {canal:'nardon',account:'Bruno Nardon',type:'Carrossel',reach:41110,likes:2480,shares:1744,saved:1569,date:'03/03',url:'https://www.instagram.com/p/DVZbHf1D3wJ/',caption:'Para evitar desgaste e perda de tempo na segunda: o que eu faço todo domingo para começar a semana com clareza.'},
+  {canal:'nardon',account:'Bruno Nardon',type:'Feed',reach:26801,likes:979,shares:192,saved:75,date:'04/03',url:'https://www.instagram.com/p/DVbCRWOAK28/',caption:'Quando eu estava construindo a Kanui, eu poderia ter colocado uma meta conservadora. Não coloquei.'},
+  {canal:'nardon',account:'Bruno Nardon',type:'Feed',reach:24983,likes:842,shares:86,saved:96,date:'01/03',url:'https://www.instagram.com/p/DVTJRruj39Y/',caption:'A maioria dos líderes pula etapas. E quando o crescimento trava, não sabem por quê.'},
+  {canal:'nardon',account:'Bruno Nardon',type:'Reel',reach:17216,likes:714,shares:75,saved:28,date:'01/03',url:'https://www.instagram.com/reel/DVUZEgtCU-K/',caption:'O mês mais curto do ano está entregue. Balanço de fevereiro e o que muda em março.'},
+  // G4 SKILLS
+  {canal:'skills',account:'G4 Skills',type:'Reel',reach:104536,likes:0,shares:0,saved:0,date:'01/03',url:'https://www.instagram.com/reel/DQw0jbBjvNK/',caption:'Hoje teremos o lançamento do curso de Comunicação de Alta Performance. Vagas limitadas.'},
+  {canal:'skills',account:'G4 Skills',type:'Reel',reach:35187,likes:0,shares:0,saved:0,date:'01/03',url:'https://www.instagram.com/reel/DQKC_NajqJ5/',caption:'A Ambev transformou o bar em cliente recorrente e não foi vendendo mais chope.'},
+  // G4 CLUB
+  {canal:'club',account:'G4 Club',type:'Carrossel',reach:26166,likes:341,shares:192,saved:96,date:'05/03',url:'https://www.instagram.com/p/DVcGTbWD2gA/',caption:'A maior virada de jogo da Zara na história. Como a fast fashion reinventou o próprio modelo.'},
+  {canal:'club',account:'G4 Club',type:'Carrossel',reach:20925,likes:321,shares:126,saved:60,date:'05/03',url:'https://www.instagram.com/p/DVeKPlyjrIH/',caption:'O sinônimo de "dad shoes" virou febre. A New Balance mudou o jogo sem mudar a essência.'},
+  {canal:'club',account:'G4 Club',type:'Carrossel',reach:10092,likes:621,shares:473,saved:32,date:'01/03',url:'https://www.instagram.com/p/DVTkusHD7Rb/',caption:'Uma linha icônica da Porsche pode simplesmente deixar de existir. O que isso diz sobre o mercado de luxo.'}
+];
+
+// Insights por canal
+var CANAL_INSIGHTS = {
+  todos: {
+    titulo: 'Visão geral — todos os canais',
+    formatos: ['Carrossel (domina alcance e saves)','Feed image (melhor CTR em Alfredo)','Reel (destaque em G4 Skills)'],
+    territorios: ['Geopolítica e conjuntura (Tallis — altíssimo alcance)','Cases empresariais e estratégia (G4 — melhor conversão)','Negócios e crescimento pessoal (Alfredo — consistência)','Gestão e liderança (Nardon — maior save rate)'],
+    evitar: ['Stories sem CTA ou contexto','Posts genéricos de data comemorativa','Reels curtos sem gancho nos primeiros 3 segundos'],
+    acoes: ['Replicar formato carrossel de "case empresa" no G4 e Alfredo','Tallis: inserir CTA direto nos posts de maior alcance para capturar MQL','Nardon: aumentar frequência — save rate altíssimo indica audiência de alta qualidade']
+  },
+  tallis: {
+    titulo: 'Tallis Gomes — padrão dos top posts',
+    formatos: ['Carrossel longo (7–12 slides) — domina todos os top 5','Texto com opinião forte no primeiro slide'],
+    territorios: ['Conjuntura política e socioeconômica — maior alcance','Visão de mundo e liderança com coragem','Análise geopolítica (China, Taiwan, mercado global)','Provocação direta ao status quo'],
+    evitar: ['Posts de produto/oferta direta — performam mal neste perfil','Conteúdo institucional do G4 sem opinião pessoal'],
+    acoes: ['Manter cadência de 1 carrossel/dia no território conjuntura','Testar CTA de formulário no slide final dos carrosseis — taxa alcance→MQL é 0,01% (muito baixa)','Post 06/03 (492k reach) — identificar o gatilho e replicar formato em outros temas']
+  },
+  alfredo: {
+    titulo: 'Alfredo Soares — padrão dos top posts',
+    formatos: ['Feed image single — 100% dos top 5 são imagem estática','Copy longa com opinião no caption'],
+    territorios: ['Memória afetiva + estratégia de negócios (McDonald\'s, Nike)','Provocações sobre comportamento de empresário','LTV, retenção, crescimento de receita','Vendas com verdade — não atalho'],
+    evitar: ['Reels — único Reel no período teve alcance 5x menor que feed','Carrosseis longos — não são o formato forte do canal'],
+    acoes: ['Alfredo tem o pior ratio alcance→MQL (0,01%) com 317k alcance. Testar CTA no link da bio','Formato feed image com copy de opinião está no pico — manter frequência mínima 1/dia','Explorar mais território "verdades difíceis de negócios" — melhor engajamento']
+  },
+  g4: {
+    titulo: 'G4 Educação — padrão dos top posts',
+    formatos: ['Carrossel educativo (cases empresariais) — formato dominante','Mínimo 6 slides com storytelling de empresa'],
+    territorios: ['Cases de empresas globais com lição aplicável (New Balance, McDonald\'s, Tupperware)','Negociação e frameworks de gestão','Marcas brasileiras que cresceram'],
+    evitar: ['Posts institucionais sem case concreto — baixo alcance','Conteúdo de evento sem narrativa de aprendizado'],
+    acoes: ['G4 tem melhor taxa alcance→MQL (0,22%) — prioridade máxima para escalar frequência','Padrão vencedor: "Como [empresa conhecida] fez [algo surpreendente]?" — 4 dos top 5 seguem isso','Testar mesmo formato com cases de empresas brasileiras — post da marca nacional teve 52k reach']
+  },
+  nardon: {
+    titulo: 'Bruno Nardon — padrão dos top posts',
+    formatos: ['Carrossel com save altíssimo (1.569 saves no top post)','Feed image com storytelling pessoal'],
+    territorios: ['Rituais e rotinas de alta performance (domingo, semana)','Fundação de empresa e escala — experiência Kanui','Liderança e passagem de bastão'],
+    evitar: ['Conteúdo de IA sem aplicação prática — pode saturar','Stories sem contexto — performance baixa'],
+    acoes: ['Save rate de 3,8% no top carrossel — o melhor do portfólio. Indica audiência engajada com conteúdo de valor','Aumentar frequência: Nardon publica menos que os outros canais mas tem melhor qualidade por post','Território "como estruturo minha semana/empresa" tem potencial de viralizar entre founders']
+  },
+  skills: {
+    titulo: 'G4 Skills — padrão dos top posts',
+    formatos: ['Reel — único formato com bom alcance neste canal','Conteúdo de case + oferta de curso'],
+    territorios: ['Lançamentos de cursos com urgência (vagas limitadas)','Cases de empresas aplicados a skills específicas'],
+    evitar: ['Imagens estáticas — performam muito abaixo de Reels','Posts sem CTA claro de conversão'],
+    acoes: ['Reel de lançamento teve 104k reach — maior do canal. Replicar formato de teaser de curso','Explorar Reels de "1 técnica de [skill] que mudou [resultado]" para gerar MQL orgânico','G4 Skills tem potencial não explorado de MQL via CTA nos Reels']
+  },
+  club: {
+    titulo: 'G4 Club — padrão dos top posts',
+    formatos: ['Carrossel de case empresarial — igual ao G4 principal','Formato educativo com virada de expectativa'],
+    territorios: ['Cases de marcas globais (Zara, New Balance, Porsche)','Estratégia de premium e posicionamento de marca'],
+    evitar: ['Posts institucionais de evento sem narrativa','Conteúdo genérico sem conexão com universo do empreendedor'],
+    acoes: ['G4 Club tem audiência mais nichada — focar em cases de empresas premium e de alto crescimento','Shares altos (473 no post da Porsche) indicam território forte. Explorar mais "o que grandes marcas fizeram diferente"']
+  }
+};
+
+// ===== HELPERS =====
+function fmtK(n){
+  if(n==null)return'—'; n=Number(n);
+  if(n>=1000000)return(n/1000000).toFixed(1)+'M';
+  if(n>=1000)return(n/1000).toFixed(0)+'k';
+  return n.toLocaleString('pt-BR');
+}
+function fmtBRL(n){return'R$ '+Number(n).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}
+
+Chart.defaults.color='#64748b';
+Chart.defaults.borderColor='#2a2a35';
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif";
+var CHS={};
+function dc(id){if(CHS[id]){CHS[id].destroy();delete CHS[id]}}
+
+// ===== TABS =====
+function showTab(n,el){
+  ['overview','mql','receita','midia','posts'].forEach(function(t){
+    document.getElementById('pane-'+t).classList.toggle('active',t===n);
+  });
+  document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
+  if(el)el.classList.add('active');
+}
+
+// ===== INSIGHTS TOGGLE =====
+function toggleIns(id){
+  var b=document.getElementById(id);
+  var a=document.getElementById('arr-'+id);
+  var open=b.style.display!=='none';
+  b.style.display=open?'none':'flex';
+  if(a)a.classList.toggle('open',!open);
+}
+
+// ===== FUNIL VISUAL =====
+(function(){
+  var data=[
+    {label:'MQL',      val:584,  ref:3214, color:'#6366f1'},
+    {label:'SAL',      val:513,  ref:2474, color:'#3b82f6'},
+    {label:'Opp',      val:149,  ref:768,  color:'#eab308'},
+    {label:'Won',      val:11,   ref:139,  color:'#22c55e'}
+  ];
+  var max=data[0].val;
+  var html=data.map(function(d,i){
+    var w=Math.round(d.val/max*100);
+    var pct=i>0?Math.round(d.val/data[i-1].val*100)+'% conv.':'base';
+    return '<div class="funil-step">'
+      +'<div class="funil-label">'+d.label+'</div>'
+      +'<div class="funil-bar-outer"><div class="funil-bar-inner" style="width:'+w+'%;background:'+d.color+'">'+d.val+'</div></div>'
+      +'<div class="funil-count">'+d.val+'</div>'
+      +'<div class="funil-pct">'+pct+'</div>'
+      +'</div>';
+  }).join('');
+  var el=document.getElementById('funil-viz');
+  if(el)el.innerHTML=html+'<div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Referência Fev/26: MQL 3.214 · SAL 2.474 · OPP 768 · Won 139</div>';
+})();
+
+// ===== CHARTS =====
+// MQL diário (overview)
+(function(){
+  dc('mql-daily');
+  var ctx=document.getElementById('ch-mql-daily');
+  if(!ctx)return;
+  CHS['mql-daily']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:DIAS_MQL,datasets:[
+      {label:'MQL Social',data:MQL_DAILY,backgroundColor:'rgba(99,102,241,.7)',borderColor:'#6366f1',borderWidth:1,borderRadius:4},
+      {label:'Meta/dia',data:[META_DIA,META_DIA,META_DIA,META_DIA,META_DIA],type:'line',borderColor:'#eab308',borderDash:[4,4],pointRadius:0,fill:false,borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:10,padding:10}}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},beginAtZero:true}}}
+  });
+})();
+
+// Alcance diário overview
+(function(){
+  dc('alcance-daily-ov');
+  var ctx=document.getElementById('ch-alcance-daily-ov');
+  if(!ctx)return;
+  CHS['alcance-daily-ov']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:DIAS_MIDIA,datasets:[{label:'Alcance total',data:DAILY_ALCANCE,backgroundColor:'rgba(99,102,241,.5)',borderColor:'#6366f1',borderWidth:1,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},ticks:{callback:function(v){return fmtK(v)}}}}}
+  });
+})();
+
+// ===== MINI GRÁFICOS POR CANAL: Alcance × MQL =====
+(function(){
+  // MQL por canal por dia (01-05/03 = 5 dias, alcance tem 6 dias)
+  var MQL_CANAL_DIA = {
+    'Tallis':  [18, 10, 33, 11,  9],
+    'Alfredo': [ 4,  3,  6,  0,  4],
+    'G4':      [30, 37, 59, 44, 31],
+    'Nardon':  [ 2,  3,  7,  2,  2]
+  };
+  var ALCANCE_5DIAS = {
+    'Tallis':  [593017, 733739, 682372, 403846, 728291],
+    'Alfredo': [527385, 468720, 407279, 437019, 530375],
+    'G4':      [133477, 156173, 278857, 136389, 229003],
+    'Nardon':  [ 69515,  49317,  81893,  94627,  75022]
+  };
+  var CANAL_CONFIG = {
+    'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
+    'Alfredo': {id:'ch-canal-alfredo', cor:'#3b82f6', corAlpha:'rgba(59,130,246,.35)'},
+    'G4':      {id:'ch-canal-g4',      cor:'#6366f1', corAlpha:'rgba(99,102,241,.35)'},
+    'Nardon':  {id:'ch-canal-nardon',  cor:'#64748b', corAlpha:'rgba(100,116,139,.35)'}
+  };
+  var DIAS5 = ['01/03','02/03','03/03','04/03','05/03'];
+
+  Object.keys(CANAL_CONFIG).forEach(function(canal){
+    var cfg = CANAL_CONFIG[canal];
+    dc('canal-'+canal.toLowerCase());
+    var ctx = document.getElementById(cfg.id);
+    if(!ctx) return;
+    CHS['canal-'+canal.toLowerCase()] = new Chart(ctx.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: DIAS5,
+        datasets: [
+          {
+            label: 'Alcance',
+            data: ALCANCE_5DIAS[canal],
+            backgroundColor: cfg.corAlpha,
+            borderColor: cfg.cor,
+            borderWidth: 1,
+            borderRadius: 3,
+            yAxisID: 'yAlcance'
+          },
+          {
+            label: 'MQL',
+            data: MQL_CANAL_DIA[canal],
+            type: 'line',
+            borderColor: '#f97316',
+            backgroundColor: 'rgba(249,115,22,.15)',
+            pointBackgroundColor: '#f97316',
+            borderWidth: 2,
+            pointRadius: 5,
+            tension: 0.3,
+            fill: true,
+            yAxisID: 'yMQL'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position:'top', labels:{ boxWidth:10, padding:8, font:{size:10} } },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                if(ctx.datasetIndex===0) return 'Alcance: '+fmtK(ctx.raw);
+                return 'MQL: '+ctx.raw;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid:{color:'#2a2a35'}, ticks:{font:{size:10}} },
+          yAlcance: {
+            type: 'linear', position: 'left',
+            grid: {color:'#2a2a35'},
+            ticks: { callback: function(v){ return fmtK(v); }, font:{size:9} }
+          },
+          yMQL: {
+            type: 'linear', position: 'right',
+            grid: { drawOnChartArea: false },
+            ticks: { font:{size:9}, color:'#f97316' },
+            title: { display:true, text:'MQL', color:'#f97316', font:{size:9} }
+          }
+        }
+      }
+    });
+  });
+})();
+
+// MQL diário (aba MQL)
+(function(){
+  dc('mql-daily-2');
+  var ctx=document.getElementById('ch-mql-daily-2');
+  if(!ctx)return;
+  CHS['mql-daily-2']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:DIAS_MQL,datasets:[
+      {label:'MQL Social',data:MQL_DAILY,backgroundColor:'rgba(99,102,241,.7)',borderColor:'#6366f1',borderWidth:1,borderRadius:4},
+      {label:'Meta/dia',data:[META_DIA,META_DIA,META_DIA,META_DIA,META_DIA],type:'line',borderColor:'#eab308',borderDash:[4,4],pointRadius:0,fill:false,borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:10,padding:10}}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},beginAtZero:true}}}
+  });
+})();
+
+// MQL por canal Mar vs Fev
+(function(){
+  dc('mql-canal');
+  var ctx=document.getElementById('ch-mql-canal');
+  if(!ctx)return;
+  // normalizar fev para 5 dias para comparar
+  var fevNorm=MQL_CANAL_FEV.map(function(v){return Math.round(v/28*5)});
+  CHS['mql-canal']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:MQL_CANAL_LABELS,datasets:[
+      {label:'Mar/26 (5d)',data:MQL_CANAL_MAR,backgroundColor:'rgba(99,102,241,.8)',borderRadius:3},
+      {label:'Fev/26 (5d equiv.)',data:fevNorm,backgroundColor:'rgba(100,116,139,.4)',borderRadius:3}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:10,padding:10}}},scales:{x:{grid:{color:'#2a2a35'},ticks:{font:{size:10}}},y:{grid:{color:'#2a2a35'}}}}
+  });
+})();
+
+// MQL histórico
+(function(){
+  dc('mql-hist');
+  var ctx=document.getElementById('ch-mql-hist');
+  if(!ctx)return;
+  CHS['mql-hist']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:MQL_HIST_MES,datasets:[{label:'MQL Social',data:MQL_HIST_VALS,backgroundColor:MQL_HIST_VALS.map(function(_,i){return i===6?'rgba(99,102,241,.5)':'rgba(99,102,241,.75)'}),borderColor:'#6366f1',borderWidth:1,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},beginAtZero:true}}}
+  });
+})();
+
+// Receita: funil projetado
+(function(){
+  dc('receita-funil');
+  var ctx=document.getElementById('ch-receita-funil');
+  if(!ctx)return;
+  CHS['receita-funil']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:['MQL','SAL','OPP','Won'],datasets:[{
+      label:'Projeção',
+      data:[3620,3188,924,240],
+      backgroundColor:['#6366f1','#3b82f6','#eab308','#22c55e'],
+      borderRadius:4
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'}}}}
+  });
+})();
+
+// Receita por canal
+(function(){
+  dc('receita-canal');
+  var ctx=document.getElementById('ch-receita-canal');
+  if(!ctx)return;
+  // Receita potencial por canal = MQL/dia × dias × 25.5% opp × 26% won × R$5800
+  var mqlDia={
+    'G4 Instagram':40.2,'Form Incompl.':23.6,'Tallis':16.2,
+    'Social DM':9.4,'K Instagram':9.2,'Alfredo':3.4,'Nardon':3.2
+  };
+  var labels=Object.keys(mqlDia);
+  var receita=labels.map(function(k){return Math.round(mqlDia[k]*31*0.255*0.26*5800)});
+  CHS['receita-canal']=new Chart(ctx.getContext('2d'),{
+    type:'bar',
+    data:{labels:labels,datasets:[{label:'Receita potencial (R$)',data:receita,backgroundColor:'rgba(249,115,22,.7)',borderColor:'#f97316',borderWidth:1,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#2a2a35'},ticks:{font:{size:10}}},y:{grid:{color:'#2a2a35'},ticks:{callback:function(v){return'R$'+fmtK(v)}}}}}
+  });
+})();
+
+// Canal line (evolução alcance)
+(function(){
+  dc('canal-line');
+  var ctx=document.getElementById('ch-canal-line');
+  if(!ctx)return;
+  var cores={'Tallis':'#eab308','Alfredo':'#3b82f6','G4':'#6366f1','Nardon':'#64748b'};
+  var datasets=Object.keys(CANAL_DAILY).map(function(c){
+    return{label:c,data:CANAL_DAILY[c],borderColor:cores[c]||'#6366f1',backgroundColor:'transparent',tension:.3,pointRadius:3,borderWidth:2};
+  });
+  CHS['canal-line']=new Chart(ctx.getContext('2d'),{
+    type:'line',
+    data:{labels:DIAS_MIDIA,datasets:datasets},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:10,padding:12}}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},ticks:{callback:function(v){return fmtK(v)}}}}}
+  });
+})();
+
+// ===== MQL ABC CHARTS =====
+(function(){
+  var MQL_ABC_LABELS=['C','J','I','A','K','E','G','B','D','F','H'];
+  var MQL_ABC_VALS=[154,118,104,64,55,36,21,14,9,8,1];
+  var ABC_COLORS=['#6366f1','#a855f7','#3b82f6','#22c55e','#f97316','#eab308','#64748b','#ef4444','#0ea5e9','#10b981','#94a3b8'];
+
+  // Rosca
+  (function(){
+    dc('mql-abc-donut');
+    var ctx=document.getElementById('ch-mql-abc-donut');
+    if(!ctx)return;
+    CHS['mql-abc-donut']=new Chart(ctx.getContext('2d'),{
+      type:'doughnut',
+      data:{labels:MQL_ABC_LABELS,datasets:[{data:MQL_ABC_VALS,backgroundColor:ABC_COLORS,borderWidth:2,borderColor:'#18181f'}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{boxWidth:12,padding:10,font:{size:11}}}}}
+    });
+  })();
+
+  // Linha: A, B, C por dia
+  (function(){
+    dc('mql-abc-line');
+    var ctx=document.getElementById('ch-mql-abc-line');
+    if(!ctx)return;
+    var dias=['01/03','02/03','03/03','04/03','05/03'];
+    var series={
+      'A — R$50k/lead': [12,14,12,11,15],
+      'B — R$41k/lead': [1,2,6,2,3],
+      'C — R$22k/lead': [21,33,40,34,26]
+    };
+    var serieColors={'A — R$50k/lead':'#22c55e','B — R$41k/lead':'#3b82f6','C — R$22k/lead':'#6366f1'};
+    var serieWidth={'A — R$50k/lead':2.5,'B — R$41k/lead':2,'C — R$22k/lead':2.5};
+    CHS['mql-abc-line']=new Chart(ctx.getContext('2d'),{
+      type:'line',
+      data:{labels:dias,datasets:Object.keys(series).map(function(k){
+        return{label:k,data:series[k],borderColor:serieColors[k],backgroundColor:'transparent',tension:.3,pointRadius:5,borderWidth:serieWidth[k]||2};
+      })},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{boxWidth:10,padding:10,font:{size:11}}}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'},beginAtZero:true}}}
+    });
+  })();
+})();
+
+// ===== TOP POSTS POR CANAL =====
+function renderPostCard(p,rank){
+  var color=CANAL_COLORS[p.canal]||'#6366f1';
+  return '<a class="post-card" href="'+p.url+'" target="_blank">'
+    +'<span class="post-rank-num">#'+rank+'</span>'
+    +'<span class="post-type-badge">'+p.type+'</span>'
+    +'<div class="post-body">'
+    +'<div class="post-account" style="color:'+color+'">'+p.account+'</div>'
+    +'<div class="post-caption">'+p.caption+'</div>'
+    +'</div>'
+    +'<div class="post-metrics">'
+    +'<span class="pm"><span>'+fmtK(p.reach)+'</span> alcance</span>'
+    +(p.likes?'<span class="pm"><span>'+fmtK(p.likes)+'</span> likes</span>':'')
+    +(p.shares?'<span class="pm"><span>'+fmtK(p.shares)+'</span> shares</span>':'')
+    +(p.saved?'<span class="pm"><span>'+fmtK(p.saved)+'</span> saves</span>':'')
+    +'</div>'
+    +'<span class="post-date-link">'+p.date+'/26 ↗</span>'
+    +'</a>';
+}
+
+function renderInsightCanal(slug){
+  var ins=CANAL_INSIGHTS[slug]||CANAL_INSIGHTS['todos'];
+  var el=document.getElementById('insights-canal');
+  if(!el)return;
+  el.innerHTML='<div class="insight-canal">'
+    +'<h4>'+ins.titulo+'</h4>'
+    +'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">'
+    +'<div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Formatos que funcionam</div>'
+    +ins.formatos.map(function(f){return'<div class="insight-tag format" style="margin:2px 4px 2px 0;display:inline-block">'+f+'</div>'}).join('')+'</div>'
+    +'<div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Territorios com melhor performance</div>'
+    +ins.territorios.map(function(t){return'<div class="insight-tag topic" style="margin:2px 4px 2px 0;display:inline-block">'+t+'</div>'}).join('')+'</div>'
+    +'<div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Evitar</div>'
+    +ins.evitar.map(function(e){return'<div class="insight-tag avoid" style="margin:2px 4px 2px 0;display:inline-block">'+e+'</div>'}).join('')+'</div>'
+    +'<div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Acoes recomendadas</div>'
+    +ins.acoes.map(function(a){return'<div style="font-size:12px;color:var(--text);margin-bottom:4px">→ '+a+'</div>'}).join('')+'</div>'
+    +'</div></div>';
+}
+
+function showCanal(slug,btn){
+  document.querySelectorAll('.canal-btn').forEach(function(b){b.classList.remove('active')});
+  if(btn)btn.classList.add('active');
+  var posts=slug==='todos'?TOP_POSTS:TOP_POSTS.filter(function(p){return p.canal===slug});
+  var grid=document.getElementById('posts-grid');
+  if(grid)grid.innerHTML=posts.map(function(p,i){return renderPostCard(p,i+1)}).join('');
+  renderInsightCanal(slug);
+}
+
+showCanal('todos',null);
+</script>
+</body>
+</html>
