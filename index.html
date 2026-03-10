@@ -324,48 +324,48 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   </div>
 
   <!-- Grid 4 canais: alcance diário + MQL -->
-  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 06/03/2026</div>
-  <div class="nota warn" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>06/03</strong> (latência ~3 dias no Databricks em 10/03). Total real 01–09/03: <strong>948 MQL</strong> conforme painel. Gráfico será atualizado automaticamente quando o dado processar.</div>
+  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 09/03/2026</div>
+  <div class="nota ok" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>09/03</strong> (Databricks atualizado 10/03 às 11h25). Total 01–09/03 Instagram: <strong>1.020 MQL</strong>.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
     <div class="ccard">
       <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
-      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
+      <div class="csub">alcance + MQL · 01–09/03</div>
       <div class="cwrap"><canvas id="ch-canal-tallis"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#3b82f6">Alfredo Soares</div>
-      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
+      <div class="csub">alcance + MQL · 01–09/03</div>
       <div class="cwrap"><canvas id="ch-canal-alfredo"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#6366f1">G4 Educação</div>
-      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
+      <div class="csub">alcance + MQL · 01–09/03</div>
       <div class="cwrap"><canvas id="ch-canal-g4"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#64748b">Bruno Nardon</div>
-      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
+      <div class="csub">alcance + MQL · 01–09/03</div>
       <div class="cwrap"><canvas id="ch-canal-nardon"></canvas></div>
     </div>
   </div>
 
   <!-- Tabela de correlação alcance x MQL por canal -->
   <div class="tcard">
-    <div class="thead-row"><span>MQL e SAL por canal — 01–06/03</span><span class="sub">Databricks · latência ~3 dias · total MQL painel = 948</span></div>
+    <div class="thead-row"><span>MQL por canal — 01–09/03</span><span class="sub">Databricks · Instagram · atualizado 10/03</span></div>
     <table>
       <thead><tr>
-        <th>Canal</th><th>MQL</th><th>SAL</th><th>Conv. MQL→SAL</th><th>OPP</th><th>Won</th><th>Alcance (09/03)</th><th>Ação recomendada</th>
+        <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Ontem (09/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4</strong></td><td class="g">224</td><td class="g">207</td><td class="g">92%</td><td>77</td><td class="g">12</td><td class="m">1,33M</td><td><span class="pill g">Escalar</span></td></tr>
-        <tr><td><strong>Tallis</strong></td><td>88</td><td>77</td><td class="y">88%</td><td>28</td><td>1</td><td class="m">5,65M</td><td><span class="pill r">Melhorar CTA</span></td></tr>
-        <tr><td><strong>Nardon</strong></td><td>20</td><td>17</td><td class="y">85%</td><td>5</td><td>1</td><td class="m">584k</td><td><span class="pill y">Testar CTA</span></td></tr>
-        <tr><td><strong>Alfredo</strong></td><td>17</td><td>19</td><td class="g">112%*</td><td>6</td><td>0</td><td class="m">3,44M</td><td><span class="pill r">Melhorar CTA</span></td></tr>
-        <tr><td><strong>Outros / Incompleto</strong></td><td>328</td><td>255</td><td class="y">78%</td><td>72</td><td>3</td><td class="m">—</td><td><span class="pill y">Otimizar UTM</span></td></tr>
-        <tr class="total-row"><td>TOTAL</td><td class="g">677</td><td class="g">575</td><td class="g">85%</td><td>188</td><td>17</td><td class="g">16,8M</td><td></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g">555</td><td>54%</td><td class="g">62</td><td class="g">58</td><td><span class="pill g">Escalar</span></td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td>215</td><td>21%</td><td>24</td><td>14</td><td><span class="pill y">Story de ponte</span></td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td>102</td><td>10%</td><td>11</td><td style="color:#ef4444">9 ↓</td><td><span class="pill r">Recuperar CTA</span></td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td>99</td><td>10%</td><td>11</td><td class="g">11</td><td><span class="pill y">Manter CTA</span></td></tr>
+        <tr><td><strong>Misa Antonini</strong></td><td>19</td><td>2%</td><td>2</td><td>0</td><td><span class="pill m">Ativar</span></td></tr>
+        <tr class="total-row"><td>TOTAL Instagram</td><td class="g">1.020</td><td>100%</td><td class="g">113</td><td class="g">94</td><td></td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">* SAL > MQL em Alfredo indica SALs de leads gerados antes do período. Total MQL painel (948) inclui 07–09/03, ainda não processados no Databricks.</div>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.gold.deals_events + deals_fct · utm_source = 'instagram' · atualizado 10/03/2026 às 11h25</div>
   </div>
 
 </div>
@@ -377,10 +377,10 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- KPIs funil -->
   <div class="kgrid-4">
-    <div class="kcard"><div class="klabel">MQL</div><div class="kval g">948</div><div class="ksub m">leads qualificados</div></div>
-    <div class="kcard"><div class="klabel">SAL</div><div class="kval">766</div><div class="ksub g">81% de MQL → SAL</div></div>
-    <div class="kcard"><div class="klabel">Oportunidade</div><div class="kval">253</div><div class="ksub m">~33% de SAL → OPP</div></div>
-    <div class="kcard"><div class="klabel">Ganho (Won)</div><div class="kval y">23</div><div class="ksub m">~9% de OPP → Won</div></div>
+    <div class="kcard"><div class="klabel">MQL Instagram</div><div class="kval g">1.020</div><div class="ksub m">01–09/03 · 113/dia</div></div>
+    <div class="kcard"><div class="klabel">MQL Total (todos canais)</div><div class="kval">6.322</div><div class="ksub g">Instagram = 16% do total</div></div>
+    <div class="kcard"><div class="klabel">Projeção mês</div><div class="kval y">~3.503</div><div class="ksub m">113/dia × 31d · meta: 3.800</div></div>
+    <div class="kcard"><div class="klabel">Gap para meta</div><div class="kval" style="color:#f97316">297</div><div class="ksub m">precisa +14% de ritmo</div></div>
   </div>
 
   <!-- Funil visual -->
@@ -396,7 +396,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="cgrid">
     <div class="ccard">
       <div class="ctitle">MQL diário — Social</div>
-      <div class="csub">01/03 a 06/03/2026</div>
+      <div class="csub">01/03 a 09/03/2026</div>
       <div class="cwrap"><canvas id="ch-mql-daily-2"></canvas></div>
     </div>
     <div class="ccard">
