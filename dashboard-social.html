@@ -646,27 +646,28 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Ranking + tabela detalhada -->
   <div class="tcard">
-    <div class="thead-row"><span>Detalhamento por canal</span><span class="sub">snapshot 06/03/2026</span></div>
+    <div class="thead-row"><span>Detalhamento por canal</span><span class="sub">01–09/03/2026 · posts únicos por data de publicação</span></div>
     <table>
-      <thead><tr><th>Canal</th><th>Alcance</th><th>Likes</th><th>Follows</th><th>Posts</th><th>Alcance/post</th></tr></thead>
+      <thead><tr><th>Canal</th><th>Alcance</th><th>Likes</th><th>Posts Feed</th><th>Stories</th><th>Total</th><th>Alcance/post feed</th></tr></thead>
       <tbody>
-        <tr><td><strong>Tallis Gomes</strong></td><td class="g">788.109</td><td>81.821</td><td>306</td><td>144</td><td class="g">5.473</td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td>316.962</td><td>11.554</td><td>87</td><td>179</td><td class="y">1.770</td></tr>
-        <tr><td><strong>G4 Educação</strong></td><td>93.149</td><td>1.413</td><td>11</td><td>102</td><td>914</td></tr>
-        <tr><td><strong>Bruno Nardon</strong></td><td>29.104</td><td>1.259</td><td>34</td><td>71</td><td>410</td></tr>
-        <tr><td><strong>G4 Skills</strong></td><td>27.441</td><td>85</td><td>0</td><td>47</td><td>584</td></tr>
-        <tr><td><strong>G4 Club</strong></td><td>16.758</td><td>431</td><td>38</td><td>38</td><td>441</td></tr>
-        <tr><td><strong>G4 Scale</strong></td><td class="r">1.912</td><td>72</td><td>3</td><td>32</td><td class="r">60</td></tr>
-        <tr class="total-row"><td>TOTAL</td><td class="g">1.273.435</td><td>96.635</td><td>479</td><td>613</td><td>2.077</td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td class="g">788.109</td><td>81.821</td><td>36</td><td>117</td><td>153</td><td class="g">21.892</td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td>316.962</td><td>11.554</td><td>49</td><td>179</td><td>228</td><td class="y">6.469</td></tr>
+        <tr><td><strong>G4 Educação</strong></td><td>93.149</td><td>1.413</td><td>29</td><td>138</td><td>167</td><td>3.212</td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td>29.104</td><td>1.259</td><td>20</td><td>61</td><td>81</td><td>1.455</td></tr>
+        <tr><td><strong>G4 Skills</strong></td><td>27.441</td><td>85</td><td>11</td><td>14</td><td>25</td><td>2.494</td></tr>
+        <tr><td><strong>G4 Club</strong></td><td>16.758</td><td>431</td><td>10</td><td>26</td><td>36</td><td>1.676</td></tr>
+        <tr><td><strong>G4 Scale</strong></td><td class="r">1.912</td><td>72</td><td>11</td><td>9</td><td>20</td><td class="r">174</td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">1.273.435</td><td>96.635</td><td class="g">166</td><td class="g">544</td><td class="g">710</td><td>7.671</td></tr>
       </tbody>
     </table>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Metodologia: COUNT(DISTINCT media_id) WHERE DATE(created_at) >= '2026-03-01'. Versão anterior contava rows de data_ref (múltiplas por post) — corrigido.</div>
   </div>
 
   <!-- Formatos -->
   <div class="fmt-grid">
-    <div class="fmt-card"><div class="fmt-icon">📸</div><div class="fmt-label">Feed</div><div class="fmt-val g">1,11M</div><div class="fmt-sub">422 posts · 87%</div></div>
-    <div class="fmt-card"><div class="fmt-icon">🎬</div><div class="fmt-label">Reels</div><div class="fmt-val">171k</div><div class="fmt-sub">193 posts · 13%</div></div>
-    <div class="fmt-card"><div class="fmt-icon">⏱</div><div class="fmt-label">Stories</div><div class="fmt-val m">186k</div><div class="fmt-sub">múltiplos canais</div></div>
+    <div class="fmt-card"><div class="fmt-icon">📸</div><div class="fmt-label">Feed + Reels</div><div class="fmt-val g">1,11M</div><div class="fmt-sub">166 posts únicos</div></div>
+    <div class="fmt-card"><div class="fmt-icon">⏱</div><div class="fmt-label">Stories</div><div class="fmt-val m">544 únicos</div><div class="fmt-sub">todos os canais</div></div>
+    <div class="fmt-card"><div class="fmt-icon">🎬</div><div class="fmt-label">Total</div><div class="fmt-val">710</div><div class="fmt-sub">feed + stories · 01–09/03</div></div>
   </div>
 
 </div>
