@@ -348,23 +348,21 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Tabela de correlação alcance x MQL por canal -->
   <div class="tcard">
-    <div class="thead-row"><span>Correlação Alcance × MQL por canal</span><span class="sub">snapshot 01–06/03 (alcance e MQL)</span></div>
+    <div class="thead-row"><span>MQL e SAL por canal — 01–06/03</span><span class="sub">Databricks · latência ~3 dias · total MQL painel = 948</span></div>
     <table>
       <thead><tr>
-        <th>Canal</th><th>MQLs</th><th>% MQL total</th><th>Alcance</th><th>Taxa conv.</th><th>Ação recomendada</th>
+        <th>Canal</th><th>MQL</th><th>SAL</th><th>Conv. MQL→SAL</th><th>OPP</th><th>Won</th><th>Alcance (09/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>Form G4 Instagram G4</strong></td><td class="g">224</td><td>33%</td><td class="m">129k</td><td class="g">0,17%</td><td><span class="pill g">Escalar</span></td></tr>
-        <tr><td><strong>Form G4 Incompleto Inst.</strong></td><td>137</td><td>20%</td><td class="m">—</td><td class="m">—</td><td><span class="pill y">Otimizar form</span></td></tr>
-        <tr><td><strong>Form G4 Instagram Tallis</strong></td><td>88</td><td>13%</td><td class="m">976k</td><td class="r">0,01%</td><td><span class="pill r">Melhorar CTA</span></td></tr>
-        <tr><td><strong>[IM] Social DM</strong></td><td>52</td><td>8%</td><td class="m">—</td><td class="m">—</td><td><span class="pill g">Escalar DM</span></td></tr>
-        <tr><td><strong>Form G4 - K Instagram</strong></td><td>51</td><td>8%</td><td class="m">—</td><td class="m">—</td><td><span class="pill a">Monitorar</span></td></tr>
-        <tr><td><strong>Form G4 Instagram Alfredo</strong></td><td>17</td><td>3%</td><td class="m">361k</td><td class="r">0,005%</td><td><span class="pill r">Melhorar CTA</span></td></tr>
-        <tr><td><strong>Form G4 Instagram Nardon</strong></td><td>18</td><td>3%</td><td class="m">66k</td><td class="y">0,03%</td><td><span class="pill y">Testar CTA</span></td></tr>
-        <tr><td><strong>Outros Social</strong></td><td>90</td><td>13%</td><td class="m">—</td><td class="m">—</td><td><span class="pill m">—</span></td></tr>
-        <tr class="total-row"><td>TOTAL Social</td><td class="g">677</td><td>100%</td><td class="g">11,6M</td><td>0,006%</td><td></td></tr>
+        <tr><td><strong>G4</strong></td><td class="g">224</td><td class="g">207</td><td class="g">92%</td><td>77</td><td class="g">12</td><td class="m">1,33M</td><td><span class="pill g">Escalar</span></td></tr>
+        <tr><td><strong>Tallis</strong></td><td>88</td><td>77</td><td class="y">88%</td><td>28</td><td>1</td><td class="m">5,65M</td><td><span class="pill r">Melhorar CTA</span></td></tr>
+        <tr><td><strong>Nardon</strong></td><td>20</td><td>17</td><td class="y">85%</td><td>5</td><td>1</td><td class="m">584k</td><td><span class="pill y">Testar CTA</span></td></tr>
+        <tr><td><strong>Alfredo</strong></td><td>17</td><td>19</td><td class="g">112%*</td><td>6</td><td>0</td><td class="m">3,44M</td><td><span class="pill r">Melhorar CTA</span></td></tr>
+        <tr><td><strong>Outros / Incompleto</strong></td><td>328</td><td>255</td><td class="y">78%</td><td>72</td><td>3</td><td class="m">—</td><td><span class="pill y">Otimizar UTM</span></td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">677</td><td class="g">575</td><td class="g">85%</td><td>188</td><td>17</td><td class="g">16,8M</td><td></td></tr>
       </tbody>
     </table>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">* SAL > MQL em Alfredo indica SALs de leads gerados antes do período. Total MQL painel (948) inclui 07–09/03, ainda não processados no Databricks.</div>
   </div>
 
 </div>
@@ -416,27 +414,25 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Tabela por canal -->
   <div class="tcard">
-    <div class="thead-row"><span>MQL por canal — março vs fevereiro</span><span class="sub">Social Media</span></div>
+    <div class="thead-row"><span>MQL e SAL por canal — março vs fevereiro</span><span class="sub">Social Media · Databricks 01–06/03</span></div>
     <table>
-      <thead><tr><th>Canal</th><th>Mar/26 (6 dias)</th><th>Fev/26 (28 dias)</th><th>Média/dia Mar</th><th>Média/dia Fev</th><th>Tendência</th></tr></thead>
+      <thead><tr><th>Canal</th><th>MQL Mar</th><th>SAL Mar</th><th>Conv. MQL→SAL</th><th>MQL Fev</th><th>Média/dia Mar</th><th>Média/dia Fev</th><th>Tendência</th></tr></thead>
       <tbody>
-        <tr><td>Form G4 Instagram G4</td><td class="g">224</td><td>991</td><td class="g">37,3</td><td>35,4</td><td><span class="pill g">+5%</span></td></tr>
-        <tr><td>Form G4 Incompleto Inst.</td><td>137</td><td>744</td><td>22,8</td><td>26,6</td><td><span class="pill r">-14%</span></td></tr>
-        <tr><td>Form G4 Instagram Tallis</td><td>88</td><td>468</td><td>14,7</td><td>16,7</td><td><span class="pill r">-12%</span></td></tr>
-        <tr><td>Form G4 - K Instagram</td><td>51</td><td>315</td><td>8,5</td><td>11,3</td><td><span class="pill r">-25%</span></td></tr>
-        <tr><td>[IM] Social DM</td><td>52</td><td>195</td><td>8,7</td><td>7,0</td><td><span class="pill g">+24%</span></td></tr>
-        <tr><td>Form G4 Instagram Alfredo</td><td>17</td><td>141</td><td>2,8</td><td>5,0</td><td><span class="pill r">-44%</span></td></tr>
-        <tr><td>Form G4 Instagram Outros</td><td>24</td><td>114</td><td>4,0</td><td>4,1</td><td><span class="pill m">Estável</span></td></tr>
-        <tr><td>Form G4 Instagram Nardon</td><td>18</td><td>57</td><td>3,0</td><td>2,0</td><td><span class="pill g">+50%</span></td></tr>
-        <tr><td>[CM] Form G4 - Instagram</td><td>12</td><td>76</td><td>2,0</td><td>2,7</td><td><span class="pill r">-26%</span></td></tr>
-        <tr><td>Outros</td><td>54</td><td>113</td><td>9,0</td><td>4,0</td><td><span class="pill g">+125%</span></td></tr>
-        <tr class="total-row"><td>TOTAL</td><td class="g">677</td><td>3.214</td><td class="g">112,8</td><td>114,8</td><td><span class="pill y">-2%</span></td></tr>
+        <tr><td><strong>G4 Instagram</strong></td><td class="g">224</td><td class="g">207</td><td class="g">92%</td><td>991</td><td class="g">37,3</td><td>35,4</td><td><span class="pill g">+5%</span></td></tr>
+        <tr><td><strong>Tallis</strong></td><td>88</td><td>77</td><td class="y">88%</td><td>468</td><td>14,7</td><td>16,7</td><td><span class="pill r">-12%</span></td></tr>
+        <tr><td><strong>Social DM</strong></td><td>52</td><td>—</td><td class="m">—</td><td>195</td><td>8,7</td><td>7,0</td><td><span class="pill g">+24%</span></td></tr>
+        <tr><td><strong>K Instagram</strong></td><td>51</td><td>—</td><td class="m">—</td><td>315</td><td>8,5</td><td>11,3</td><td><span class="pill r">-25%</span></td></tr>
+        <tr><td><strong>Nardon</strong></td><td>20</td><td>17</td><td class="y">85%</td><td>57</td><td>3,3</td><td>2,0</td><td><span class="pill g">+65%</span></td></tr>
+        <tr><td><strong>Alfredo</strong></td><td>17</td><td>19</td><td class="g">112%*</td><td>141</td><td>2,8</td><td>5,0</td><td><span class="pill r">-44%</span></td></tr>
+        <tr><td><strong>Outros / Incompleto</strong></td><td>225</td><td>255</td><td class="m">—</td><td>1.047</td><td>37,5</td><td>37,4</td><td><span class="pill m">Estável</span></td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">677</td><td class="g">575</td><td class="g">85%</td><td>3.214</td><td class="g">112,8</td><td>114,8</td><td><span class="pill y">-2%</span></td></tr>
       </tbody>
     </table>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">* SAL > MQL em Alfredo reflete SALs de leads gerados antes do período filtrado. Total MQL painel (948) inclui 07–09/03.</div>
   </div>
 
   <div class="nota ok">
-    <strong>Destaque:</strong> [IM] Social DM cresceu +34% na média diária. Form G4 Instagram G4 cresceu +14%. Form G4 Instagram Nardon cresceu +60% (base pequena, mas sinal positivo). Alfredo caiu -32% — canal com maior alcance mas menor conversão.
+    <strong>Destaque:</strong> G4 tem a melhor conversão MQL→SAL (92%) e lidera MQL por canal. Nardon cresceu +65% na média diária — canal com mais momentum. Alfredo caiu -44% em MQL apesar de ter 3,4M de alcance acumulado — baixíssima taxa de conversão. Social DM cresceu +24% — canal direto com alto potencial.
   </div>
 
   <!-- MQL por Perfil ABC -->
