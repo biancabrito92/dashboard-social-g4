@@ -716,6 +716,306 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="nota info" style="margin-top:8px">
     <strong>Padrão stories:</strong> Tallis e Alfredo dominam alcance (20–30k). Alfredo tem os melhores dados de tap_forward (13–55%), indicando conteúdo que retém a audiência dentro do story. Nardon lidera em tap_forward rate (72–78%) — stories de IA têm altíssimo engajamento sequencial. G4 tem tap_exit mais alto (6%) — stories institucionais sem narrativa fazem a audiência sair.
   </div>
+
+  <!-- ===== INSIGHTS DE STORIES POR CANAL ===== -->
+<div class="stitle" style="margin-top:28px">Insights de Stories por Canal — 01/03 a 09/03/2026</div>
+<div class="nota" style="margin-bottom:18px">Dados: 544 stories únicos publicados. Métricas: alcance médio, tap forward (retenção), tap exit (atrito), replies e story killers. Fonte: <code>g4_social_media</code> via Databricks.</div>
+
+<!-- Resumo comparativo -->
+<div class="tcard" style="margin-bottom:20px">
+  <div class="thead-row"><span>Comparativo por canal</span><span class="sub">métricas médias por story · 01–09/03/2026</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th>Stories</th>
+        <th>Alcance médio</th>
+        <th>Tap Forward ↑</th>
+        <th>Tap Exit ↓</th>
+        <th>Replies</th>
+        <th>Story Killers</th>
+        <th>% Killers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:#eab308;font-weight:600">Tallis</td>
+        <td>117</td>
+        <td class="g"><strong>14.833</strong></td>
+        <td class="y">67,7%</td>
+        <td class="g">5,5%</td>
+        <td class="g">475</td>
+        <td>9</td>
+        <td class="y">7,7%</td>
+      </tr>
+      <tr>
+        <td style="color:#3b82f6;font-weight:600">Alfredo</td>
+        <td>179</td>
+        <td class="g">5.645</td>
+        <td class="g"><strong>69,1%</strong></td>
+        <td class="g"><strong>5,0%</strong></td>
+        <td>298</td>
+        <td>9</td>
+        <td class="g">5,0%</td>
+      </tr>
+      <tr>
+        <td style="color:#6366f1;font-weight:600">G4</td>
+        <td>138</td>
+        <td>2.885</td>
+        <td class="g">76,5%</td>
+        <td class="y">6,1%</td>
+        <td>52</td>
+        <td>8</td>
+        <td class="y">5,8%</td>
+      </tr>
+      <tr>
+        <td style="color:#64748b;font-weight:600">Nardon</td>
+        <td>61</td>
+        <td>1.936</td>
+        <td>67,1%</td>
+        <td class="y">6,0%</td>
+        <td>51</td>
+        <td>7</td>
+        <td class="r">11,5%</td>
+      </tr>
+      <tr>
+        <td style="color:#a855f7;font-weight:600">G4 Club</td>
+        <td>26</td>
+        <td>982</td>
+        <td class="y">62,2%</td>
+        <td class="y">5,6%</td>
+        <td>4</td>
+        <td>2</td>
+        <td class="y">7,7%</td>
+      </tr>
+      <tr>
+        <td style="color:#22c55e;font-weight:600">G4 Skills</td>
+        <td>14</td>
+        <td>932</td>
+        <td class="g">68,5%</td>
+        <td class="g">4,2%</td>
+        <td class="g">15</td>
+        <td>2</td>
+        <td class="r">14,3%</td>
+      </tr>
+      <tr>
+        <td style="color:#f97316;font-weight:600">G4 Scale</td>
+        <td>9</td>
+        <td class="r">319</td>
+        <td>71,0%</td>
+        <td class="y">6,0%</td>
+        <td>0</td>
+        <td>1</td>
+        <td class="r">11,1%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Cards de insight por canal -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+
+  <!-- TALLIS -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#eab308">Tallis Gomes</span>
+      <span class="pill" style="background:rgba(234,179,8,.15);color:#eab308">117 stories · 14,8k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>Maior alcance absoluto do portfólio — <strong>14.833 por story</strong>, 2,6x acima de Alfredo</li>
+        <li>Video domina os tops (STORY_VIDEO com 15.249 vs imagem 14.500) — mas ambos performam bem</li>
+        <li><strong>475 replies</strong> no período — Tallis é o canal que mais gera conversa nos stories</li>
+        <li>Melhor dia: <strong>Quarta (19.809 alcance médio)</strong> e Segunda (17.667) — stories no meio da semana têm audiência maior</li>
+        <li>Posições 3–7 da sequência têm alcance elevado — sequências longas funcionam para esta audiência</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>9 story killers (7,7%)</strong> — posição média 3,9, ou seja, o abandono acontece cedo nas sequências</li>
+        <li>Tap forward 67,7% — abaixo do G4 (76,5%), indicando que parte da audiência pula sem consumir</li>
+        <li>Quinta-feira tem queda expressiva (10.555 alcance) — evitar lançar conteúdo estratégico às quintas</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Identificar os 9 killers — qual tipo de story (formato, tema, posição) causa abandono? Eliminar ou reposicionar</li>
+        <li>Testar CTA de DM nos stories de maior alcance — 475 replies provam que a audiência responde</li>
+        <li>Concentrar stories com CTA de lead em <strong>quarta e segunda</strong> (pico de alcance)</li>
+        <li>Manter sequências de 6–10 stories — a audiência engajada consome cadeias longas</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ALFREDO -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#3b82f6">Alfredo Soares</span>
+      <span class="pill" style="background:rgba(59,130,246,.15);color:#3b82f6">179 stories · 5,6k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Menor exit rate do portfólio (5,0%)</strong> — audiência mais fiel, abandona menos</li>
+        <li>Imagem performa melhor que vídeo em retenção (forward 72,7% vs 66,5%) — audiência prefere ler</li>
+        <li>Posição 9 da sequência tem pico de alcance (8.479) — stories publicados no final do dia têm mais visibilidade</li>
+        <li>Domingo lidera alcance (6.338) — audiência de Alfredo consome mais conteúdo no fim de semana</li>
+        <li>Sequências longas (até 30 stories por dia) — Alfredo posta mais que qualquer outro canal</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>9 killers mas em posição média 8,1 — o problema surge <strong>no meio das sequências longas</strong></li>
+        <li>Quinta-feira (2.968 alcance) — pior dia, queda de 65% vs quarta (8.330)</li>
+        <li>Volume alto (179 stories) pode diluir qualidade — checar se menos stories melhorariam alcance por story</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Mapear o conteúdo na posição 9 das sequências — o que está gerando pico de alcance? Replicar esse padrão</li>
+        <li>Testar reduzir volume nos dias de menor alcance (quinta) para não desperdiçar conteúdo bom</li>
+        <li>Priorizar <strong>imagens sobre vídeos</strong> nos stories — forward rate 6pp maior indica melhor retenção</li>
+        <li>Usar domingo para stories com CTA mais direto — maior alcance + menor exit rate = janela ideal</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- G4 -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#6366f1">G4 Educação</span>
+      <span class="pill" style="background:rgba(99,102,241,.15);color:#6366f1">138 stories · 2,9k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Maior tap forward do portfólio (76,5%)</strong> — quando a audiência começa, ela avança. Conteúdo sequencial eficiente</li>
+        <li>Video performa melhor que imagem (3.045 vs 2.629 alcance) — reels e vídeos curtos atraem mais no perfil institucional</li>
+        <li>Sábado (4.073) e Domingo (3.754) são os melhores dias — audiência B2B mais atenta no fim de semana</li>
+        <li>Sequência com até 8+ posições mantém alcance razoavelmente estável (2.373 na posição 8)</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Exit rate 6,1%</strong> — o mais alto entre os principais canais. Stories sem narrativa fazem a audiência sair</li>
+        <li>8 killers em posição média 9,8 — o abandono acontece <strong>nas últimas posições das sequências</strong></li>
+        <li>Quinta-feira (1.781) = queda de 57% vs sábado — evitar stories de conversão às quintas</li>
+        <li>Alcance por story 5x menor que Tallis — oportunidade de melhoria na qualidade do conteúdo</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Reduzir sequências longas</strong> — os killers estão na posição ~10. Manter sequências de no máximo 8 stories</li>
+        <li>Substituir stories institucionais sem CTA por stories com narrativa curta (4–5 stories com gancho)</li>
+        <li>Testar stories de case/número (<em>"essa empresa faturou X fazendo isso"</em>) — formato que mais converte no feed G4</li>
+        <li>Concentrar CTA de lead nos stories de <strong>sábado e domingo</strong> — pico de alcance e audiência mais engajada</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NARDON -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#64748b">Bruno Nardon</span>
+      <span class="pill" style="background:rgba(100,116,139,.15);color:#94a3b8">61 stories · 1,9k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Sábado (7.861 alcance)</strong> — pico isolado 3x acima da média. 03/07 foi excepcional (Bruno postou algo que viralizou)</li>
+        <li>Imagem supera vídeo (2.317 vs 1.154) — audiência de Nardon prefere conteúdo para ler/refletir</li>
+        <li>Menor volume (61 stories) mas <strong>51 replies</strong> — alta proporção de engajamento real por story</li>
+        <li>Posição 1 gera mais alcance (3.425) — o primeiro story da sequência define se a audiência vai seguir</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>11,5% de story killers</strong> — maior taxa dos canais principais. 7 killers em posição média 3,3</li>
+        <li>Exit rate 6% nas posições avançadas — sequências longas perdem a audiência rapidamente após a posição 4</li>
+        <li>Terça-feira (854 alcance) — quase sem alcance. Nardon quase não publicou na terça (13 stories mas baixíssimo alcance)</li>
+        <li>Alcance geral baixo — Nardon posta menos e o alcance de stories é o menor dos founders</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Investigar o conteúdo de sábado 07/03</strong> — 7.861 alcance é 4x a média. Qual foi o tema/formato? Replicar</li>
+        <li>Limitar sequências a <strong>máximo 4–5 stories</strong> — os killers aparecem na posição 3,3, audiência abandona cedo</li>
+        <li>Priorizar imagens sobre vídeos — forward rate e alcance são melhores em imagem para este canal</li>
+        <li>Aumentar frequência: menos de 8 stories/dia numa semana inteira. O feed tem save rate altíssimo — a audiência quer mais conteúdo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- G4 SKILLS + G4 SCALE (lado a lado) -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#22c55e">G4 Skills</span>
+      <span class="pill" style="background:rgba(34,197,94,.15);color:#22c55e">14 stories · 932 alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Exit rate mais baixo (4,2%)</strong> — audiência muito engajada quando consome. Melhor retenção do portfólio</li>
+        <li>15 replies em 14 stories — ratio de 1,07 reply/story, o mais alto. Audiência responde ativamente</li>
+        <li>Vídeos têm forward rate maior (78% vs 64%) — vídeo funciona melhor que imagem neste perfil</li>
+        <li><strong>14,3% de killers</strong> — volume baixo mas proporção alta. 2 stories causaram abandono</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Volume muito baixo (14 stories em 9 dias) — aumentar consistência para capturar mais alcance</li>
+        <li>Focar em vídeos curtos — forward rate 78% indica que a audiência engaja mais com movimento</li>
+        <li>Usar os replies como sinal de produto — a audiência está dizendo o que quer. Perguntar diretamente sobre cursos via sticker de pergunta</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#f97316">G4 Scale</span>
+      <span class="pill" style="background:rgba(249,115,22,.15);color:#f97316">9 stories · 319 alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>Apenas <strong>9 stories em 1 dia (06/03)</strong> — ausência quase total de stories no mês</li>
+        <li>Alcance de 319 por story — o mais baixo do portfólio por largo margem</li>
+        <li>Forward rate 71% razoável mas sem replies (0) — sem engajamento real</li>
+        <li>11,1% de killers com apenas 9 stories — 1 story causou abandono em 9</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Prioridade: ativar stories diários no G4 Scale</strong> — é o canal com maior gap entre potencial e execução</li>
+        <li>Usar stories para aquecimento de leads do programa — sticker de pergunta, countdown de abertura de turma</li>
+        <li>Replicar formato de stories de cases do feed G4 — o que funciona em feed pode funcionar em stories sequenciais</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Diagnóstico consolidado e acionáveis estratégicos -->
+<div class="tcard" style="padding:20px 22px;margin-bottom:20px">
+  <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Diagnóstico estratégico — stories · Março/26</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:12px;line-height:1.7">
+    <div>
+      <div style="font-weight:700;color:#22c55e;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">O que escalar</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>G4 instit. no fim de semana</strong> — sábado e domingo têm 30–50% mais alcance. Programar stories com CTA nesses dias</li>
+        <li><strong>Alfredo imagem + copy</strong> — melhor exit rate + segundo maior volume de replies. Formato que retém</li>
+        <li><strong>Sequências de 4–8 stories</strong> — dados mostram queda acelerada de retenção após posição 10 em todos os canais</li>
+        <li><strong>Stories com pergunta (sticker)</strong> — replies são o sinal mais claro de intenção. G4 Skills tem 1 reply/story</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#ef4444;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">O que parar/reduzir</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>Sequências longas no G4 e Nardon</strong> — killers aparecem na posição 9–10 (G4) e 3–4 (Nardon)</li>
+        <li><strong>Stories de quinta-feira em Alfredo/G4</strong> — alcance 40–60% menor que a média semanal</li>
+        <li><strong>Volume alto sem estratégia no G4</strong> — 138 stories com exit rate de 6% = muito conteúdo que a audiência abandona</li>
+        <li><strong>Stories de vídeo no Nardon</strong> — imagem 2x mais alcance que vídeo neste canal</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#eab308;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Investigar esta semana</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>Nardon sábado 07/03</strong> — 7.861 alcance vs média de 1.936. O que foi postado? Replicar formato/tema</li>
+        <li><strong>Alfredo posição 9 na sequência</strong> — pico de 8.479 alcance nesta posição específica. Analisar o conteúdo</li>
+        <li><strong>Tallis 9 story killers posição 3,9</strong> — qual tipo de conteúdo causa abandono no início das sequências?</li>
+        <li><strong>G4 Scale ativação</strong> — zero stories em 8 de 9 dias. Qual é o bloqueio operacional?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <div class="footer">
