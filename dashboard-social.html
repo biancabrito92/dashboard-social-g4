@@ -233,6 +233,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="tab"         onclick="showTab('receita',this)">Potencial de Receita</div>
   <div class="tab"         onclick="showTab('midia',this)">Mídia Orgânica</div>
   <div class="tab"         onclick="showTab('posts',this)">Top Posts</div>
+  <div class="tab"         onclick="showTab('plano',this)" style="color:#22c55e;font-weight:700">Plano de Ação MQL</div>
 </div>
 
 <!-- ============================= OVERVIEW ============================= -->
@@ -1018,6 +1019,198 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
 </div>
 
+<!-- ============================= PLANO DE AÇÃO MQL ============================= -->
+<div class="pane" id="pane-plano">
+
+  <div class="stitle">Plano de Ação — Crescimento de MQL · Março 2026</div>
+  <div class="nota" style="margin-bottom:22px">
+    Base: 948 MQL em 9 dias (01–09/03). Meta do mês: 3.800. Ritmo atual projeta <strong>~3.255 MQL</strong> — gap de <strong>545 MQL</strong> para bater a meta. Os planos abaixo são baseados nos dados reais de funil, mídia e stories do Databricks.
+  </div>
+
+  <!-- DIAGNÓSTICO RÁPIDO -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #6366f1">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Gap para meta</div>
+      <div style="font-size:26px;font-weight:800;color:#ef4444">545</div>
+      <div style="font-size:11px;color:var(--muted)">MQL faltando no mês</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #22c55e">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Melhor canal</div>
+      <div style="font-size:22px;font-weight:800;color:#22c55e">G4 Inst.</div>
+      <div style="font-size:11px;color:var(--muted)">224 MQL · conv. 92%</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #eab308">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Pico de conversão</div>
+      <div style="font-size:22px;font-weight:800;color:#eab308">21h–22h</div>
+      <div style="font-size:11px;color:var(--muted)">550–511 MQL nessa janela</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #3b82f6">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Maior oportunidade</div>
+      <div style="font-size:22px;font-weight:800;color:#3b82f6">Alfredo</div>
+      <div style="font-size:11px;color:var(--muted)">3,4M alcance · só 17 MQL</div>
+    </div>
+  </div>
+
+  <!-- PLANOS NUMERADOS -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+
+    <!-- PLANO 1 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #22c55e">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:16px">1</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Ativar o "horário nobre" do Instagram — posts entre 20h e 22h</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#22c55e">+80–120 MQL/mês</strong> · Esforço: baixo · Prazo: esta semana</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> O pico de MQL acontece às 21h (550 leads) e 22h (511 leads) — 19% de toda geração de leads concentrada em 2 horas. Atualmente os posts saem sem considerar esse horário.<br>
+            <strong>Ação:</strong> Programar os posts de maior potencial de conversão (carrosseis G4, posts de Alfredo com CTA) para publicação entre 20h30 e 21h30. Segunda, quarta e quinta são os dias de maior volume de MQL — priorizar nesses dias.<br>
+            <strong>Como medir:</strong> Comparar MQL do dia seguinte vs média dos últimos 7 dias. Esperar 2 semanas para concluir teste.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 2 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #6366f1">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">2</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Dobrar frequência de carrosseis no G4 Institucional — o canal com melhor conversão</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#6366f1">+150–200 MQL/mês</strong> · Esforço: médio · Prazo: semana que vem</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> G4 Inst. tem a melhor taxa alcance→MQL do portfólio (0,22%). Posts de case empresarial (New Balance, McDonald's, Tupperware) dominam os top 5 com 52k–165k de alcance. Cada 100k de alcance no G4 Inst. gera ~220 MQL.<br>
+            <strong>Ação:</strong> Aumentar de ~3 para 5–6 carrosseis/semana no G4 com o formato "Como [empresa conhecida] fez [algo surpreendente]?". Priorizar cases de empresas brasileiras (post da marca nacional gerou 52k reach).<br>
+            <strong>Repertório de temas:</strong> Nubank, iFood, Ambev, Magalu, Localfrio, XP — marcas brasileiras que o público conhece e admira.<br>
+            <strong>Como medir:</strong> Tracking semanal de MQL por canal. Se G4 Inst. subir de 224 para 300+/semana, o formato está funcionando.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 3 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #3b82f6">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">3</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Desbloquear Alfredo — 3,4M de alcance convertendo só 17 MQL é a maior ineficiência do portfólio</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#3b82f6">+100–180 MQL/mês</strong> · Esforço: médio · Prazo: 10 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Alfredo tem 3,44M de alcance (2º maior do portfólio) mas gera apenas 17 MQL — ratio de 0,0005%, 440x pior que o G4 Inst. A audiência é massiva mas não está sendo direcionada para o funil.<br>
+            <strong>Diagnóstico:</strong> Posts do Alfredo têm CTA de engajamento ("O que você acha?", "Salva esse post") mas não CTA de formulário. A bio provavelmente não está otimizada para captura.<br>
+            <strong>Ações imediatas:</strong><br>
+            — Adicionar CTA de formulário em <em>pelo menos 2 posts/semana</em> ("Se você quer [resultado], link na bio")<br>
+            — Testar um story com link direto para o formulário CTA nos dias de maior alcance (quarta, domingo)<br>
+            — Adicionar sticker de link nos stories com swipe-up para o form<br>
+            — Revisar bio: "Acesso antecipado ao programa →" com link direto<br>
+            <strong>Como medir:</strong> Comparar MQL Alfredo semana a semana. Meta: passar de 17 para 60+ MQL até fim de março.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 4 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #eab308">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#eab308;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:16px">4</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Usar Tallis como máquina de tráfego para o G4 — post-ponte entre os canais</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#eab308">+80–150 MQL/mês</strong> · Esforço: baixo · Prazo: esta semana</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Tallis tem o maior alcance absoluto (492k num post, média 14k em stories) e gera 88 MQL — mas a conversão alcance→MQL é 0,01%, a mais baixa dos founders. A audiência é enorme mas não está entrando no funil.<br>
+            <strong>Ação:</strong> Criar "stories de ponte" — Tallis faz story mencionando um case do G4 e manda para o @g4.business ver o carrossel completo. Isso transfere audiência qualificada do Tallis para o canal de maior conversão.<br>
+            <strong>Formato testado:</strong> "Publiquei um case sobre isso no @g4.business — vai lá ver o carrossel completo" + sticker de link. Top posts do Tallis têm 200k–490k reach: se 1% visitar o G4 e 0,22% converter = 440–1.078 MQL potenciais.<br>
+            <strong>Como medir:</strong> Rastrear pico de MQL no G4 Inst. no dia após o story de ponte do Tallis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 5 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #64748b">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#64748b;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">5</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Nardon como canal de qualidade — save rate de 3,8% indica audiência de founder. Aumentar frequência e CTA.</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#94a3b8">+40–70 MQL/mês</strong> · Esforço: baixo · Prazo: 7 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Nardon tem save rate de 3,8% no top carrossel (Anthropic/IA) — o melhor do portfólio. Salvar é o sinal mais forte de intenção de compra futura. Mas gera apenas 20 MQL — porque publica pouco e sem CTA.<br>
+            <strong>Ação:</strong> Nardon publica ~20 posts/mês. Dobrar para 35–40 e inserir CTA em 30% dos posts. Perfil de audiência que salva carrossel de gestão/IA tem alto potencial para o CTA.<br>
+            <strong>Temas que convertem:</strong> "Como estruturo minha semana como CEO", "O ritual que uso antes de cada decisão grande", "O que aprendi fundando a Kanui" — conteúdo de método, não opinião.<br>
+            <strong>Como medir:</strong> Nardon está gerando 20 MQL/9 dias. Meta: 60+ MQL até fim do mês com aumento de frequência.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 6 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #a855f7">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#a855f7;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">6</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Criar "semana temática de conversão" — 5 dias de conteúdo encadeado com CTA progressivo</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#a855f7">+120–200 MQL em 1 semana</strong> · Esforço: alto · Prazo: planejar esta semana, executar semana de 16/03</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>Conceito:</strong> Uma semana onde todos os canais trabalham o mesmo tema com CTAs que escalam em urgência. Funciona porque os dados mostram que o lead converte em múltiplos touchpoints — não num post único.<br>
+            <strong>Estrutura (tema: "Gestão que gera resultado"):</strong><br>
+            — <strong>Segunda:</strong> G4 lança carrossel de case ("Como a Ambev treina gestores") + Nardon faz story de bastidores<br>
+            — <strong>Terça:</strong> Alfredo post com opinião ("Por que a maioria dos gestores nunca escala") + CTA "link na bio"<br>
+            — <strong>Quarta (pico de MQL):</strong> Tallis carrossel de alta performance + story de ponte para o G4 + Nardon story com pergunta (sticker)<br>
+            — <strong>Quinta:</strong> G4 stories com depoimento de aluno + CTA de inscrição<br>
+            — <strong>Sexta/Sábado:</strong> Alfredo/Nardon: urgência ("Últimas vagas") + G4: post de fechamento com proof<br>
+            <strong>Como medir:</strong> Tracking de MQL dia a dia durante a semana vs semana anterior. Esperar aumento de 40–60% nos dias centrais (quarta/quinta).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 7 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #f97316">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#f97316;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">7</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Resolver os "Incompletos" — 328 MQL sem canal identificado é budget desperdiçado</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#f97316">+50–80 MQL atribuídos corretamente</strong> · Esforço: baixo · Prazo: 5 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> 328 de 677 MQL (48%) aparecem como "Outros / Incompleto" na tabela de canal. Isso significa que quase metade dos leads não tem UTM ou atribuição correta — impossível otimizar o que não conseguimos medir.<br>
+            <strong>Ação imediata:</strong><br>
+            — Auditar os links da bio de todos os perfis (Tallis, Alfredo, G4, Nardon, Club) — estão com UTM?<br>
+            — Verificar links nos stories com sticker — estão passando parâmetros de fonte?<br>
+            — Padrão de UTM sugerido: <code>?utm_source=instagram&utm_medium=organic&utm_campaign=cta_marco&utm_content=tallis_story</code><br>
+            — Pedir para ops configurar UTM padronizado em todas as campanhas ativas<br>
+            <strong>Por que importa:</strong> Se identificarmos que 100 dos 328 "incompletos" vieram do Tallis, a estratégia muda completamente. Dados limpos = decisões melhores.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESUMO PRIORIZADO -->
+  <div class="tcard" style="padding:20px 22px;margin-top:20px">
+    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Priorização — impacto vs esforço</span><span class="sub">semanas de 10–31/03/2026</span></div>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Ação</th><th>Canal</th><th>MQL potencial</th><th>Esforço</th><th>Prazo</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Publicar posts 20h30–21h30 (horário nobre)</td><td>Todos</td><td class="g">+80–120</td><td><span class="pill g">Baixo</span></td><td>Esta semana</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>2</td><td>Dobrar carrosseis G4 Inst. (5–6/semana)</td><td>G4</td><td class="g">+150–200</td><td><span class="pill y">Médio</span></td><td>Semana que vem</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>3</td><td>UTM + link bio otimizado em todos os canais</td><td>Ops</td><td class="g">+50–80 atribuídos</td><td><span class="pill g">Baixo</span></td><td>5 dias</td><td><span class="pill r">Urgente</span></td></tr>
+        <tr><td>4</td><td>Story de ponte Tallis → G4 (1x/semana)</td><td>Tallis/G4</td><td class="g">+80–150</td><td><span class="pill g">Baixo</span></td><td>Esta semana</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>5</td><td>CTA Alfredo: 2 posts/semana com formulário</td><td>Alfredo</td><td class="g">+100–180</td><td><span class="pill y">Médio</span></td><td>10 dias</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>6</td><td>Aumentar frequência Nardon + CTA em 30%</td><td>Nardon</td><td class="g">+40–70</td><td><span class="pill g">Baixo</span></td><td>7 dias</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>7</td><td>Semana temática de conversão (16–21/03)</td><td>Todos</td><td class="g">+120–200</td><td><span class="pill r">Alto</span></td><td>16/03</td><td><span class="pill m">Planejar</span></td></tr>
+        <tr class="total-row"><td colspan="3"><strong>TOTAL POTENCIAL</strong></td><td class="g"><strong>+620–1.000 MQL</strong></td><td colspan="3" style="font-size:10px;color:var(--muted)">Suficiente para bater e ultrapassar a meta de 3.800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota ok" style="margin-top:16px">
+    <strong>Gap atual:</strong> 545 MQL para bater a meta. Apenas as 4 primeiras ações (horário nobre + G4 + UTM + Tallis ponte) já cobrem o gap se executadas esta semana. A semana temática é o acelerador — pode gerar um sprint de 120–200 MQL numa semana só.
+  </div>
+
+</div>
+
 <div class="footer">
   <span>G4 OS · Social Media Dashboard · Março 2026</span>
   <span>Fontes: funil_marketing (MQL) + g4_social_media (mídia) · ref: 10/03/2026</span>
@@ -1133,7 +1326,7 @@ function dc(id){if(CHS[id]){CHS[id].destroy();delete CHS[id]}}
 
 // ===== TABS =====
 function showTab(n,el){
-  ['overview','mql','receita','midia','posts'].forEach(function(t){
+  ['overview','mql','receita','midia','posts','plano'].forEach(function(t){
     document.getElementById('pane-'+t).classList.toggle('active',t===n);
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
