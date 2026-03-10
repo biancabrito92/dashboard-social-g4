@@ -323,26 +323,27 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   </div>
 
   <!-- Grid 4 canais: alcance diário + MQL -->
-  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 05/03/2026</div>
+  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 09/03/2026</div>
+  <div class="nota warn" style="margin-bottom:12px;padding:8px 14px;font-size:11px">¹ MQL dos dias 07–09/03 ainda não processado no Databricks (latência ~3 dias). Linha MQL aparece só até 06/03. Total real do período: <strong>948 MQL</strong> conforme painel.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
     <div class="ccard">
       <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance (barras) · MQL Social (linha, até 06/03)</div>
       <div class="cwrap"><canvas id="ch-canal-tallis"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#3b82f6">Alfredo Soares</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance (barras) · MQL Social (linha, até 06/03)</div>
       <div class="cwrap"><canvas id="ch-canal-alfredo"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#6366f1">G4 Educação</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance (barras) · MQL Social (linha, até 06/03)</div>
       <div class="cwrap"><canvas id="ch-canal-g4"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#64748b">Bruno Nardon</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance (barras) · MQL Social (linha, até 06/03)</div>
       <div class="cwrap"><canvas id="ch-canal-nardon"></canvas></div>
     </div>
   </div>
@@ -1396,12 +1397,12 @@ function toggleIns(id){
 
 // ===== MINI GRÁFICOS POR CANAL: Alcance × MQL =====
 (function(){
-  // MQL por canal por dia (01-05/03 = 5 dias, alcance tem 6 dias)
+  // MQL por canal por dia — null nos dias 07-09/03 (latência ~3 dias Databricks, dado ainda não processado)
   var MQL_CANAL_DIA = {
-    'Tallis':  [18, 10, 33, 11, 12,  4, 0, 0, 0],
-    'Alfredo': [ 4,  3,  6,  0,  4,  0, 0, 0, 0],
-    'G4':      [30, 37, 59, 44, 39, 15, 0, 0, 0],
-    'Nardon':  [ 2,  3,  7,  2,  4,  2, 0, 0, 0]
+    'Tallis':  [18, 10, 33, 11, 12,  4, null, null, null],
+    'Alfredo': [ 4,  3,  6,  0,  4,  0, null, null, null],
+    'G4':      [30, 37, 59, 44, 39, 15, null, null, null],
+    'Nardon':  [ 2,  3,  7,  2,  4,  2, null, null, null]
   };
   var ALCANCE_5DIAS = {
     'Tallis':  [1083075, 952582, 947460, 662221, 943362, 976426, 682407, 962683, 788106],
@@ -1415,7 +1416,7 @@ function toggleIns(id){
     'G4':      {id:'ch-canal-g4',      cor:'#6366f1', corAlpha:'rgba(99,102,241,.35)'},
     'Nardon':  {id:'ch-canal-nardon',  cor:'#64748b', corAlpha:'rgba(100,116,139,.35)'}
   };
-  var DIAS5 = ['01/03','02/03','03/03','04/03','05/03','06/03','07/03','08/03','09/03'];
+  var DIAS5 = ['01/03','02/03','03/03','04/03','05/03','06/03','07/03¹','08/03¹','09/03¹'];
 
   Object.keys(CANAL_CONFIG).forEach(function(canal){
     var cfg = CANAL_CONFIG[canal];
@@ -1437,7 +1438,7 @@ function toggleIns(id){
             yAxisID: 'yAlcance'
           },
           {
-            label: 'MQL',
+            label: 'MQL (até 06/03)',
             data: MQL_CANAL_DIA[canal],
             type: 'line',
             borderColor: '#f97316',
@@ -1447,6 +1448,7 @@ function toggleIns(id){
             pointRadius: 5,
             tension: 0.3,
             fill: true,
+            spanGaps: false,
             yAxisID: 'yMQL'
           }
         ]
