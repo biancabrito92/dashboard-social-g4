@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- build: 2026-03-10T10:12 -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -233,6 +234,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="tab"         onclick="showTab('receita',this)">Potencial de Receita</div>
   <div class="tab"         onclick="showTab('midia',this)">Mídia Orgânica</div>
   <div class="tab"         onclick="showTab('posts',this)">Top Posts</div>
+  <div class="tab"         onclick="showTab('plano',this)" style="color:#22c55e;font-weight:700">Plano de Ação MQL</div>
 </div>
 
 <!-- ============================= OVERVIEW ============================= -->
@@ -259,12 +261,12 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard">
       <div class="klabel">Posts Feed</div>
-      <div class="kval">765</div>
+      <div class="kval">166</div>
       <div class="ksub m">01–09/03 · feed + reels</div>
     </div>
     <div class="kcard">
       <div class="klabel">Stories</div>
-      <div class="kval">609</div>
+      <div class="kval">544</div>
       <div class="ksub m">01–09/03 · todos canais</div>
     </div>
     <div class="kcard hi">
@@ -322,26 +324,27 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   </div>
 
   <!-- Grid 4 canais: alcance diário + MQL -->
-  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 05/03/2026</div>
+  <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 06/03/2026</div>
+  <div class="nota warn" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>06/03</strong> (latência ~3 dias no Databricks em 10/03). Total real 01–09/03: <strong>948 MQL</strong> conforme painel. Gráfico será atualizado automaticamente quando o dado processar.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
     <div class="ccard">
       <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
       <div class="cwrap"><canvas id="ch-canal-tallis"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#3b82f6">Alfredo Soares</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
       <div class="cwrap"><canvas id="ch-canal-alfredo"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#6366f1">G4 Educação</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
       <div class="cwrap"><canvas id="ch-canal-g4"></canvas></div>
     </div>
     <div class="ccard">
       <div class="ctitle" style="color:#64748b">Bruno Nardon</div>
-      <div class="csub">alcance (barras) × MQL Social (linha)</div>
+      <div class="csub">alcance + MQL · 01–06/03 (último dado Databricks)</div>
       <div class="cwrap"><canvas id="ch-canal-nardon"></canvas></div>
     </div>
   </div>
@@ -582,8 +585,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     <div class="kcard"><div class="klabel">Views / Plays</div><div class="kval g">2,6M</div><div class="ksub m">reels + feed</div></div>
     <div class="kcard"><div class="klabel">Likes</div><div class="kval">96,6k</div><div class="ksub m">todos os canais</div></div>
     <div class="kcard"><div class="klabel">Shares</div><div class="kval">11,5k</div><div class="ksub m">compartilhamentos</div></div>
-    <div class="kcard"><div class="klabel">Posts Feed</div><div class="kval">765</div><div class="ksub m">01–09/03 · feed + reels</div></div>
-    <div class="kcard"><div class="klabel">Stories</div><div class="kval">609</div><div class="ksub m">01–09/03 · todos canais</div></div>
+    <div class="kcard"><div class="klabel">Posts Feed</div><div class="kval">166</div><div class="ksub m">01–09/03 · feed + reels</div></div>
+    <div class="kcard"><div class="klabel">Stories</div><div class="kval">544</div><div class="ksub m">01–09/03 · todos canais</div></div>
   </div>
 
   <!-- Alcance diário POR CANAL — tabela heat map -->
@@ -645,27 +648,28 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Ranking + tabela detalhada -->
   <div class="tcard">
-    <div class="thead-row"><span>Detalhamento por canal</span><span class="sub">snapshot 06/03/2026</span></div>
+    <div class="thead-row"><span>Detalhamento por canal</span><span class="sub">01–09/03/2026 · posts únicos por data de publicação</span></div>
     <table>
-      <thead><tr><th>Canal</th><th>Alcance</th><th>Likes</th><th>Follows</th><th>Posts</th><th>Alcance/post</th></tr></thead>
+      <thead><tr><th>Canal</th><th>Alcance</th><th>Likes</th><th>Posts Feed</th><th>Stories</th><th>Total</th><th>Alcance/post feed</th></tr></thead>
       <tbody>
-        <tr><td><strong>Tallis Gomes</strong></td><td class="g">788.109</td><td>81.821</td><td>306</td><td>144</td><td class="g">5.473</td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td>316.962</td><td>11.554</td><td>87</td><td>179</td><td class="y">1.770</td></tr>
-        <tr><td><strong>G4 Educação</strong></td><td>93.149</td><td>1.413</td><td>11</td><td>102</td><td>914</td></tr>
-        <tr><td><strong>Bruno Nardon</strong></td><td>29.104</td><td>1.259</td><td>34</td><td>71</td><td>410</td></tr>
-        <tr><td><strong>G4 Skills</strong></td><td>27.441</td><td>85</td><td>0</td><td>47</td><td>584</td></tr>
-        <tr><td><strong>G4 Club</strong></td><td>16.758</td><td>431</td><td>38</td><td>38</td><td>441</td></tr>
-        <tr><td><strong>G4 Scale</strong></td><td class="r">1.912</td><td>72</td><td>3</td><td>32</td><td class="r">60</td></tr>
-        <tr class="total-row"><td>TOTAL</td><td class="g">1.273.435</td><td>96.635</td><td>479</td><td>613</td><td>2.077</td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td class="g">788.109</td><td>81.821</td><td>36</td><td>117</td><td>153</td><td class="g">21.892</td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td>316.962</td><td>11.554</td><td>49</td><td>179</td><td>228</td><td class="y">6.469</td></tr>
+        <tr><td><strong>G4 Educação</strong></td><td>93.149</td><td>1.413</td><td>29</td><td>138</td><td>167</td><td>3.212</td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td>29.104</td><td>1.259</td><td>20</td><td>61</td><td>81</td><td>1.455</td></tr>
+        <tr><td><strong>G4 Skills</strong></td><td>27.441</td><td>85</td><td>11</td><td>14</td><td>25</td><td>2.494</td></tr>
+        <tr><td><strong>G4 Club</strong></td><td>16.758</td><td>431</td><td>10</td><td>26</td><td>36</td><td>1.676</td></tr>
+        <tr><td><strong>G4 Scale</strong></td><td class="r">1.912</td><td>72</td><td>11</td><td>9</td><td>20</td><td class="r">174</td></tr>
+        <tr class="total-row"><td>TOTAL</td><td class="g">1.273.435</td><td>96.635</td><td class="g">166</td><td class="g">544</td><td class="g">710</td><td>7.671</td></tr>
       </tbody>
     </table>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Metodologia: COUNT(DISTINCT media_id) WHERE DATE(created_at) >= '2026-03-01'. Versão anterior contava rows de data_ref (múltiplas por post) — corrigido.</div>
   </div>
 
   <!-- Formatos -->
   <div class="fmt-grid">
-    <div class="fmt-card"><div class="fmt-icon">📸</div><div class="fmt-label">Feed</div><div class="fmt-val g">1,11M</div><div class="fmt-sub">422 posts · 87%</div></div>
-    <div class="fmt-card"><div class="fmt-icon">🎬</div><div class="fmt-label">Reels</div><div class="fmt-val">171k</div><div class="fmt-sub">193 posts · 13%</div></div>
-    <div class="fmt-card"><div class="fmt-icon">⏱</div><div class="fmt-label">Stories</div><div class="fmt-val m">186k</div><div class="fmt-sub">múltiplos canais</div></div>
+    <div class="fmt-card"><div class="fmt-icon">📸</div><div class="fmt-label">Feed + Reels</div><div class="fmt-val g">1,11M</div><div class="fmt-sub">166 posts únicos</div></div>
+    <div class="fmt-card"><div class="fmt-icon">⏱</div><div class="fmt-label">Stories</div><div class="fmt-val m">544 únicos</div><div class="fmt-sub">todos os canais</div></div>
+    <div class="fmt-card"><div class="fmt-icon">🎬</div><div class="fmt-label">Total</div><div class="fmt-val">710</div><div class="fmt-sub">feed + stories · 01–09/03</div></div>
   </div>
 
 </div>
@@ -695,7 +699,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="stitle" style="margin-top:24px">Top Stories por canal — 01/03 a 07/03/2026</div>
   <div class="nota" style="margin-bottom:14px">Stories ordenados por alcance. <strong>tap_forward</strong> = audiência avançou (engajada). <strong>tap_exit</strong> = audiência saiu (ponto de atrito).</div>
   <div class="tcard">
-    <div class="thead-row"><span>Top stories por canal</span><span class="sub">609 stories únicos · 01–09/03/2026</span></div>
+    <div class="thead-row"><span>Top stories por canal</span><span class="sub">544 stories únicos · 01–09/03/2026</span></div>
     <table>
       <thead><tr><th>#</th><th>Canal</th><th>Tipo</th><th>Caption</th><th>Alcance</th><th>Views</th><th>Tap Forward</th><th>Tap Exit</th><th>Data</th><th></th></tr></thead>
       <tbody>
@@ -716,6 +720,498 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="nota info" style="margin-top:8px">
     <strong>Padrão stories:</strong> Tallis e Alfredo dominam alcance (20–30k). Alfredo tem os melhores dados de tap_forward (13–55%), indicando conteúdo que retém a audiência dentro do story. Nardon lidera em tap_forward rate (72–78%) — stories de IA têm altíssimo engajamento sequencial. G4 tem tap_exit mais alto (6%) — stories institucionais sem narrativa fazem a audiência sair.
   </div>
+
+  <!-- ===== INSIGHTS DE STORIES POR CANAL ===== -->
+<div class="stitle" style="margin-top:28px">Insights de Stories por Canal — 01/03 a 09/03/2026</div>
+<div class="nota" style="margin-bottom:18px">Dados: 544 stories únicos publicados. Métricas: alcance médio, tap forward (retenção), tap exit (atrito), replies e story killers. Fonte: <code>g4_social_media</code> via Databricks.</div>
+
+<!-- Resumo comparativo -->
+<div class="tcard" style="margin-bottom:20px">
+  <div class="thead-row"><span>Comparativo por canal</span><span class="sub">métricas médias por story · 01–09/03/2026</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Canal</th>
+        <th>Stories</th>
+        <th>Alcance médio</th>
+        <th>Tap Forward ↑</th>
+        <th>Tap Exit ↓</th>
+        <th>Replies</th>
+        <th>Story Killers</th>
+        <th>% Killers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:#eab308;font-weight:600">Tallis</td>
+        <td>117</td>
+        <td class="g"><strong>14.833</strong></td>
+        <td class="y">67,7%</td>
+        <td class="g">5,5%</td>
+        <td class="g">475</td>
+        <td>9</td>
+        <td class="y">7,7%</td>
+      </tr>
+      <tr>
+        <td style="color:#3b82f6;font-weight:600">Alfredo</td>
+        <td>179</td>
+        <td class="g">5.645</td>
+        <td class="g"><strong>69,1%</strong></td>
+        <td class="g"><strong>5,0%</strong></td>
+        <td>298</td>
+        <td>9</td>
+        <td class="g">5,0%</td>
+      </tr>
+      <tr>
+        <td style="color:#6366f1;font-weight:600">G4</td>
+        <td>138</td>
+        <td>2.885</td>
+        <td class="g">76,5%</td>
+        <td class="y">6,1%</td>
+        <td>52</td>
+        <td>8</td>
+        <td class="y">5,8%</td>
+      </tr>
+      <tr>
+        <td style="color:#64748b;font-weight:600">Nardon</td>
+        <td>61</td>
+        <td>1.936</td>
+        <td>67,1%</td>
+        <td class="y">6,0%</td>
+        <td>51</td>
+        <td>7</td>
+        <td class="r">11,5%</td>
+      </tr>
+      <tr>
+        <td style="color:#a855f7;font-weight:600">G4 Club</td>
+        <td>26</td>
+        <td>982</td>
+        <td class="y">62,2%</td>
+        <td class="y">5,6%</td>
+        <td>4</td>
+        <td>2</td>
+        <td class="y">7,7%</td>
+      </tr>
+      <tr>
+        <td style="color:#22c55e;font-weight:600">G4 Skills</td>
+        <td>14</td>
+        <td>932</td>
+        <td class="g">68,5%</td>
+        <td class="g">4,2%</td>
+        <td class="g">15</td>
+        <td>2</td>
+        <td class="r">14,3%</td>
+      </tr>
+      <tr>
+        <td style="color:#f97316;font-weight:600">G4 Scale</td>
+        <td>9</td>
+        <td class="r">319</td>
+        <td>71,0%</td>
+        <td class="y">6,0%</td>
+        <td>0</td>
+        <td>1</td>
+        <td class="r">11,1%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Cards de insight por canal -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+
+  <!-- TALLIS -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#eab308">Tallis Gomes</span>
+      <span class="pill" style="background:rgba(234,179,8,.15);color:#eab308">117 stories · 14,8k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>Maior alcance absoluto do portfólio — <strong>14.833 por story</strong>, 2,6x acima de Alfredo</li>
+        <li>Video domina os tops (STORY_VIDEO com 15.249 vs imagem 14.500) — mas ambos performam bem</li>
+        <li><strong>475 replies</strong> no período — Tallis é o canal que mais gera conversa nos stories</li>
+        <li>Melhor dia: <strong>Quarta (19.809 alcance médio)</strong> e Segunda (17.667) — stories no meio da semana têm audiência maior</li>
+        <li>Posições 3–7 da sequência têm alcance elevado — sequências longas funcionam para esta audiência</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>9 story killers (7,7%)</strong> — posição média 3,9, ou seja, o abandono acontece cedo nas sequências</li>
+        <li>Tap forward 67,7% — abaixo do G4 (76,5%), indicando que parte da audiência pula sem consumir</li>
+        <li>Quinta-feira tem queda expressiva (10.555 alcance) — evitar lançar conteúdo estratégico às quintas</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Identificar os 9 killers — qual tipo de story (formato, tema, posição) causa abandono? Eliminar ou reposicionar</li>
+        <li>Testar CTA de DM nos stories de maior alcance — 475 replies provam que a audiência responde</li>
+        <li>Concentrar stories com CTA de lead em <strong>quarta e segunda</strong> (pico de alcance)</li>
+        <li>Manter sequências de 6–10 stories — a audiência engajada consome cadeias longas</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ALFREDO -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#3b82f6">Alfredo Soares</span>
+      <span class="pill" style="background:rgba(59,130,246,.15);color:#3b82f6">179 stories · 5,6k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Menor exit rate do portfólio (5,0%)</strong> — audiência mais fiel, abandona menos</li>
+        <li>Imagem performa melhor que vídeo em retenção (forward 72,7% vs 66,5%) — audiência prefere ler</li>
+        <li>Posição 9 da sequência tem pico de alcance (8.479) — stories publicados no final do dia têm mais visibilidade</li>
+        <li>Domingo lidera alcance (6.338) — audiência de Alfredo consome mais conteúdo no fim de semana</li>
+        <li>Sequências longas (até 30 stories por dia) — Alfredo posta mais que qualquer outro canal</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>9 killers mas em posição média 8,1 — o problema surge <strong>no meio das sequências longas</strong></li>
+        <li>Quinta-feira (2.968 alcance) — pior dia, queda de 65% vs quarta (8.330)</li>
+        <li>Volume alto (179 stories) pode diluir qualidade — checar se menos stories melhorariam alcance por story</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Mapear o conteúdo na posição 9 das sequências — o que está gerando pico de alcance? Replicar esse padrão</li>
+        <li>Testar reduzir volume nos dias de menor alcance (quinta) para não desperdiçar conteúdo bom</li>
+        <li>Priorizar <strong>imagens sobre vídeos</strong> nos stories — forward rate 6pp maior indica melhor retenção</li>
+        <li>Usar domingo para stories com CTA mais direto — maior alcance + menor exit rate = janela ideal</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- G4 -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#6366f1">G4 Educação</span>
+      <span class="pill" style="background:rgba(99,102,241,.15);color:#6366f1">138 stories · 2,9k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Maior tap forward do portfólio (76,5%)</strong> — quando a audiência começa, ela avança. Conteúdo sequencial eficiente</li>
+        <li>Video performa melhor que imagem (3.045 vs 2.629 alcance) — reels e vídeos curtos atraem mais no perfil institucional</li>
+        <li>Sábado (4.073) e Domingo (3.754) são os melhores dias — audiência B2B mais atenta no fim de semana</li>
+        <li>Sequência com até 8+ posições mantém alcance razoavelmente estável (2.373 na posição 8)</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Exit rate 6,1%</strong> — o mais alto entre os principais canais. Stories sem narrativa fazem a audiência sair</li>
+        <li>8 killers em posição média 9,8 — o abandono acontece <strong>nas últimas posições das sequências</strong></li>
+        <li>Quinta-feira (1.781) = queda de 57% vs sábado — evitar stories de conversão às quintas</li>
+        <li>Alcance por story 5x menor que Tallis — oportunidade de melhoria na qualidade do conteúdo</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Reduzir sequências longas</strong> — os killers estão na posição ~10. Manter sequências de no máximo 8 stories</li>
+        <li>Substituir stories institucionais sem CTA por stories com narrativa curta (4–5 stories com gancho)</li>
+        <li>Testar stories de case/número (<em>"essa empresa faturou X fazendo isso"</em>) — formato que mais converte no feed G4</li>
+        <li>Concentrar CTA de lead nos stories de <strong>sábado e domingo</strong> — pico de alcance e audiência mais engajada</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NARDON -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#64748b">Bruno Nardon</span>
+      <span class="pill" style="background:rgba(100,116,139,.15);color:#94a3b8">61 stories · 1,9k alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <div style="margin-bottom:8px"><strong style="color:var(--accent)">O que está funcionando</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Sábado (7.861 alcance)</strong> — pico isolado 3x acima da média. 03/07 foi excepcional (Bruno postou algo que viralizou)</li>
+        <li>Imagem supera vídeo (2.317 vs 1.154) — audiência de Nardon prefere conteúdo para ler/refletir</li>
+        <li>Menor volume (61 stories) mas <strong>51 replies</strong> — alta proporção de engajamento real por story</li>
+        <li>Posição 1 gera mais alcance (3.425) — o primeiro story da sequência define se a audiência vai seguir</li>
+      </ul>
+      <div style="margin-bottom:8px"><strong style="color:#ef4444">Pontos de atenção</strong></div>
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>11,5% de story killers</strong> — maior taxa dos canais principais. 7 killers em posição média 3,3</li>
+        <li>Exit rate 6% nas posições avançadas — sequências longas perdem a audiência rapidamente após a posição 4</li>
+        <li>Terça-feira (854 alcance) — quase sem alcance. Nardon quase não publicou na terça (13 stories mas baixíssimo alcance)</li>
+        <li>Alcance geral baixo — Nardon posta menos e o alcance de stories é o menor dos founders</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Investigar o conteúdo de sábado 07/03</strong> — 7.861 alcance é 4x a média. Qual foi o tema/formato? Replicar</li>
+        <li>Limitar sequências a <strong>máximo 4–5 stories</strong> — os killers aparecem na posição 3,3, audiência abandona cedo</li>
+        <li>Priorizar imagens sobre vídeos — forward rate e alcance são melhores em imagem para este canal</li>
+        <li>Aumentar frequência: menos de 8 stories/dia numa semana inteira. O feed tem save rate altíssimo — a audiência quer mais conteúdo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- G4 SKILLS + G4 SCALE (lado a lado) -->
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#22c55e">G4 Skills</span>
+      <span class="pill" style="background:rgba(34,197,94,.15);color:#22c55e">14 stories · 932 alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li><strong>Exit rate mais baixo (4,2%)</strong> — audiência muito engajada quando consome. Melhor retenção do portfólio</li>
+        <li>15 replies em 14 stories — ratio de 1,07 reply/story, o mais alto. Audiência responde ativamente</li>
+        <li>Vídeos têm forward rate maior (78% vs 64%) — vídeo funciona melhor que imagem neste perfil</li>
+        <li><strong>14,3% de killers</strong> — volume baixo mas proporção alta. 2 stories causaram abandono</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li>Volume muito baixo (14 stories em 9 dias) — aumentar consistência para capturar mais alcance</li>
+        <li>Focar em vídeos curtos — forward rate 78% indica que a audiência engaja mais com movimento</li>
+        <li>Usar os replies como sinal de produto — a audiência está dizendo o que quer. Perguntar diretamente sobre cursos via sticker de pergunta</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tcard" style="padding:18px 20px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      <span style="font-size:15px;font-weight:700;color:#f97316">G4 Scale</span>
+      <span class="pill" style="background:rgba(249,115,22,.15);color:#f97316">9 stories · 319 alcance médio</span>
+    </div>
+    <div style="font-size:12px;color:var(--fg);line-height:1.7">
+      <ul style="margin:0 0 10px 16px;padding:0">
+        <li>Apenas <strong>9 stories em 1 dia (06/03)</strong> — ausência quase total de stories no mês</li>
+        <li>Alcance de 319 por story — o mais baixo do portfólio por largo margem</li>
+        <li>Forward rate 71% razoável mas sem replies (0) — sem engajamento real</li>
+        <li>11,1% de killers com apenas 9 stories — 1 story causou abandono em 9</li>
+      </ul>
+      <div style="margin-bottom:6px"><strong style="color:#22c55e">Acionáveis</strong></div>
+      <ul style="margin:0 0 0 16px;padding:0">
+        <li><strong>Prioridade: ativar stories diários no G4 Scale</strong> — é o canal com maior gap entre potencial e execução</li>
+        <li>Usar stories para aquecimento de leads do programa — sticker de pergunta, countdown de abertura de turma</li>
+        <li>Replicar formato de stories de cases do feed G4 — o que funciona em feed pode funcionar em stories sequenciais</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Diagnóstico consolidado e acionáveis estratégicos -->
+<div class="tcard" style="padding:20px 22px;margin-bottom:20px">
+  <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Diagnóstico estratégico — stories · Março/26</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:12px;line-height:1.7">
+    <div>
+      <div style="font-weight:700;color:#22c55e;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">O que escalar</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>G4 instit. no fim de semana</strong> — sábado e domingo têm 30–50% mais alcance. Programar stories com CTA nesses dias</li>
+        <li><strong>Alfredo imagem + copy</strong> — melhor exit rate + segundo maior volume de replies. Formato que retém</li>
+        <li><strong>Sequências de 4–8 stories</strong> — dados mostram queda acelerada de retenção após posição 10 em todos os canais</li>
+        <li><strong>Stories com pergunta (sticker)</strong> — replies são o sinal mais claro de intenção. G4 Skills tem 1 reply/story</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#ef4444;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">O que parar/reduzir</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>Sequências longas no G4 e Nardon</strong> — killers aparecem na posição 9–10 (G4) e 3–4 (Nardon)</li>
+        <li><strong>Stories de quinta-feira em Alfredo/G4</strong> — alcance 40–60% menor que a média semanal</li>
+        <li><strong>Volume alto sem estratégia no G4</strong> — 138 stories com exit rate de 6% = muito conteúdo que a audiência abandona</li>
+        <li><strong>Stories de vídeo no Nardon</strong> — imagem 2x mais alcance que vídeo neste canal</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#eab308;margin-bottom:8px;font-size:11px;text-transform:uppercase;letter-spacing:.05em">Investigar esta semana</div>
+      <ul style="margin:0 0 0 16px;padding:0;color:var(--fg)">
+        <li><strong>Nardon sábado 07/03</strong> — 7.861 alcance vs média de 1.936. O que foi postado? Replicar formato/tema</li>
+        <li><strong>Alfredo posição 9 na sequência</strong> — pico de 8.479 alcance nesta posição específica. Analisar o conteúdo</li>
+        <li><strong>Tallis 9 story killers posição 3,9</strong> — qual tipo de conteúdo causa abandono no início das sequências?</li>
+        <li><strong>G4 Scale ativação</strong> — zero stories em 8 de 9 dias. Qual é o bloqueio operacional?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ============================= PLANO DE AÇÃO MQL ============================= -->
+<div class="pane" id="pane-plano">
+
+  <div class="stitle">Plano de Ação — Crescimento de MQL · Março 2026</div>
+  <div class="nota" style="margin-bottom:22px">
+    Base: 948 MQL em 9 dias (01–09/03). Meta do mês: 3.800. Ritmo atual projeta <strong>~3.255 MQL</strong> — gap de <strong>545 MQL</strong> para bater a meta. Os planos abaixo são baseados nos dados reais de funil, mídia e stories do Databricks.
+  </div>
+
+  <!-- DIAGNÓSTICO RÁPIDO -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #6366f1">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Gap para meta</div>
+      <div style="font-size:26px;font-weight:800;color:#ef4444">545</div>
+      <div style="font-size:11px;color:var(--muted)">MQL faltando no mês</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #22c55e">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Melhor canal</div>
+      <div style="font-size:22px;font-weight:800;color:#22c55e">G4 Inst.</div>
+      <div style="font-size:11px;color:var(--muted)">224 MQL · conv. 92%</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #eab308">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Pico de conversão</div>
+      <div style="font-size:22px;font-weight:800;color:#eab308">21h–22h</div>
+      <div style="font-size:11px;color:var(--muted)">550–511 MQL nessa janela</div>
+    </div>
+    <div class="tcard" style="padding:16px 18px;border-left:3px solid #3b82f6">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Maior oportunidade</div>
+      <div style="font-size:22px;font-weight:800;color:#3b82f6">Alfredo</div>
+      <div style="font-size:11px;color:var(--muted)">3,4M alcance · só 17 MQL</div>
+    </div>
+  </div>
+
+  <!-- PLANOS NUMERADOS -->
+  <div style="display:flex;flex-direction:column;gap:16px">
+
+    <!-- PLANO 1 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #22c55e">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:16px">1</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Ativar o "horário nobre" do Instagram — posts entre 20h e 22h</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#22c55e">+80–120 MQL/mês</strong> · Esforço: baixo · Prazo: esta semana</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> O pico de MQL acontece às 21h (550 leads) e 22h (511 leads) — 19% de toda geração de leads concentrada em 2 horas. Atualmente os posts saem sem considerar esse horário.<br>
+            <strong>Ação:</strong> Programar os posts de maior potencial de conversão (carrosseis G4, posts de Alfredo com CTA) para publicação entre 20h30 e 21h30. Segunda, quarta e quinta são os dias de maior volume de MQL — priorizar nesses dias.<br>
+            <strong>Como medir:</strong> Comparar MQL do dia seguinte vs média dos últimos 7 dias. Esperar 2 semanas para concluir teste.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 2 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #6366f1">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">2</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Dobrar frequência de carrosseis no G4 Institucional — o canal com melhor conversão</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#6366f1">+150–200 MQL/mês</strong> · Esforço: médio · Prazo: semana que vem</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> G4 Inst. tem a melhor taxa alcance→MQL do portfólio (0,22%). Posts de case empresarial (New Balance, McDonald's, Tupperware) dominam os top 5 com 52k–165k de alcance. Cada 100k de alcance no G4 Inst. gera ~220 MQL.<br>
+            <strong>Ação:</strong> Aumentar de ~3 para 5–6 carrosseis/semana no G4 com o formato "Como [empresa conhecida] fez [algo surpreendente]?". Priorizar cases de empresas brasileiras (post da marca nacional gerou 52k reach).<br>
+            <strong>Repertório de temas:</strong> Nubank, iFood, Ambev, Magalu, Localfrio, XP — marcas brasileiras que o público conhece e admira.<br>
+            <strong>Como medir:</strong> Tracking semanal de MQL por canal. Se G4 Inst. subir de 224 para 300+/semana, o formato está funcionando.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 3 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #3b82f6">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">3</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Desbloquear Alfredo — 3,4M de alcance convertendo só 17 MQL é a maior ineficiência do portfólio</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#3b82f6">+100–180 MQL/mês</strong> · Esforço: médio · Prazo: 10 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Alfredo tem 3,44M de alcance (2º maior do portfólio) mas gera apenas 17 MQL — ratio de 0,0005%, 440x pior que o G4 Inst. A audiência é massiva mas não está sendo direcionada para o funil.<br>
+            <strong>Diagnóstico:</strong> Posts do Alfredo têm CTA de engajamento ("O que você acha?", "Salva esse post") mas não CTA de formulário. A bio provavelmente não está otimizada para captura.<br>
+            <strong>Ações imediatas:</strong><br>
+            — Adicionar CTA de formulário em <em>pelo menos 2 posts/semana</em> ("Se você quer [resultado], link na bio")<br>
+            — Testar um story com link direto para o formulário CTA nos dias de maior alcance (quarta, domingo)<br>
+            — Adicionar sticker de link nos stories com swipe-up para o form<br>
+            — Revisar bio: "Acesso antecipado ao programa →" com link direto<br>
+            <strong>Como medir:</strong> Comparar MQL Alfredo semana a semana. Meta: passar de 17 para 60+ MQL até fim de março.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 4 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #eab308">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#eab308;display:flex;align-items:center;justify-content:center;font-weight:800;color:#000;font-size:16px">4</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Usar Tallis como máquina de tráfego para o G4 — post-ponte entre os canais</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#eab308">+80–150 MQL/mês</strong> · Esforço: baixo · Prazo: esta semana</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Tallis tem o maior alcance absoluto (492k num post, média 14k em stories) e gera 88 MQL — mas a conversão alcance→MQL é 0,01%, a mais baixa dos founders. A audiência é enorme mas não está entrando no funil.<br>
+            <strong>Ação:</strong> Criar "stories de ponte" — Tallis faz story mencionando um case do G4 e manda para o @g4.business ver o carrossel completo. Isso transfere audiência qualificada do Tallis para o canal de maior conversão.<br>
+            <strong>Formato testado:</strong> "Publiquei um case sobre isso no @g4.business — vai lá ver o carrossel completo" + sticker de link. Top posts do Tallis têm 200k–490k reach: se 1% visitar o G4 e 0,22% converter = 440–1.078 MQL potenciais.<br>
+            <strong>Como medir:</strong> Rastrear pico de MQL no G4 Inst. no dia após o story de ponte do Tallis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 5 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #64748b">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#64748b;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">5</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Nardon como canal de qualidade — save rate de 3,8% indica audiência de founder. Aumentar frequência e CTA.</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#94a3b8">+40–70 MQL/mês</strong> · Esforço: baixo · Prazo: 7 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> Nardon tem save rate de 3,8% no top carrossel (Anthropic/IA) — o melhor do portfólio. Salvar é o sinal mais forte de intenção de compra futura. Mas gera apenas 20 MQL — porque publica pouco e sem CTA.<br>
+            <strong>Ação:</strong> Nardon publica ~20 posts/mês. Dobrar para 35–40 e inserir CTA em 30% dos posts. Perfil de audiência que salva carrossel de gestão/IA tem alto potencial para o CTA.<br>
+            <strong>Temas que convertem:</strong> "Como estruturo minha semana como CEO", "O ritual que uso antes de cada decisão grande", "O que aprendi fundando a Kanui" — conteúdo de método, não opinião.<br>
+            <strong>Como medir:</strong> Nardon está gerando 20 MQL/9 dias. Meta: 60+ MQL até fim do mês com aumento de frequência.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 6 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #a855f7">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#a855f7;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">6</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Criar "semana temática de conversão" — 5 dias de conteúdo encadeado com CTA progressivo</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#a855f7">+120–200 MQL em 1 semana</strong> · Esforço: alto · Prazo: planejar esta semana, executar semana de 16/03</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>Conceito:</strong> Uma semana onde todos os canais trabalham o mesmo tema com CTAs que escalam em urgência. Funciona porque os dados mostram que o lead converte em múltiplos touchpoints — não num post único.<br>
+            <strong>Estrutura (tema: "Gestão que gera resultado"):</strong><br>
+            — <strong>Segunda:</strong> G4 lança carrossel de case ("Como a Ambev treina gestores") + Nardon faz story de bastidores<br>
+            — <strong>Terça:</strong> Alfredo post com opinião ("Por que a maioria dos gestores nunca escala") + CTA "link na bio"<br>
+            — <strong>Quarta (pico de MQL):</strong> Tallis carrossel de alta performance + story de ponte para o G4 + Nardon story com pergunta (sticker)<br>
+            — <strong>Quinta:</strong> G4 stories com depoimento de aluno + CTA de inscrição<br>
+            — <strong>Sexta/Sábado:</strong> Alfredo/Nardon: urgência ("Últimas vagas") + G4: post de fechamento com proof<br>
+            <strong>Como medir:</strong> Tracking de MQL dia a dia durante a semana vs semana anterior. Esperar aumento de 40–60% nos dias centrais (quarta/quinta).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANO 7 -->
+    <div class="tcard" style="padding:20px 22px;border-left:4px solid #f97316">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="min-width:36px;height:36px;border-radius:50%;background:#f97316;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px">7</div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px;margin-bottom:4px">Resolver os "Incompletos" — 328 MQL sem canal identificado é budget desperdiçado</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Impacto estimado: <strong style="color:#f97316">+50–80 MQL atribuídos corretamente</strong> · Esforço: baixo · Prazo: 5 dias</div>
+          <div style="font-size:12px;color:var(--fg);line-height:1.7">
+            <strong>O dado:</strong> 328 de 677 MQL (48%) aparecem como "Outros / Incompleto" na tabela de canal. Isso significa que quase metade dos leads não tem UTM ou atribuição correta — impossível otimizar o que não conseguimos medir.<br>
+            <strong>Ação imediata:</strong><br>
+            — Auditar os links da bio de todos os perfis (Tallis, Alfredo, G4, Nardon, Club) — estão com UTM?<br>
+            — Verificar links nos stories com sticker — estão passando parâmetros de fonte?<br>
+            — Padrão de UTM sugerido: <code>?utm_source=instagram&utm_medium=organic&utm_campaign=cta_marco&utm_content=tallis_story</code><br>
+            — Pedir para ops configurar UTM padronizado em todas as campanhas ativas<br>
+            <strong>Por que importa:</strong> Se identificarmos que 100 dos 328 "incompletos" vieram do Tallis, a estratégia muda completamente. Dados limpos = decisões melhores.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESUMO PRIORIZADO -->
+  <div class="tcard" style="padding:20px 22px;margin-top:20px">
+    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Priorização — impacto vs esforço</span><span class="sub">semanas de 10–31/03/2026</span></div>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Ação</th><th>Canal</th><th>MQL potencial</th><th>Esforço</th><th>Prazo</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Publicar posts 20h30–21h30 (horário nobre)</td><td>Todos</td><td class="g">+80–120</td><td><span class="pill g">Baixo</span></td><td>Esta semana</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>2</td><td>Dobrar carrosseis G4 Inst. (5–6/semana)</td><td>G4</td><td class="g">+150–200</td><td><span class="pill y">Médio</span></td><td>Semana que vem</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>3</td><td>UTM + link bio otimizado em todos os canais</td><td>Ops</td><td class="g">+50–80 atribuídos</td><td><span class="pill g">Baixo</span></td><td>5 dias</td><td><span class="pill r">Urgente</span></td></tr>
+        <tr><td>4</td><td>Story de ponte Tallis → G4 (1x/semana)</td><td>Tallis/G4</td><td class="g">+80–150</td><td><span class="pill g">Baixo</span></td><td>Esta semana</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>5</td><td>CTA Alfredo: 2 posts/semana com formulário</td><td>Alfredo</td><td class="g">+100–180</td><td><span class="pill y">Médio</span></td><td>10 dias</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>6</td><td>Aumentar frequência Nardon + CTA em 30%</td><td>Nardon</td><td class="g">+40–70</td><td><span class="pill g">Baixo</span></td><td>7 dias</td><td><span class="pill y">A fazer</span></td></tr>
+        <tr><td>7</td><td>Semana temática de conversão (16–21/03)</td><td>Todos</td><td class="g">+120–200</td><td><span class="pill r">Alto</span></td><td>16/03</td><td><span class="pill m">Planejar</span></td></tr>
+        <tr class="total-row"><td colspan="3"><strong>TOTAL POTENCIAL</strong></td><td class="g"><strong>+620–1.000 MQL</strong></td><td colspan="3" style="font-size:10px;color:var(--muted)">Suficiente para bater e ultrapassar a meta de 3.800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota ok" style="margin-top:16px">
+    <strong>Gap atual:</strong> 545 MQL para bater a meta. Apenas as 4 primeiras ações (horário nobre + G4 + UTM + Tallis ponte) já cobrem o gap se executadas esta semana. A semana temática é o acelerador — pode gerar um sprint de 120–200 MQL numa semana só.
+  </div>
+
 </div>
 
 <div class="footer">
@@ -833,7 +1329,7 @@ function dc(id){if(CHS[id]){CHS[id].destroy();delete CHS[id]}}
 
 // ===== TABS =====
 function showTab(n,el){
-  ['overview','mql','receita','midia','posts'].forEach(function(t){
+  ['overview','mql','receita','midia','posts','plano'].forEach(function(t){
     document.getElementById('pane-'+t).classList.toggle('active',t===n);
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
@@ -902,18 +1398,18 @@ function toggleIns(id){
 
 // ===== MINI GRÁFICOS POR CANAL: Alcance × MQL =====
 (function(){
-  // MQL por canal por dia (01-05/03 = 5 dias, alcance tem 6 dias)
+  // MQL por canal por dia — 01 a 06/03 (último dado disponível no Databricks em 10/03)
   var MQL_CANAL_DIA = {
-    'Tallis':  [18, 10, 33, 11, 12,  4, 0, 0, 0],
-    'Alfredo': [ 4,  3,  6,  0,  4,  0, 0, 0, 0],
-    'G4':      [30, 37, 59, 44, 39, 15, 0, 0, 0],
-    'Nardon':  [ 2,  3,  7,  2,  4,  2, 0, 0, 0]
+    'Tallis':  [18, 10, 33, 11, 12,  4],
+    'Alfredo': [ 4,  3,  6,  0,  4,  0],
+    'G4':      [30, 37, 59, 44, 39, 15],
+    'Nardon':  [ 2,  3,  7,  2,  4,  2]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [1083075, 952582, 947460, 662221, 943362, 976426, 682407, 962683, 788106],
-    'Alfredo': [ 651680, 576395, 568067, 524170, 759035, 361363, 595222, 562202, 594826],
-    'G4':      [ 200218, 180735, 331980, 201547, 288262, 128661, 150923, 164941, 206026],
-    'Nardon':  [ 121728,  66581,  95238, 101728,  85303,  65980, 114141,  79736, 205616]
+    'Tallis':  [1083075, 952582, 947460, 662221, 943362, 976426],
+    'Alfredo': [ 651680, 576395, 568067, 524170, 759035, 361363],
+    'G4':      [ 200218, 180735, 331980, 201547, 288262, 128661],
+    'Nardon':  [ 121728,  66581,  95238, 101728,  85303,  65980]
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
@@ -921,7 +1417,7 @@ function toggleIns(id){
     'G4':      {id:'ch-canal-g4',      cor:'#6366f1', corAlpha:'rgba(99,102,241,.35)'},
     'Nardon':  {id:'ch-canal-nardon',  cor:'#64748b', corAlpha:'rgba(100,116,139,.35)'}
   };
-  var DIAS5 = ['01/03','02/03','03/03','04/03','05/03','06/03','07/03','08/03','09/03'];
+  var DIAS5 = ['01/03','02/03','03/03','04/03','05/03','06/03'];
 
   Object.keys(CANAL_CONFIG).forEach(function(canal){
     var cfg = CANAL_CONFIG[canal];
@@ -943,7 +1439,7 @@ function toggleIns(id){
             yAxisID: 'yAlcance'
           },
           {
-            label: 'MQL',
+            label: 'MQL (até 06/03)',
             data: MQL_CANAL_DIA[canal],
             type: 'line',
             borderColor: '#f97316',
@@ -953,6 +1449,7 @@ function toggleIns(id){
             pointRadius: 5,
             tension: 0.3,
             fill: true,
+            spanGaps: false,
             yAxisID: 'yMQL'
           }
         ]
