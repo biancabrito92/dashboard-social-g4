@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- build: 2026-03-12T00:05 -->
+<!-- build: 2026-03-12T13:00 -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -245,20 +245,20 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px">
     <div class="kcard hi">
       <div class="klabel">MQLs Social Media</div>
-      <div class="kval g">1.154</div>
-      <div class="ksub m">01–11/03 · ~105/dia</div>
-      <div class="pbar"><div class="pfill g" style="width:30%"></div></div>
+      <div class="kval g" id="kpi-mql-total">1.206</div>
+      <div class="ksub m" id="kpi-mql-sub">01–12/03 · ~100/dia</div>
+      <div class="pbar"><div class="pfill g" style="width:32%"></div></div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Projeção Mês</div>
-      <div class="kval y">~3.252</div>
-      <div class="ksub m">base: 105 MQL/dia × 31d</div>
+      <div class="kval y" id="kpi-proj-mes">~3.100</div>
+      <div class="ksub m" id="kpi-proj-sub">base: 100 MQL/dia × 31d</div>
     </div>
     <div class="kcard" style="border-color:#22c55e44;background:rgba(34,197,94,.06)">
       <div class="klabel" style="color:#86efac">Ontem (11/03) — fechado</div>
-      <div class="kval" style="color:#22c55e">103</div>
-      <div class="ksub m">dia completo · meta: 123 · -20 vs meta</div>
-      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:84%;background:#22c55e"></div></div>
+      <div class="kval" style="color:#22c55e" id="kpi-ontem-val">127</div>
+      <div class="ksub m" id="kpi-ontem-sub">dia completo · meta: 123 · +4 vs meta</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:100%;background:#22c55e" id="kpi-ontem-bar"></div></div>
     </div>
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
       <div class="klabel" style="color:#a5b4fc">Hoje (12/03) — em curso</div>
@@ -339,7 +339,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Grid 4 canais: alcance diário + MQL -->
   <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 11/03/2026</div>
-  <div class="nota ok" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>11/03 (fechado)</strong> (Databricks atualizado 12/03/2026 07h22). Total 01–11/03 Social Media: <strong>1.154 MQL</strong>. Fonte: <code>deals_fct.linha_de_receita_operacional</code>.</div>
+  <div class="nota ok" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>12/03 (em curso)</strong> (Databricks atualizado 12/03/2026). Total acumulado Social Media: <strong>1.206 MQL</strong>. Fonte: <code>deals_fct.linha_de_receita_operacional</code>.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
     <div class="ccard">
       <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
@@ -376,7 +376,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <tr><td><strong>Bruno Nardon</strong></td><td>73</td><td>6,3%</td><td>7</td><td>—</td><td><span class="pill y">Replicar método</span></td></tr>
         <tr><td><strong>Alfredo Soares</strong></td><td>37</td><td>3,2%</td><td>3</td><td>—</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
         <tr><td><strong>Outros (Social DM, K, etc.)</strong></td><td>2</td><td>0,2%</td><td>0</td><td>—</td><td><span class="pill m">—</span></td></tr>
-        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">1.154</td><td>100%</td><td class="g">105</td><td>103 (11/03)</td><td></td></tr>
+        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">1.206</td><td>100%</td><td class="g">100</td><td>127 (11/03)</td><td></td></tr>
       </tbody>
     </table>
     <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.gold.deals_fct · linha_de_receita_operacional IN (Form G4 Instagram *, [IM] Social DM, Social - Testes, etc.) · atualizado 12/03/2026 07h22</div>
@@ -391,9 +391,9 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- KPIs funil -->
   <div class="kgrid-4">
-    <div class="kcard"><div class="klabel">MQL Social Media</div><div class="kval g">1.154</div><div class="ksub m">01–11/03 · 105/dia</div></div>
+    <div class="kcard"><div class="klabel">MQL Social Media</div><div class="kval g">1.206</div><div class="ksub m">01–12/03 · 100/dia</div></div>
     <div class="kcard"><div class="klabel">MQL Total (todos canais)</div><div class="kval">6.322</div><div class="ksub g">Social = 18% do total</div></div>
-    <div class="kcard"><div class="klabel">Projeção mês</div><div class="kval y">~3.252</div><div class="ksub m">105/dia × 31d · meta: 3.800</div></div>
+    <div class="kcard"><div class="klabel">Projeção mês</div><div class="kval y">~3.100</div><div class="ksub m">100/dia × 31d · meta: 3.800</div></div>
     <div class="kcard"><div class="klabel">Gap para meta</div><div class="kval r">700</div><div class="ksub m">precisa +22% de ritmo</div></div>
   </div>
 
@@ -440,7 +440,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <tr><td><strong>Nardon</strong></td><td>73</td><td>6,3%</td><td>57</td><td>6,6</td><td>2,0</td><td><span class="pill g">+230%</span></td></tr>
         <tr><td><strong>Alfredo</strong></td><td>37</td><td>3,2%</td><td>141</td><td>3,4</td><td>5,0</td><td><span class="pill r">-32%</span></td></tr>
         <tr><td><strong>Outros (Social DM, K, etc.)</strong></td><td>2</td><td>0,2%</td><td>—</td><td>0,2</td><td>—</td><td><span class="pill m">—</span></td></tr>
-        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">1.154</td><td class="g">100%</td><td>3.214*</td><td class="y">104,9</td><td>114,8</td><td><span class="pill r">-8,6%</span></td></tr>
+        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">1.206</td><td class="g">100%</td><td>3.214*</td><td class="y">100,5</td><td>114,8</td><td><span class="pill r">-12,5%</span></td></tr>
       </tbody>
     </table>
     <div style="padding:8px 18px;font-size:10px;color:var(--muted)">* Fevereiro total inclui todos os canais. Fonte: production.diamond.funil_marketing · area_geracao_demanda = 'Social'.</div>
