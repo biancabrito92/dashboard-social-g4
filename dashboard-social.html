@@ -290,8 +290,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard hi">
       <div class="klabel">Receita Potencial</div>
-      <div class="kval sm o">R$ 3,3M</div>
-      <div class="ksub m">projeção mês × pipeline</div>
+      <div class="kval sm o">R$ 1,2M</div>
+      <div class="ksub m">213 won × R$ 5.800 ticket médio</div>
     </div>
   </div>
 
@@ -536,23 +536,23 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="kgrid-4">
     <div class="kcard hi">
       <div class="klabel">MQL Projetado (mês)</div>
-      <div class="kval y">~3.215</div>
-      <div class="ksub m">104/dia × 31 dias</div>
+      <div class="kval y">~3.100</div>
+      <div class="ksub m">100/dia × 31 dias</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">OPP Projetado</div>
-      <div class="kval y">~820</div>
-      <div class="ksub m">3.215 × 25,5% conv. MQL→OPP</div>
+      <div class="kval y">~791</div>
+      <div class="ksub m">3.100 × 25,5% conv. MQL→OPP</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Won Projetado</div>
-      <div class="kval o">~213</div>
-      <div class="ksub m">820 × 26% conv. OPP→Won</div>
+      <div class="kval o">~206</div>
+      <div class="ksub m">791 × 26% conv. OPP→Won</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Receita Potencial</div>
       <div class="kval sm o">R$ 1,2M</div>
-      <div class="ksub m">213 won × R$ 5.800 avg ticket</div>
+      <div class="ksub m">206 won × R$ 5.800 avg ticket</div>
     </div>
   </div>
 
@@ -1406,7 +1406,7 @@ function toggleIns(id){
       +'</div>';
   }).join('');
   var el=document.getElementById('funil-viz');
-  if(el)el.innerHTML=html+'<div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Referência Fev/26: MQL 3.214 · SAL 2.474 · OPP 768 · Won 139</div>';
+  if(el)el.innerHTML=html+'<div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">Referência Fev/26: MQL 3.214 · OPP 768 · Won 139 · Receita potencial R$ 807k</div>';
 })();
 
 // ===== CHARTS =====
@@ -1579,10 +1579,10 @@ function toggleIns(id){
   if(!ctx)return;
   CHS['receita-funil']=new Chart(ctx.getContext('2d'),{
     type:'bar',
-    data:{labels:['MQL','SAL','OPP','Won'],datasets:[{
+    data:{labels:['MQL','OPP','Won'],datasets:[{
       label:'Projeção',
-      data:[3620,3188,924,240],
-      backgroundColor:['#6366f1','#3b82f6','#eab308','#22c55e'],
+      data:[3100,791,206],
+      backgroundColor:['#6366f1','#eab308','#22c55e'],
       borderRadius:4
     }]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#2a2a35'}},y:{grid:{color:'#2a2a35'}}}}
