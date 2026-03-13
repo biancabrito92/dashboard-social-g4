@@ -219,7 +219,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <div class="header">
   <div class="header-left">
     <h1>Social Media Dashboard — G4</h1>
-    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 13/03/2026 17h00</p>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 13/03/2026 17h38</p>
   </div>
   <div class="header-right">
     <span class="badge live">Mídia: até 09/03</span>
@@ -370,21 +370,21 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Tabela de correlação alcance x MQL por canal -->
   <div class="tcard">
-    <div class="thead-row"><span>MQL por canal — 01–11/03</span><span class="sub">Databricks · Instagram · atualizado 11/03</span></div>
+    <div class="thead-row"><span>MQL por canal — 01–13/03</span><span class="sub">Databricks · Instagram · atualizado 13/03</span></div>
     <table>
       <thead><tr>
         <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Hoje (11/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g">915</td><td>79,3%</td><td class="g">83</td><td>—</td><td><span class="pill y">Intensificar cadência</span></td></tr>
-        <tr><td><strong>Tallis Gomes</strong></td><td>127</td><td>11,0%</td><td>12</td><td>—</td><td><span class="pill y">Story de ponte</span></td></tr>
-        <tr><td><strong>Bruno Nardon</strong></td><td>73</td><td>6,3%</td><td>7</td><td>—</td><td><span class="pill y">Replicar método</span></td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td>37</td><td>3,2%</td><td>3</td><td>—</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1076</td><td>79,7%</td><td class="g">80</td><td>—</td><td><span class="pill y">Intensificar cadência</span></td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">138</td><td>10,5%</td><td>11</td><td>—</td><td><span class="pill y">Story de ponte</span></td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">79</td><td>6,0%</td><td>6</td><td>—</td><td><span class="pill y">Replicar método</span></td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">44</td><td>3,3%</td><td>3</td><td>—</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
         <tr><td><strong>Outros (Social DM, K, etc.)</strong></td><td>2</td><td>0,2%</td><td>0</td><td>—</td><td><span class="pill m">—</span></td></tr>
-        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">1.206</td><td>100%</td><td class="g">100</td><td>127 (11/03)</td><td></td></tr>
+        <tr class="total-row"><td>TOTAL Social Media</td><td class="g" id="kpi-mql-total-canal">1.339</td><td>100%</td><td class="g">103</td><td id="kpi-ontem-canal">116 (12/03)</td><td></td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.gold.deals_fct · linha_de_receita_operacional IN (Form G4 Instagram *, [IM] Social DM, Social - Testes, etc.) · atualizado 12/03/2026 07h22</div>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.gold.deals_fct · linha_de_receita_operacional IN (Form G4 Instagram *, [IM] Social DM, Social - Testes, etc.) · atualizado 13/03/2026 17h00</div>
   </div>
 
 </div>
@@ -1266,14 +1266,14 @@ var DIAS_MQL = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03",
 var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,127,116,45];
 var META_DIA   = 123; // 3.800 / 31 dias
 
-var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03"];
-var DAILY_ALCANCE = [2261726, 1921154, 2030555, 1611994, 2204960, 1638654, 1542107, 1769563, 1800737, 2242048, 1382347];
+var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03"];
+var DAILY_ALCANCE = [2242516,1915554,2022436,1604654,2197992,1632508,1536499,1760749,1789489,2234006,2002658,1470658,927977];
 
 var CANAL_DAILY = {
-  'Tallis':  [1083075,  952582,  947460,  662221,  943362,  976426,  682407,  962683,  788106,  688516, 226986],
-  'Alfredo': [ 651680,  576395,  568067,  524170,  759035,  361363,  527167,  430270,  530545, 1122965, 855538],
-  'G4':      [ 200218,  180735,  331980,  201547,  288262,  128661,  150923,  164941,  172990,  151796, 127139],
-  'Nardon':  [ 121728,   66581,   95238,  101728,   85303,   65980,  114141,   79736,  205616,  190317, 128666]
+  'Tallis':  [1083075,952582,947460,662221,943362,976426,682407,962683,788106,688516,356572,383571,302903],
+  'Alfredo': [651680,576395,568067,524170,759035,361363,527167,430270,530545,1122965,1194521,561322,356290],
+  'G4':      [200218,180735,331980,201547,288262,128661,150923,164941,172990,151796,153819,169214,92556],
+  'Nardon':  [121728,66581,95238,101728,85303,65980,114141,79736,205616,190317,208180,248055,115076]
 };
 
 var MQL_CANAL_MAR = [363,262,127,89,86,45,37,30,25,15,2];
@@ -1477,16 +1477,16 @@ function toggleIns(id){
 (function(){
   // MQL por canal por dia — 01 a 11/03 (Databricks atualizado 12/03 00h05)
   var MQL_CANAL_DIA = {
-    'Tallis':  [ 8, 12, 20, 13, 14, 10, 10, 10, 10,  9, 11],
-    'Alfredo': [ 2,  3,  5,  4,  4,  3,  3,  3,  3,  3,  4],
-    'G4':      [60, 89,142, 91,100, 70, 75, 70, 72, 66, 82],
-    'Nardon':  [ 5,  7, 11,  7,  8,  6,  6,  6,  6,  5,  6]
+    'Tallis':  [1083075,952582,947460,662221,943362,976426,682407,962683,788106,688516,356572,383571,302903],
+    'Alfredo': [651680,576395,568067,524170,759035,361363,527167,430270,530545,1122965,1194521,561322,356290],
+    'G4':      [200218,180735,331980,201547,288262,128661,150923,164941,172990,151796,153819,169214,92556],
+    'Nardon':  [121728,66581,95238,101728,85303,65980,114141,79736,205616,190317,208180,248055,115076]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [1083075,  952582,  947460,  662221,  943362,  976426,  682407,  962683,  788106,  688516, 226986],
-    'Alfredo': [ 651680,  576395,  568067,  524170,  759035,  361363,  527167,  430270,  530545, 1122965, 855538],
-    'G4':      [ 200218,  180735,  331980,  201547,  288262,  128661,  150923,  164941,  172990,  151796, 127139],
-    'Nardon':  [ 121728,   66581,   95238,  101728,   85303,   65980,  114141,   79736,  205616,  190317, 128666]
+    'Tallis':  [1083075,952582,947460,662221,943362,976426,682407,962683,788106,688516,356572,383571,302903],
+    'Alfredo': [651680,576395,568067,524170,759035,361363,527167,430270,530545,1122965,1194521,561322,356290],
+    'G4':      [200218,180735,331980,201547,288262,128661,150923,164941,172990,151796,153819,169214,92556],
+    'Nardon':  [121728,66581,95238,101728,85303,65980,114141,79736,205616,190317,208180,248055,115076]
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
