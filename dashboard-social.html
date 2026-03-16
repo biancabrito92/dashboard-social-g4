@@ -1547,7 +1547,7 @@ function showTab(n,el){
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
   if(el)el.classList.add('active');
-  if(n==='yoy'&&!_yoyBuilt){buildYoyCharts();_yoyBuilt=true;}
+  if(n==='yoy'&&!_yoyBuilt){setTimeout(function(){buildYoyCharts();_yoyBuilt=true;},50);}
 }
 
 // ===== INSIGHTS TOGGLE =====
