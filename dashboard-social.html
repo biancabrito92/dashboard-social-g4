@@ -235,6 +235,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="tab"         onclick="showTab('midia',this)">Mídia Orgânica</div>
   <div class="tab"         onclick="showTab('posts',this)">Top Posts</div>
   <div class="tab"         onclick="showTab('plano',this)" style="color:#6366f1;font-weight:700">Briefing Diário</div>
+  <div class="tab"         onclick="showTab('yoy',this)" style="color:#22c55e;font-weight:700">YoY / WoW / DoD</div>
 </div>
 
 <!-- ============================= OVERVIEW ============================= -->
@@ -1253,6 +1254,139 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
 </div><!-- /pane-plano -->
 
+<!-- ============================= YoY / WoW / DoD ============================= -->
+<div class="pane" id="pane-yoy">
+
+  <div class="stitle">Comparativo MQL — YoY / WoW / DoD <span style="font-size:12px;color:var(--muted);font-weight:400">2024 · 2025 · 2026</span></div>
+  <div class="nota" style="margin-bottom:18px">
+    Dados do Databricks · Referência: <strong>15/03/2026</strong>. Comparação direta de MQL no mesmo período dos últimos 3 anos para identificar tendências estruturais.
+  </div>
+
+  <!-- KPI cards DoD / WoW / Março acumulado -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px">
+
+    <!-- DoD -->
+    <div class="tcard" style="padding:18px 20px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;font-weight:600">Day over Day — 15/03</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end">
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2024</div>
+          <div style="font-size:26px;font-weight:800;color:#94a3b8">120</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2025</div>
+          <div style="font-size:26px;font-weight:800;color:#6366f1">109</div>
+          <div style="font-size:10px;color:#ef4444;margin-top:2px">▼ -9%</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2026</div>
+          <div style="font-size:26px;font-weight:800;color:#22c55e">52</div>
+          <div style="font-size:10px;color:#ef4444;margin-top:2px">▼ -52%</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px">* 15/03/2026 parcial (domingo)</div>
+    </div>
+
+    <!-- WoW semana 11 -->
+    <div class="tcard" style="padding:18px 20px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;font-weight:600">Week over Week — Semana 11</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end">
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2024</div>
+          <div style="font-size:26px;font-weight:800;color:#94a3b8">952</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2025</div>
+          <div style="font-size:26px;font-weight:800;color:#6366f1">753</div>
+          <div style="font-size:10px;color:#ef4444;margin-top:2px">▼ -21%</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2026</div>
+          <div style="font-size:26px;font-weight:800;color:#22c55e">670</div>
+          <div style="font-size:10px;color:#ef4444;margin-top:2px">▼ -11%</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px">Semana 11: 09–15/03 · 2026 vs 2025</div>
+    </div>
+
+    <!-- Março acumulado -->
+    <div class="tcard" style="padding:18px 20px">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;font-weight:600">Março Acumulado — 01–15/03</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end">
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2024</div>
+          <div style="font-size:26px;font-weight:800;color:#94a3b8">3.015</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2025</div>
+          <div style="font-size:26px;font-weight:800;color:#6366f1">1.390</div>
+          <div style="font-size:10px;color:#ef4444;margin-top:2px">▼ -54%</div>
+        </div>
+        <div style="text-align:center;flex:1">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:2px">2026</div>
+          <div style="font-size:26px;font-weight:800;color:#22c55e">1.547</div>
+          <div style="font-size:10px;color:#22c55e;margin-top:2px">▲ +11%</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--muted);margin-top:10px;border-top:1px solid var(--border);padding-top:8px">2026 supera 2025 no mesmo período +11%</div>
+    </div>
+
+  </div>
+
+  <!-- Gráfico 1: MQL Diário Fev–Mar (3 anos) -->
+  <div class="tcard" style="padding:20px 22px;margin-bottom:20px">
+    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Diário — Fev a 15/Mar</span><span class="sub">3 anos comparados</span></div>
+    <canvas id="chartYoyDaily" style="max-height:280px"></canvas>
+  </div>
+
+  <!-- Gráfico 2: MQL Semanal semanas 1-11 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+    <div class="tcard" style="padding:20px 22px">
+      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Semanal — Semanas 1–11</span><span class="sub">Jan a 15/Mar</span></div>
+      <canvas id="chartYoyWeekly" style="max-height:260px"></canvas>
+    </div>
+
+    <!-- Gráfico 3: MQL Mensal -->
+    <div class="tcard" style="padding:20px 22px">
+      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Mensal — Jan/24 a Mar/26</span><span class="sub">histórico completo</span></div>
+      <canvas id="chartYoyMonthly" style="max-height:260px"></canvas>
+    </div>
+  </div>
+
+  <!-- Tabela comparativa Março por semana -->
+  <div class="tcard" style="padding:20px 22px">
+    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Detalhe por semana — Março</span><span class="sub">2024 vs 2025 vs 2026</span></div>
+    <table>
+      <thead>
+        <tr><th>Semana</th><th>Período</th><th>2024</th><th>2025</th><th>2026</th><th>2026 vs 2025</th><th>2026 vs 2024</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:700">Sem. 9</td><td style="color:var(--muted)">24/fev–02/mar</td>
+          <td>1.135</td><td>762</td><td>798</td>
+          <td style="color:#22c55e">+5%</td><td style="color:#ef4444">-30%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700">Sem. 10</td><td style="color:var(--muted)">03–09/mar</td>
+          <td>1.538</td><td>637</td><td>802</td>
+          <td style="color:#22c55e">+26%</td><td style="color:#ef4444">-48%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:700">Sem. 11</td><td style="color:var(--muted)">10–15/mar</td>
+          <td>952</td><td>753</td><td>670</td>
+          <td style="color:#ef4444">-11%</td><td style="color:#ef4444">-30%</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Mar 1–15</strong></td><td style="color:var(--muted)">parcial</td>
+          <td><strong>3.015</strong></td><td><strong>1.390</strong></td><td><strong>1.547</strong></td>
+          <td style="color:#22c55e"><strong>+11%</strong></td><td style="color:#ef4444"><strong>-49%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /pane-yoy -->
+
 </div><!-- /container principal -->
 
 <div class="footer">
@@ -1405,12 +1539,15 @@ var CHS={};
 function dc(id){if(CHS[id]){CHS[id].destroy();delete CHS[id]}}
 
 // ===== TABS =====
+var _yoyBuilt=false;
 function showTab(n,el){
-  ['overview','mql','receita','midia','posts','plano'].forEach(function(t){
-    document.getElementById('pane-'+t).classList.toggle('active',t===n);
+  ['overview','mql','receita','midia','posts','plano','yoy'].forEach(function(t){
+    var p=document.getElementById('pane-'+t);
+    if(p) p.classList.toggle('active',t===n);
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
   if(el)el.classList.add('active');
+  if(n==='yoy'&&!_yoyBuilt){buildYoyCharts();_yoyBuilt=true;}
 }
 
 // ===== INSIGHTS TOGGLE =====
@@ -1746,6 +1883,132 @@ function showCanal(slug,btn){
   var grid=document.getElementById('posts-grid');
   if(grid)grid.innerHTML=posts.map(function(p,i){return renderPostCard(p,i+1)}).join('');
   renderInsightCanal(slug);
+}
+
+showCanal('todos',null);
+
+// ===== YoY / WoW / DoD CHARTS =====
+// Dados históricos Databricks — fev-mar 2024/2025/2026
+var YOY_DIAS_FEV_MAR = [
+  "01/02","02/02","03/02","04/02","05/02","06/02","07/02","08/02","09/02","10/02",
+  "11/02","12/02","13/02","14/02","15/02","16/02","17/02","18/02","19/02","20/02",
+  "21/02","22/02","23/02","24/02","25/02","26/02","27/02","28/02","29/02",
+  "01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03",
+  "11/03","12/03","13/03","14/03","15/03"
+];
+// 2024: fev tem 29 dias, 2025 e 2026: 28 dias — alinhamos por índice de dia-do-mês
+var YOY_2024_FEV = [219,101,164,148,127,147,172,156,118,98,86,79,147,187,181,164,168,148,171,374,449,210,189,166,165,129,198,191,152];
+var YOY_2024_MAR = [106,168,191,210,254,220,200,127,247,280,193,262,230,147,120];
+var YOY_2025_FEV = [111,89,126,148,142,132,119,119,105,171,136,119,161,137,127,116,159,154,169,165,151,123,152,126,133,114,98,105];
+var YOY_2025_MAR = [95,91,74,65,88,106,112,100,92,109,137,124,181,93,109];
+var YOY_2026_FEV = [112,88,101,153,162,83,80,124,156,120,158,170,100,89,83,69,81,134,125,112,84,107,92,120,156,118,124,113];
+var YOY_2026_MAR = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,52];
+
+// Para o gráfico diário, usamos apenas os dias de março (1-15) para fácil comparação YoY
+var YOY_DIAS_MAR = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03"];
+
+// MQL Semanal (semanas 1-11 de cada ano)
+var YOY_SEMANAS = ["S1","S2","S3","S4","S5","S6","S7","S8","S9","S10","S11"];
+var YOY_WEEKLY_2024 = [1112,1641,1725,1422,1423,904,1074,1724,1135,1538,952];
+var YOY_WEEKLY_2025 = [576,1063,1118,1044,876,891,967,1073,762,637,753];
+var YOY_WEEKLY_2026 = [404,746,722,772,961,791,876,712,798,802,670];
+
+// MQL Mensal (jan/2024 a mar/2026)
+var YOY_MESES = ["Jan/24","Fev/24","Mar/24","Abr/24","Mai/24","Jun/24","Jul/24","Ago/24","Set/24","Out/24","Nov/24","Dez/24",
+                 "Jan/25","Fev/25","Mar/25","Abr/25","Mai/25","Jun/25","Jul/25","Ago/25","Set/25","Out/25","Nov/25","Dez/25",
+                 "Jan/26","Fev/26","Mar/26*"];
+var YOY_MONTHLY = [6691,5004,6010,5540,5350,1760,4855,4226,4108,3153,4211,5532,
+                   4477,3707,3932,3760,2968,1885,2699,5364,3617,3106,3990,3074,
+                   3493,3214,1547];
+var YOY_MONTHLY_COLORS = [];
+YOY_MESES.forEach(function(m,i){
+  if(i<12) YOY_MONTHLY_COLORS.push('rgba(148,163,184,0.7)');
+  else if(i<24) YOY_MONTHLY_COLORS.push('rgba(99,102,241,0.75)');
+  else YOY_MONTHLY_COLORS.push('rgba(34,197,94,0.85)');
+});
+
+function buildYoyCharts(){
+  var ctxD = document.getElementById('chartYoyDaily');
+  var ctxW = document.getElementById('chartYoyWeekly');
+  var ctxM = document.getElementById('chartYoyMonthly');
+  if(!ctxD||!ctxW||!ctxM) return;
+
+  // --- Gráfico 1: MQL Diário Março ---
+  var allDiaDates = [];
+  // fev (28 dias para 2025/2026, 29 para 2024) + 15 dias de mar = até 44 pontos
+  // Usamos dias de março apenas para clareza da comparação
+  var fevDias2024 = ['01/02','02/02','03/02','04/02','05/02','06/02','07/02','08/02','09/02','10/02','11/02','12/02','13/02','14/02','15/02','16/02','17/02','18/02','19/02','20/02','21/02','22/02','23/02','24/02','25/02','26/02','27/02','28/02','29/02'];
+  var fevDias = ['01/02','02/02','03/02','04/02','05/02','06/02','07/02','08/02','09/02','10/02','11/02','12/02','13/02','14/02','15/02','16/02','17/02','18/02','19/02','20/02','21/02','22/02','23/02','24/02','25/02','26/02','27/02','28/02'];
+  var allDias = fevDias.concat(YOY_DIAS_MAR);
+  var d2024 = YOY_2024_FEV.slice(0,28).concat(YOY_2024_MAR); // usa apenas 28 dias de fev/2024 para alinhar
+  var d2025 = YOY_2025_FEV.concat(YOY_2025_MAR);
+  var d2026 = YOY_2026_FEV.concat(YOY_2026_MAR);
+
+  new Chart(ctxD, {
+    type:'line',
+    data:{
+      labels: allDias,
+      datasets:[
+        {label:'2024',data:d2024,borderColor:'#94a3b8',backgroundColor:'rgba(148,163,184,0.08)',borderWidth:2,pointRadius:2,tension:0.3},
+        {label:'2025',data:d2025,borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.08)',borderWidth:2,pointRadius:2,tension:0.3},
+        {label:'2026',data:d2026,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',borderWidth:2.5,pointRadius:3,tension:0.3}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{position:'top',labels:{color:'#94a3b8',font:{size:11}}},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{ticks:{color:'#64748b',font:{size:10},maxTicksLimit:20,maxRotation:45},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'rgba(255,255,255,0.06)'},title:{display:true,text:'MQL / dia',color:'#64748b',font:{size:10}}}
+      }
+    }
+  });
+
+  // --- Gráfico 2: Semanal ---
+  new Chart(ctxW, {
+    type:'line',
+    data:{
+      labels: YOY_SEMANAS,
+      datasets:[
+        {label:'2024',data:YOY_WEEKLY_2024,borderColor:'#94a3b8',backgroundColor:'rgba(148,163,184,0.08)',borderWidth:2,pointRadius:4,tension:0.3},
+        {label:'2025',data:YOY_WEEKLY_2025,borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.08)',borderWidth:2,pointRadius:4,tension:0.3},
+        {label:'2026',data:YOY_WEEKLY_2026,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',borderWidth:2.5,pointRadius:4,tension:0.3}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{position:'top',labels:{color:'#94a3b8',font:{size:11}}},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'rgba(255,255,255,0.06)'},title:{display:true,text:'MQL / semana',color:'#64748b',font:{size:10}}}
+      }
+    }
+  });
+
+  // --- Gráfico 3: Mensal ---
+  new Chart(ctxM, {
+    type:'bar',
+    data:{
+      labels: YOY_MESES,
+      datasets:[{
+        label:'MQL',
+        data: YOY_MONTHLY,
+        backgroundColor: YOY_MONTHLY_COLORS,
+        borderRadius:3,borderSkipped:false
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:function(c){return ' '+c.raw.toLocaleString('pt-BR')+' MQL';}}}
+      },
+      scales:{
+        x:{ticks:{color:'#64748b',font:{size:9},maxRotation:45},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'rgba(255,255,255,0.06)'}}
+      }
+    }
+  });
 }
 
 showCanal('todos',null);
