@@ -1643,7 +1643,6 @@ var CHS={};
 function dc(id){if(CHS[id]){CHS[id].destroy();delete CHS[id]}}
 
 // ===== TABS =====
-var _yoyBuilt=false;
 function showTab(n,el){
   ['overview','mql','receita','midia','posts','plano','yoy'].forEach(function(t){
     var p=document.getElementById('pane-'+t);
@@ -1651,21 +1650,6 @@ function showTab(n,el){
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
   if(el)el.classList.add('active');
-  if(n==='yoy'&&!_yoyBuilt){
-    _yoyBuilt=true;
-    // Tentar 3x com delays crescentes para garantir que o pane está visível
-    setTimeout(function(){
-      try{buildYoyCharts();}catch(e){console.error('YoY t100:',e);}
-    },100);
-    setTimeout(function(){
-      if(!document.getElementById('chartYoyDaily').chart){
-        try{buildYoyCharts();}catch(e){console.error('YoY t500:',e);}
-      }
-    },500);
-    setTimeout(function(){
-      try{buildYoyCharts();}catch(e){console.error('YoY t1500:',e);}
-    },1500);
-  }
 }
 
 // ===== INSIGHTS TOGGLE =====
@@ -2005,9 +1989,7 @@ function showCanal(slug,btn){
 
 showCanal('todos',null);
 
-// ===== YoY / WoW / DoD CHARTS =====
-// Fonte: production.gold.deals_events — Social Media Instagram — ref 15/03/2026
-// Fev 2024: 29 dias | Fev 2025 e 2026: 28 dias
+// YoY dados inline no HTML (aba CSS pura, sem canvas)
 var YOY_2024_FEV = [219,101,164,148,127,147,172,156,118,98,86,79,147,187,181,164,168,148,171,374,449,210,189,166,165,129,198,191,152];
 var YOY_2024_MAR15 = [106,168,191,210,254,220,200,127,247,280,193,262,230,147,120];
 var YOY_2025_FEV = [111,89,126,148,142,132,119,119,105,171,136,119,161,137,127,116,159,154,169,165,151,123,152,126,133,114,98,105];
@@ -2036,13 +2018,8 @@ YOY_MESES.forEach(function(m,i){
 });
 
 function buildYoyCharts(){
-  var ctxD = document.getElementById('chartYoyDaily');
-  var ctxW = document.getElementById('chartYoyWeekly');
-  var ctxM = document.getElementById('chartYoyMonthly');
-  if(!ctxD||!ctxW||!ctxM){console.error('YoY canvas not found');return;}
-  try{if(Chart.getChart(ctxD))Chart.getChart(ctxD).destroy();}catch(e){}
-  try{if(Chart.getChart(ctxW))Chart.getChart(ctxW).destroy();}catch(e){}
-  try{if(Chart.getChart(ctxM))Chart.getChart(ctxM).destroy();}catch(e){}
+  // Aba YoY agora usa CSS puro — função mantida por compatibilidade
+  return;
 
   // Gráfico 1: diário fev+mar (alinhado por dia-do-mês — 28 dias fev + 15 mar)
   var diasFev = ["01/02","02/02","03/02","04/02","05/02","06/02","07/02","08/02","09/02","10/02","11/02","12/02","13/02","14/02","15/02","16/02","17/02","18/02","19/02","20/02","21/02","22/02","23/02","24/02","25/02","26/02","27/02","28/02"];
