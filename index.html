@@ -1259,6 +1259,15 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
 <!-- ============================= YoY / WoW / DoD ============================= -->
 <div class="pane" id="pane-yoy">
+<style>
+.yoy-bar-wrap{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.yoy-bar-label{font-size:11px;color:var(--muted);width:32px;text-align:right;flex-shrink:0}
+.yoy-bar-track{flex:1;height:14px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.yoy-bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.yoy-bar-val{font-size:11px;font-weight:700;width:44px;flex-shrink:0}
+.yoy-section{margin-bottom:20px}
+.yoy-section-title{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:10px}
+</style>
 
   <div class="stitle">Comparativo MQL — YoY / WoW / DoD <span style="font-size:12px;color:var(--muted);font-weight:400">2024 · 2025 · 2026</span></div>
   <div class="nota" style="margin-bottom:18px">
@@ -1358,21 +1367,109 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   </div>
 
-  <!-- Gráfico 1: MQL Diário Fev–Mar (3 anos) — span full width -->
-  <div class="tcard" style="padding:20px 22px;margin-bottom:18px">
-    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Diário — Fev a 15/Mar</span><span class="sub">3 anos · mesmo período</span></div>
-    <div style="position:relative;height:260px;width:100%"><canvas id="chartYoyDaily"></canvas></div>
-  </div>
-
-  <!-- Gráficos 2 e 3 lado a lado -->
+  <!-- MQL Semanal — barras CSS (sem canvas) -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px">
+
+    <!-- Semanal S1-S11 -->
     <div class="tcard" style="padding:20px 22px">
-      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Semanal — Semanas 1–11</span><span class="sub">Jan a 15/Mar</span></div>
-      <div style="position:relative;height:240px;width:100%"><canvas id="chartYoyWeekly"></canvas></div>
+      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Semanal — Semanas 1–11</span><span class="sub">Jan a 15/Mar · max=1.725</span></div>
+      <div class="yoy-section">
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:76.6%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.320</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:42.5%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">734</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:23.4%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">404</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S1 (01–05/jan)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:95.1%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.641</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:61.6%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">1.063</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:43.3%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">746</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S2 (06–12/jan)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:100%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.725</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:64.8%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">1.118</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:41.9%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">722</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S3 (13–19/jan)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:82.4%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.422</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:60.5%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">1.044</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:44.8%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">772</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S4 (20–26/jan)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:82.5%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.423</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:50.8%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">876</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:55.7%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">961</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S5 (27/jan–02/fev)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:52.4%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">904</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:51.7%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">891</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:45.9%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">791</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S6 (03–09/fev)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:62.3%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.074</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:56.1%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">967</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:50.8%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">876</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S7 (10–16/fev)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:100%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.724</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:62.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">1.073</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:41.3%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">712</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S8 (17–23/fev)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:65.8%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.135</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:44.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">762</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:46.3%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">798</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S9 (24/fev–02/mar)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:89.2%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.538</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:36.9%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">637</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:46.5%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">802</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 10px">S10 (03–09/mar)</div>
+
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8">2024</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:76.9%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.326</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1">2025</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:53.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">917</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e">2026</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:38.8%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">670</span></div>
+        <div style="font-size:9px;color:var(--muted);margin:4px 0 4px">S11 (10–15/mar)</div>
+      </div>
     </div>
+
+    <!-- MQL Mensal barras CSS -->
     <div class="tcard" style="padding:20px 22px">
-      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Mensal — Jan/24 a Mar/26</span><span class="sub">histórico completo</span></div>
-      <div style="position:relative;height:240px;width:100%"><canvas id="chartYoyMonthly"></canvas></div>
+      <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Mensal por ano</span><span class="sub">Jan–Dez · max=6.691</span></div>
+      <div class="yoy-section-title">2024 — Total 56.440</div>
+      <div class="yoy-section">
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Jan</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:100%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">6.691</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Fev</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:74.8%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">5.004</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Mar</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:89.8%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">6.010</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Abr</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:82.8%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">5.540</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Mai</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:79.9%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">5.350</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Jun</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:26.3%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">1.760</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Jul</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:72.6%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">4.855</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Ago</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:63.2%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">4.226</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Set</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:61.4%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">4.108</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Out</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:47.1%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">3.153</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Nov</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:62.9%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">4.211</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#94a3b8;width:36px">Dez</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:82.7%;background:#94a3b8"></div></div><span class="yoy-bar-val" style="color:#94a3b8">5.532</span></div>
+      </div>
+      <div class="yoy-section-title" style="margin-top:12px">2025 — Total 42.579</div>
+      <div class="yoy-section">
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Jan</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:66.9%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">4.477</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Fev</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:55.4%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.707</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Mar</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:58.8%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.932</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Abr</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:56.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.760</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Mai</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:44.4%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">2.968</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Jun</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:28.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">1.885</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Jul</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:40.3%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">2.699</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Ago</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:80.2%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">5.364</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Set</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:54.1%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.617</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Out</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:46.4%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.106</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Nov</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:59.7%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.990</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#6366f1;width:36px">Dez</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:46.0%;background:#6366f1"></div></div><span class="yoy-bar-val" style="color:#6366f1">3.074</span></div>
+      </div>
+      <div class="yoy-section-title" style="margin-top:12px">2026 — Jan–Mar parcial</div>
+      <div class="yoy-section">
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e;width:36px">Jan</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:52.2%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">3.493</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e;width:36px">Fev</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:48.0%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">3.214</span></div>
+        <div class="yoy-bar-wrap"><span class="yoy-bar-label" style="color:#22c55e;width:36px">Mar*</span><div class="yoy-bar-track"><div class="yoy-bar-fill" style="width:23.1%;background:#22c55e"></div></div><span class="yoy-bar-val" style="color:#22c55e">1.547</span></div>
+      </div>
     </div>
   </div>
 
