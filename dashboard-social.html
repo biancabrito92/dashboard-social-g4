@@ -1358,18 +1358,18 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <!-- Gráfico 1: MQL Diário Fev–Mar (3 anos) — span full width -->
   <div class="tcard" style="padding:20px 22px;margin-bottom:18px">
     <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Diário — Fev a 15/Mar</span><span class="sub">3 anos · mesmo período</span></div>
-    <canvas id="chartYoyDaily" style="max-height:260px"></canvas>
+    <div style="position:relative;height:260px;width:100%"><canvas id="chartYoyDaily"></canvas></div>
   </div>
 
   <!-- Gráficos 2 e 3 lado a lado -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px">
     <div class="tcard" style="padding:20px 22px">
       <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Semanal — Semanas 1–11</span><span class="sub">Jan a 15/Mar</span></div>
-      <canvas id="chartYoyWeekly" style="max-height:240px"></canvas>
+      <div style="position:relative;height:240px;width:100%"><canvas id="chartYoyWeekly"></canvas></div>
     </div>
     <div class="tcard" style="padding:20px 22px">
       <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>MQL Mensal — Jan/24 a Mar/26</span><span class="sub">histórico completo</span></div>
-      <canvas id="chartYoyMonthly" style="max-height:240px"></canvas>
+      <div style="position:relative;height:240px;width:100%"><canvas id="chartYoyMonthly"></canvas></div>
     </div>
   </div>
 
@@ -1553,7 +1553,7 @@ function showTab(n,el){
   });
   document.querySelectorAll('.tab').forEach(function(tb){tb.classList.remove('active')});
   if(el)el.classList.add('active');
-  if(n==='yoy'&&!_yoyBuilt){setTimeout(function(){buildYoyCharts();_yoyBuilt=true;},50);}
+  if(n==='yoy'&&!_yoyBuilt){_yoyBuilt=true;setTimeout(buildYoyCharts,100);}
 }
 
 // ===== INSIGHTS TOGGLE =====
@@ -1941,7 +1941,7 @@ function buildYoyCharts(){
     {label:'2024',data:d2024,borderColor:'#94a3b8',backgroundColor:'rgba(148,163,184,0.06)',borderWidth:1.5,pointRadius:1,tension:0.35},
     {label:'2025',data:d2025,borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.07)',borderWidth:2,pointRadius:1,tension:0.35},
     {label:'2026',data:d2026,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',borderWidth:2.5,pointRadius:2,tension:0.35}
-  ]},options:{responsive:true,maintainAspectRatio:true,
+  ]},options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'top',labels:{color:'#94a3b8',font:{size:11},boxWidth:12}},tooltip:{mode:'index',intersect:false}},
     scales:{
       x:{ticks:{color:'#64748b',font:{size:9},maxTicksLimit:22,maxRotation:45},grid:{color:'rgba(255,255,255,0.03)'}},
@@ -1954,7 +1954,7 @@ function buildYoyCharts(){
     {label:'2024',data:YOY_WEEKLY_2024,borderColor:'#94a3b8',backgroundColor:'rgba(148,163,184,0.06)',borderWidth:1.5,pointRadius:4,pointHoverRadius:6,tension:0.3},
     {label:'2025',data:YOY_WEEKLY_2025,borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.07)',borderWidth:2,pointRadius:4,pointHoverRadius:6,tension:0.3},
     {label:'2026',data:YOY_WEEKLY_2026,borderColor:'#22c55e',backgroundColor:'rgba(34,197,94,0.1)',borderWidth:2.5,pointRadius:4,pointHoverRadius:6,tension:0.3}
-  ]},options:{responsive:true,maintainAspectRatio:true,
+  ]},options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'top',labels:{color:'#94a3b8',font:{size:11},boxWidth:12}},tooltip:{mode:'index',intersect:false}},
     scales:{
       x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'rgba(255,255,255,0.03)'}},
@@ -1965,7 +1965,7 @@ function buildYoyCharts(){
   // Gráfico 3: mensal (barras)
   new Chart(ctxM,{type:'bar',data:{labels:YOY_MESES,datasets:[{
     label:'MQL',data:YOY_MONTHLY,backgroundColor:YOY_MONTHLY_COLORS,borderRadius:3,borderSkipped:false
-  }]},options:{responsive:true,maintainAspectRatio:true,
+  }]},options:{responsive:true,maintainAspectRatio:false,
     plugins:{
       legend:{display:false},
       tooltip:{callbacks:{label:function(c){return ' '+c.raw.toLocaleString('pt-BR')+' MQL';}}}
