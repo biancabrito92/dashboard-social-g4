@@ -229,11 +229,11 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <div class="header">
   <div class="header-left">
     <h1>Social Media Dashboard — G4</h1>
-    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 18/03/2026 19h00</p>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 18/03/2026 21h00</p>
   </div>
   <div class="header-right">
     <span class="badge live">Mídia: até 09/03</span>
-    <span class="badge info">MQL: até 18/03 · 1809 Social acumulado</span>
+    <span class="badge info">MQL: até 18/03 · 1815 Social acumulado</span>
     <span class="badge warn">Pipeline: latência ~2 dias</span>
   </div>
 </div>
@@ -256,7 +256,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px">
     <div class="kcard hi">
       <div class="klabel">MQLs Social Media</div>
-      <div class="kval g" id="kpi-mql-total">1809</div>
+      <div class="kval g" id="kpi-mql-total">1815</div>
       <div class="ksub m" id="kpi-mql-sub">01–18/03 · ~100/dia</div>
       <div class="pbar"><div class="pfill g" style="width:32%"></div></div>
     </div>
@@ -273,14 +273,14 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
       <div class="klabel" style="color:#a5b4fc">Hoje (18/03) — em curso</div>
-      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">59</div>
-      <div class="ksub m" id="mql-hoje-sub">atualizado 19h · meta: 123</div>
-      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:22%;background:#6366f1" id="mql-hoje-bar" style="width:47%;background:#6366f1"></div></div>
+      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">65</div>
+      <div class="ksub m" id="mql-hoje-sub">atualizado 21h · meta: 123</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:22%;background:#6366f1" id="mql-hoje-bar" style="width:52%;background:#6366f1"></div></div>
     </div>
     <div class="kcard" style="border-color:#eab30844;background:rgba(234,179,8,.06)">
       <div class="klabel" style="color:#fde047">Projeção do Dia</div>
-      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~85</div>
-      <div class="ksub m" id="mql-proj-dia-sub">59 realizados · -38 vs meta 123</div>
+      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~81</div>
+      <div class="ksub m" id="mql-proj-dia-sub">65 realizados · -42 vs meta 123</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
@@ -387,7 +387,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Ontem (17/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1474</td><td>58,5%</td><td class="g">12,7</td><td>11</td><td><span class="pill y">Intensificar cadência</span></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1480</td><td>58,5%</td><td class="g">12,7</td><td>11</td><td><span class="pill y">Intensificar cadência</span></td></tr>
         <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">62</td><td>20,5%</td><td>4,5</td><td>5</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
         <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">180</td><td>18,9%</td><td>4,1</td><td>3</td><td><span class="pill y">Story de ponte</span></td></tr>
         <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">90</td><td>1,6%</td><td>0,4</td><td>0</td><td><span class="pill y">Replicar método</span></td></tr>
@@ -1498,17 +1498,17 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <script>
 // ===== DADOS =====
 var DIAS_MQL = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03"];
-var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,59];
+var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,65];
 var META_DIA   = 123; // 3.800 / 31 dias
 
 var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03"];
-var DAILY_ALCANCE = [2275883,1906885,1946298,1618225,2165402,1653229,1554710,1776836,1855679,2259641,2023866,1514739,1397442,1291968,1762624,1783091,2338754,1911635];
+var DAILY_ALCANCE = [2793454,2542763,2437688,2266349,2707350,2310231,2342994,2541261,2774244,3226977,3018425,2391410,2235686,1890046,2327331,2146396,2599875,2189815];
 
 var CANAL_DAILY = {
-  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,821297], // cd-tallis
-  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,462513], // cd-alfredo
-  'G4':      [204492,179349,317918,208410,280671,126719,150923,164193,172990,150472,153025,166830,140753,200115,190075,154062,159767,227825], // cd-g4
-  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294134] // cd-nardon
+  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177], // cd-tallis
+  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513386], // cd-alfredo
+  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,440158], // cd-g4
+  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514] // cd-nardon
 };
 
 var MQL_CANAL_MAR = [363,262,127,89,86,45,37,30,25,15,2];
@@ -1516,7 +1516,7 @@ var MQL_CANAL_FEV = [991,744,468,195,315,114,141,57,76,113,0];
 var MQL_CANAL_LABELS = ['G4 Inst.','Incompl.','Tallis','Social DM','K Inst.','Testes','Alfredo','Outros','CM-IG','DM-K','SKL'];
 
 var MQL_HIST_MES   = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
-var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 1809];
+var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 1815];
 
 // canal slug helper
 function canalSlug(name){
@@ -1724,10 +1724,10 @@ function toggleIns(id){
     'Nardon':  [0,0,0,0,2,2,0,0,0,0,0,1,0,0,0,1,0]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,821297,null], // alc-tallis
-    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,462513,null], // alc-alfredo
-    'G4':      [204492,179349,317918,208410,280671,126719,150923,164193,172990,150472,153025,166830,140753,200115,190075,154062,159767,227825,null], // alc-g4
-    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294134,null] // alc-nardon
+    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,null], // alc-tallis
+    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513386,null], // alc-alfredo
+    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,440158,null], // alc-g4
+    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,null] // alc-nardon
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
