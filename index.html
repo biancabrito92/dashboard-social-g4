@@ -301,8 +301,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard hi">
       <div class="klabel">Receita Potencial</div>
-      <div class="kval sm o">R$ 1,2M</div>
-      <div class="ksub m">213 won × R$ 5.800 ticket médio</div>
+      <div class="kval sm o">R$ 383k</div>
+      <div class="ksub m">66 won estimados × R$ 5.800 · 01–19/03</div>
     </div>
   </div>
 
@@ -416,7 +416,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="cfull">
     <div class="ccard">
       <div class="ctitle">Funil de conversão</div>
-      <div class="csub">Social Media · março 2026 (01–14/03) vs fevereiro 2026 (mês completo)</div>
+      <div class="csub">Social Media · março 2026 (01–19/03) vs fevereiro 2026 (mês completo)</div>
       <div class="funil-wrap" id="funil-viz"></div>
     </div>
   </div>
@@ -553,30 +553,30 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="stitle">Potencial de Receita — Social Media · Março 2026</div>
 
   <div class="nota">
-    <strong>Metodologia:</strong> Ticket médio R$ 5.800 (G4 presencial). Taxa MQL→Oportunidade: 24,3% (março real: 363 OPP / 1.495 MQL). Taxa OPP→Won: 13,5% (março real: 49 won / 363 OPP). Dados reais 01–14/03/2026.
+    <strong>Metodologia:</strong> Ticket médio R$ 5.800 (G4 presencial). Taxa MQL→Oportunidade: 24,3% (referência março). Taxa OPP→Won: 13,5% (referência março). MQL acumulado real: 1.998 (01–19/03). OPP e Won estimados aplicando as taxas ao MQL real de março.
   </div>
 
   <!-- KPIs receita projetada -->
   <div class="kgrid-4">
     <div class="kcard hi">
       <div class="klabel">MQL Projetado (mês)</div>
-      <div class="kval y">~3.286</div>
-      <div class="ksub m">106/dia × 31 dias</div>
+      <div class="kval y">~3.069</div>
+      <div class="ksub m">105/dia × 31 dias · 01–19/03</div>
     </div>
     <div class="kcard hi">
-      <div class="klabel">OPP Realizado</div>
-      <div class="kval y">363</div>
-      <div class="ksub m">01–14/03 · 24,3% de conv. MQL→OPP</div>
+      <div class="klabel">OPP Estimado</div>
+      <div class="kval y">~485</div>
+      <div class="ksub m">1.998 MQL × 24,3% · 01–19/03</div>
     </div>
     <div class="kcard hi">
-      <div class="klabel">Won Realizado</div>
-      <div class="kval o">49</div>
-      <div class="ksub m">01–14/03 · 13,5% de conv. OPP→Won</div>
+      <div class="klabel">Won Estimado</div>
+      <div class="kval o">~66</div>
+      <div class="ksub m">485 OPP × 13,5% · 01–19/03</div>
     </div>
     <div class="kcard hi">
-      <div class="klabel">Receita Realizada</div>
-      <div class="kval sm o">R$ 284k</div>
-      <div class="ksub m">49 won × R$ 5.800 avg ticket</div>
+      <div class="klabel">Receita Estimada</div>
+      <div class="kval sm o">R$ 383k</div>
+      <div class="ksub m">66 won × R$ 5.800 avg ticket</div>
     </div>
   </div>
 
@@ -584,8 +584,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <!-- Funil de receita visual -->
   <div class="cgrid">
     <div class="ccard">
-      <div class="ctitle">Pipeline de receita — realizado</div>
-      <div class="csub">Março 2026 · 01–14/03 · dados reais do Databricks</div>
+      <div class="ctitle">Pipeline de receita — estimado</div>
+      <div class="csub">Março 2026 · 01–19/03 · MQL real + taxas de conversão de março</div>
       <div class="cwrap-t"><canvas id="ch-receita-funil"></canvas></div>
     </div>
     <div class="ccard">
@@ -597,21 +597,21 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Cenários -->
   <div class="tcard">
-    <div class="thead-row"><span>Cenários de receita — março 2026</span><span class="sub">ticket médio R$ 5.800</span></div>
+    <div class="thead-row"><span>Cenários de receita — março 2026</span><span class="sub">ticket médio R$ 5.800 · taxas: MQL→OPP 24,3% · OPP→Won 13,5%</span></div>
     <table>
-      <thead><tr><th>Cenário</th><th>MQL/dia</th><th>MQL mês</th><th>OPP</th><th>Won</th><th>Receita</th><th>ROI</th></tr></thead>
+      <thead><tr><th>Cenário</th><th>MQL/dia</th><th>MQL mês</th><th>OPP</th><th>Won</th><th>Receita</th><th>vs meta</th></tr></thead>
       <tbody>
-        <tr><td><span class="pill r">Pessimista</span> (90/dia)</td><td>90</td><td>2.790</td><td>678</td><td>92</td><td class="y">R$ 534k</td><td>8x</td></tr>
-        <tr style="background:rgba(99,102,241,.05)"><td><span class="pill a">Base</span> (ritmo atual)</td><td class="g">106</td><td class="g">3.286</td><td class="g">799</td><td class="g">108</td><td class="g"><strong>R$ 626k</strong></td><td class="g"><strong>9x</strong></td></tr>
-        <tr><td><span class="pill g">Otimista</span> (+15%)</td><td>122</td><td>3.782</td><td>919</td><td>124</td><td class="g">R$ 719k</td><td>10x</td></tr>
-        <tr><td><span class="pill g">Meta</span> (3.800 MQL)</td><td>123</td><td>3.800</td><td>923</td><td>125</td><td class="g">R$ 725k</td><td>10x</td></tr>
+        <tr><td><span class="pill r">Pessimista</span> (90/dia)</td><td>90</td><td>2.790</td><td>678</td><td>92</td><td class="y">R$ 534k</td><td class="r">-27%</td></tr>
+        <tr style="background:rgba(99,102,241,.05)"><td><span class="pill a">Base</span> (ritmo atual)</td><td class="g">105</td><td class="g">3.069</td><td class="g">746</td><td class="g">101</td><td class="g"><strong>R$ 586k</strong></td><td class="y"><strong>-19%</strong></td></tr>
+        <tr><td><span class="pill y">Acelerado</span> (122/dia)</td><td>122</td><td>3.782</td><td>919</td><td>124</td><td class="g">R$ 719k</td><td class="g">-1%</td></tr>
+        <tr><td><span class="pill g">Meta</span> (3.800 MQL)</td><td>123</td><td>3.800</td><td>923</td><td>125</td><td class="g">R$ 725k</td><td class="g">meta</td></tr>
       </tbody>
     </table>
-    <div style="padding:10px 18px;font-size:10px;color:var(--muted)">* Receita = Won × R$ 5.800 ticket médio presencial. Taxas reais março/26: MQL→OPP 24,3% · OPP→Won 13,5%.</div>
+    <div style="padding:10px 18px;font-size:10px;color:var(--muted)">* Receita = Won × R$ 5.800 ticket médio presencial. MQL acumulado real: 1.998 (01–19/03). Taxas de referência março/26: MQL→OPP 24,3% · OPP→Won 13,5%.</div>
   </div>
 
   <div class="nota warn">
-    <strong>Atenção:</strong> OPP e Won são dados reais de março (01–14/03) extraídos do Databricks. As taxas de conversão de março (24,3% e 13,5%) estão abaixo de fevereiro (23,9% e 18,1%) — o pipeline de Won está mais lento. Os cenários projetados usam as taxas reais de março.
+    <strong>Atenção:</strong> Com 1.998 MQL em 19 dias (105/dia), a projeção base fecha o mês em ~3.069 MQL — gap de ~731 para a meta de 3.800. Para atingir a meta, é necessário acelerar para ~122 MQL/dia nos 11 dias restantes (+16% vs ritmo atual). Principal alavanca: G4 Institucional (58,1% dos MQLs rastreáveis).
   </div>
 
 </div>
@@ -1660,10 +1660,10 @@ function toggleIns(id){
 // ===== FUNIL VISUAL =====
 (function(){
   var data=[
-    {label:'MQL',      val:1495, ref:3214, color:'#6366f1'},
-    {label:'SAL',      val:1124, ref:2474, color:'#3b82f6'},
-    {label:'Opp',      val:363,  ref:768,  color:'#eab308'},
-    {label:'Won',      val:49,   ref:139,  color:'#22c55e'}
+    {label:'MQL',      val:1998, ref:3214, color:'#6366f1'},
+    {label:'SAL',      val:1503, ref:2474, color:'#3b82f6'},
+    {label:'Opp',      val:485,  ref:768,  color:'#eab308'},
+    {label:'Won',      val:66,   ref:139,  color:'#22c55e'}
   ];
   var max=data[0].val;
   var html=data.map(function(d,i){
@@ -1677,7 +1677,7 @@ function toggleIns(id){
       +'</div>';
   }).join('');
   var el=document.getElementById('funil-viz');
-  if(el)el.innerHTML=html+'<div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">01–14/03/2026 · Referência Fev/26: MQL 3.214 · SAL 2.474 · OPP 768 · Won 139</div>';
+  if(el)el.innerHTML=html+'<div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">01–19/03/2026 · MQL real + taxas março (SAL 75,2% · OPP 24,3% · Won 13,5%) · Referência Fev/26: MQL 3.214 · SAL 2.474 · OPP 768 · Won 139</div>';
 })();
 
 // ===== CHARTS =====
