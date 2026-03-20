@@ -229,7 +229,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <div class="header">
   <div class="header-left">
     <h1>Social Media Dashboard — G4</h1>
-    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 19/03/2026 21h07</p>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 19/03/2026 22h00</p>
   </div>
   <div class="header-right">
     <span class="badge live">Mídia: até 09/03</span>
@@ -274,13 +274,13 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
       <div class="klabel" style="color:#a5b4fc">Hoje (19/03) — em curso</div>
       <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">93</div>
-      <div class="ksub m" id="mql-hoje-sub">atualizado 21h · meta: 123</div>
+      <div class="ksub m" id="mql-hoje-sub">atualizado 22h · meta: 123</div>
       <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:22%;background:#6366f1" id="mql-hoje-bar" style="width:75%;background:#6366f1"></div></div>
     </div>
     <div class="kcard" style="border-color:#eab30844;background:rgba(234,179,8,.06)">
       <div class="klabel" style="color:#fde047">Projeção do Dia</div>
-      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~115</div>
-      <div class="ksub m" id="mql-proj-dia-sub">93 realizados · -8 vs meta 123</div>
+      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~105</div>
+      <div class="ksub m" id="mql-proj-dia-sub">93 realizados · -18 vs meta 123</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
@@ -387,9 +387,9 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Ontem (17/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1578</td><td>58,5%</td><td class="g">12,7</td><td>11</td><td><span class="pill y">Intensificar cadência</span></td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">71</td><td>20,5%</td><td>4,5</td><td>5</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
-        <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">190</td><td>18,9%</td><td>4,1</td><td>3</td><td><span class="pill y">Story de ponte</span></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1587</td><td>58,5%</td><td class="g">12,7</td><td>11</td><td><span class="pill y">Intensificar cadência</span></td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">72</td><td>20,5%</td><td>4,5</td><td>5</td><td><span class="pill r">Ativar CTA urgente</span></td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">191</td><td>18,9%</td><td>4,1</td><td>3</td><td><span class="pill y">Story de ponte</span></td></tr>
         <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">92</td><td>1,6%</td><td>0,4</td><td>0</td><td><span class="pill y">Replicar método</span></td></tr>
         <tr class="total-row"><td>TOTAL rastreável</td><td class="g" id="kpi-mql-total-canal">368</td><td>100%</td><td class="g">21,6</td><td id="kpi-ontem-canal">19 (17/03)</td><td></td></tr>
       </tbody>
@@ -1502,13 +1502,13 @@ var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,102,9
 var META_DIA   = 123; // 3.800 / 31 dias
 
 var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03"];
-var DAILY_ALCANCE = [2793454,2542763,2437688,2266349,2707350,2310231,2342994,2541261,2774244,3226977,3018425,2391410,2235686,1890046,2327331,2146396,2599875,2356237,1328528];
+var DAILY_ALCANCE = [2793454,2542763,2437688,2266349,2707350,2310231,2342994,2541261,2774244,3226977,3018425,2391410,2235686,1890046,2327331,2146396,2599875,2356260,1995009];
 
 var CANAL_DAILY = {
-  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,437838], // cd-tallis
-  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,417643], // cd-alfredo
-  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576534,264765], // cd-g4
-  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,167164] // cd-nardon
+  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,609112], // cd-tallis
+  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,722785], // cd-alfredo
+  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,394774], // cd-g4
+  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630] // cd-nardon
 };
 
 var MQL_CANAL_MAR = [363,262,127,89,86,45,37,30,25,15,2];
@@ -1724,10 +1724,10 @@ function toggleIns(id){
     'Nardon':  [0,0,0,0,2,2,0,0,0,0,0,1,0,0,0,1,0]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,437838,null], // alc-tallis
-    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,417643,null], // alc-alfredo
-    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576534,264765,null], // alc-g4
-    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,167164,null] // alc-nardon
+    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,609112,null], // alc-tallis
+    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,722785,null], // alc-alfredo
+    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,394774,null], // alc-g4
+    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,null] // alc-nardon
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
