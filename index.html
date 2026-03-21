@@ -229,11 +229,11 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <div class="header">
   <div class="header-left">
     <h1>Social Media Dashboard — G4</h1>
-    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 20/03/2026 19h00</p>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 20/03/2026 21h14</p>
   </div>
   <div class="header-right">
     <span class="badge live">Mídia: até 09/03</span>
-    <span class="badge info">MQL: até 20/03 · 2043 Social acumulado</span>
+    <span class="badge info">MQL: até 20/03 · 2051 Social acumulado</span>
     <span class="badge warn">Pipeline: latência ~2 dias</span>
   </div>
 </div>
@@ -256,7 +256,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px">
     <div class="kcard hi">
       <div class="klabel">MQLs Social Media</div>
-      <div class="kval g" id="kpi-mql-total">2043</div>
+      <div class="kval g" id="kpi-mql-total">2051</div>
       <div class="ksub m" id="kpi-mql-sub">01–20/03 · ~102/dia</div>
       <div class="pbar"><div class="pfill g" style="width:57%"></div></div>
     </div>
@@ -273,14 +273,14 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
       <div class="klabel" style="color:#a5b4fc">Hoje (20/03) — em curso</div>
-      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">62</div>
-      <div class="ksub m" id="mql-hoje-sub">atualizado 19h · meta: 123</div>
-      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:22%;background:#6366f1" id="mql-hoje-bar" style="width:50%;background:#6366f1"></div></div>
+      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">70</div>
+      <div class="ksub m" id="mql-hoje-sub">atualizado 21h · meta: 123</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:22%;background:#6366f1" id="mql-hoje-bar" style="width:56%;background:#6366f1"></div></div>
     </div>
     <div class="kcard" style="border-color:#eab30844;background:rgba(234,179,8,.06)">
       <div class="klabel" style="color:#fde047">Projeção do Dia</div>
-      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~89</div>
-      <div class="ksub m" id="mql-proj-dia-sub">62 realizados · -34 vs meta 123</div>
+      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~87</div>
+      <div class="ksub m" id="mql-proj-dia-sub">70 realizados · -36 vs meta 123</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
@@ -387,9 +387,9 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Ontem (19/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1662</td><td>59,1%</td><td class="g">67,2</td><td>52</td><td><span class="pill g">Canal principal — manter</span></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1669</td><td>59,1%</td><td class="g">67,2</td><td>52</td><td><span class="pill g">Canal principal — manter</span></td></tr>
         <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">199</td><td>19,7%</td><td>22,4</td><td>25</td><td><span class="pill g">Crescimento consistente</span></td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">77</td><td>11,7%</td><td>13,3</td><td>15</td><td><span class="pill y">Bom ritmo — intensificar CTA</span></td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">78</td><td>11,7%</td><td>13,3</td><td>15</td><td><span class="pill y">Bom ritmo — intensificar CTA</span></td></tr>
         <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">102</td><td>9,4%</td><td>10,7</td><td>15</td><td><span class="pill g">Alta variância — picos fortes</span></td></tr>
         <tr class="total-row"><td>TOTAL rastreável</td><td class="g" id="kpi-mql-total-canal">2.159</td><td>100%</td><td class="g">113,6</td><td id="kpi-ontem-canal">107 (19/03)</td><td></td></tr>
       </tbody>
@@ -1597,7 +1597,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <script>
 // ===== DADOS =====
 var DIAS_MQL = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03"];
-var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,102,129,62];
+var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,102,129,70];
 var META_DIA   = 123; // 3.800 / 31 dias
 
 var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03"];
@@ -1615,7 +1615,7 @@ var MQL_CANAL_FEV = [991,744,468,195,315,114,141,57,76,113,0];
 var MQL_CANAL_LABELS = ['G4 Inst.','Incompl.','Tallis','Social DM','K Inst.','Testes','Alfredo','Outros','CM-IG','DM-K','SKL'];
 
 var MQL_HIST_MES   = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
-var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 2043];
+var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 2051];
 
 // canal slug helper
 function canalSlug(name){
