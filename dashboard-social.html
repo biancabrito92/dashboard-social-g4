@@ -256,25 +256,25 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px">
     <div class="kcard hi">
       <div class="klabel">MQLs Social Media</div>
-      <div class="kval g" id="kpi-mql-total">2.427</div>
-      <div class="ksub m" id="kpi-mql-sub">01–22/03 · ~110/dia</div>
-      <div class="pbar"><div class="pfill g" style="width:64%"></div></div>
+      <div class="kval g" id="kpi-mql-total">2.285</div>
+      <div class="ksub m" id="kpi-mql-sub">01–22/03 · ~104/dia</div>
+      <div class="pbar"><div class="pfill g" style="width:60%"></div></div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Projeção Mês</div>
-      <div class="kval y" id="kpi-proj-mes">~3.420</div>
-      <div class="ksub m" id="kpi-proj-sub">base: 110/dia × 31d · gap ~380</div>
+      <div class="kval y" id="kpi-proj-mes">~3.220</div>
+      <div class="ksub m" id="kpi-proj-sub">base: 104/dia × 31d · gap ~580</div>
     </div>
     <div class="kcard" style="border-color:#22c55e44;background:rgba(34,197,94,.06)">
       <div class="klabel" style="color:#86efac">Ontem (22/03) — fechado</div>
-      <div class="kval" style="color:#22c55e" id="kpi-ontem-val">112</div>
-      <div class="ksub m" id="kpi-ontem-sub">dia completo · meta: 123 · -11 vs meta</div>
-      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:91%;background:#eab308" id="kpi-ontem-bar"></div></div>
+      <div class="kval" style="color:#22c55e" id="kpi-ontem-val">109</div>
+      <div class="ksub m" id="kpi-ontem-sub">dia completo · meta: 123 · -14 vs meta</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:89%;background:#eab308" id="kpi-ontem-bar"></div></div>
     </div>
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
       <div class="klabel" style="color:#a5b4fc">Hoje (23/03) — em curso</div>
       <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">40</div>
-      <div class="ksub m" id="mql-hoje-sub">atualizado 14h · meta: 123</div>
+      <div class="ksub m" id="mql-hoje-sub">atualizado 14h47 · meta: 123</div>
       <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:5%;background:#6366f1" id="mql-hoje-bar" style="width:32%;background:#6366f1"></div></div>
     </div>
     <div class="kcard" style="border-color:#eab30844;background:rgba(234,179,8,.06)">
@@ -286,8 +286,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
     <div class="kcard">
       <div class="klabel">Alcance Total</div>
-      <div class="kval g">37,7M</div>
-      <div class="ksub m">01–20/03 · todos canais</div>
+      <div class="kval g">50,1M</div>
+      <div class="ksub m">01–23/03 · todos canais</div>
     </div>
     <div class="kcard">
       <div class="klabel">Posts Feed</div>
@@ -301,8 +301,8 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     </div>
     <div class="kcard hi">
       <div class="klabel">Receita Potencial</div>
-      <div class="kval sm o">R$ 464k</div>
-      <div class="ksub m">80 won estimados × R$ 5.800 · 01–22/03</div>
+      <div class="kval sm o">R$ 435k</div>
+      <div class="ksub m">75 won estimados × R$ 5.800 · 01–22/03</div>
     </div>
   </div>
 
@@ -355,7 +355,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Grid 4 canais: alcance diário + MQL -->
   <div class="stitle" style="margin-top:4px">Alcance × MQL por canal — 01/03 a 22/03/2026</div>
-  <div class="nota ok" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>22/03</strong> (Databricks atualizado 23/03/2026). Total acumulado Social Media: <strong>2.427 MQL rastreáveis</strong> (G4 + Tallis + Alfredo + Nardon via utm_medium). Fonte: <code>funil_marketing.area_geracao_demanda + utm_medium</code>.</div>
+  <div class="nota ok" style="margin-bottom:12px;padding:8px 14px;font-size:11px">Dados de MQL disponíveis até <strong>22/03</strong> (Databricks atualizado 23/03/2026 14h47). Total acumulado Social Media: <strong>2.285 MQL</strong> (area_geracao_demanda='Social' — inclui G4, Tallis, Alfredo, Nardon e outros utm_medium). Fonte: <code>funil_marketing.area_geracao_demanda='Social'</code>.</div>
   <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px" id="canal-mini-grid">
     <div class="ccard">
       <div class="ctitle" style="color:#eab308">Tallis Gomes</div>
@@ -387,14 +387,14 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
         <th>Canal</th><th>MQL</th><th>% total</th><th>Média/dia</th><th>Ontem (22/03)</th><th>Ação recomendada</th>
       </tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1.400</td><td>57,7%</td><td class="g">63,6</td><td>80</td><td><span class="pill g">Canal principal — manter</span></td></tr>
-        <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">467</td><td>19,2%</td><td>21,2</td><td>8</td><td><span class="pill y">Dia fraco — monitorar</span></td></tr>
-        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">310</td><td>12,8%</td><td>14,1</td><td>19</td><td><span class="pill g">Bom ritmo — manter CTA</span></td></tr>
-        <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">250</td><td>10,3%</td><td>11,4</td><td>5</td><td><span class="pill y">Dia fraco — monitorar</span></td></tr>
-        <tr class="total-row"><td>TOTAL rastreável</td><td class="g" id="kpi-mql-total-canal">2.427</td><td>100%</td><td class="g">110,3</td><td id="kpi-ontem-canal">112 (22/03)</td><td></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g" id="kpi-g4-mql">1.167</td><td>51,1%</td><td class="g">53,0</td><td>68</td><td><span class="pill g">Canal principal — manter</span></td></tr>
+        <tr><td><strong>Tallis Gomes</strong></td><td id="kpi-tallis-mql">404</td><td>17,7%</td><td>18,4</td><td>8</td><td><span class="pill y">Dia fraco — monitorar</span></td></tr>
+        <tr><td><strong>Alfredo Soares</strong></td><td id="kpi-alfredo-mql">273</td><td>11,9%</td><td>12,4</td><td>18</td><td><span class="pill g">Bom ritmo — manter CTA</span></td></tr>
+        <tr><td><strong>Bruno Nardon</strong></td><td id="kpi-nardon-mql">207</td><td>9,1%</td><td>9,4</td><td>3</td><td><span class="pill y">Dia fraco — monitorar</span></td></tr>
+        <tr class="total-row"><td>TOTAL Social Media</td><td class="g" id="kpi-mql-total-canal">2.285</td><td>100%</td><td class="g">103,9</td><td id="kpi-ontem-canal">109 (22/03)</td><td></td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.diamond.funil_marketing · area_geracao_demanda = 'Social' · atualizado 23/03/2026 09h14</div>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.diamond.funil_marketing · area_geracao_demanda = 'Social' · atualizado 23/03/2026 14h47</div>
   </div>
 
 </div>
@@ -406,10 +406,10 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- KPIs funil -->
   <div class="kgrid-4">
-    <div class="kcard"><div class="klabel">MQL Social Media</div><div class="kval g" id="kpi-mql-funil">2.427</div><div class="ksub m" id="kpi-mql-funil-sub">01–22/03 · 110/dia rastreável</div></div>
+    <div class="kcard"><div class="klabel">MQL Social Media</div><div class="kval g" id="kpi-mql-funil">2.285</div><div class="ksub m" id="kpi-mql-funil-sub">01–22/03 · 104/dia rastreável</div></div>
     <div class="kcard"><div class="klabel">MQL Total (todos canais)</div><div class="kval">6.322</div><div class="ksub g">Social = referência Databricks</div></div>
-    <div class="kcard"><div class="klabel">Projeção mês</div><div class="kval y" id="kpi-proj-funil">~3.410</div><div class="ksub m" id="kpi-proj-funil-sub">110/dia × 31d · meta: 3.800</div></div>
-    <div class="kcard"><div class="klabel">Gap para meta</div><div class="kval r" id="kpi-gap-funil">~390</div><div class="ksub m">3.800 - 3.410 projetados</div></div>
+    <div class="kcard"><div class="klabel">Projeção mês</div><div class="kval y" id="kpi-proj-funil">~3.220</div><div class="ksub m" id="kpi-proj-funil-sub">104/dia × 31d · meta: 3.800</div></div>
+    <div class="kcard"><div class="klabel">Gap para meta</div><div class="kval r" id="kpi-gap-funil">~580</div><div class="ksub m">3.800 - 3.220 projetados</div></div>
   </div>
 
   <!-- Funil visual -->
@@ -450,18 +450,18 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     <table>
       <thead><tr><th>Canal</th><th>MQL Mar</th><th>% total</th><th>MQL Fev</th><th>Média/dia Mar</th><th>Média/dia Fev</th><th>Tendência</th></tr></thead>
       <tbody>
-        <tr><td><strong>G4 Institucional</strong></td><td class="g">1.400</td><td class="g">57,7%</td><td>991</td><td class="g">63,6</td><td>35,4</td><td><span class="pill g">+80%</span></td></tr>
-        <tr><td><strong>Tallis</strong></td><td>467</td><td>19,2%</td><td>468</td><td>21,2</td><td>16,7</td><td><span class="pill g">+27%</span></td></tr>
-        <tr><td><strong>Alfredo</strong></td><td>310</td><td>12,8%</td><td>141</td><td>14,1</td><td>5,0</td><td><span class="pill g">+182%</span></td></tr>
-        <tr><td><strong>Nardon</strong></td><td>250</td><td>10,3%</td><td>57</td><td>11,4</td><td>2,0</td><td><span class="pill g">+470%</span></td></tr>
-        <tr class="total-row"><td>TOTAL rastreável</td><td class="g">2.427</td><td class="g">100%</td><td>1.657*</td><td class="y">110,3</td><td>59,2</td><td><span class="pill g">+86%</span></td></tr>
+        <tr><td><strong>G4 Institucional</strong></td><td class="g">1.167</td><td class="g">51,1%</td><td>991</td><td class="g">53,0</td><td>35,4</td><td><span class="pill g">+50%</span></td></tr>
+        <tr><td><strong>Tallis</strong></td><td>404</td><td>17,7%</td><td>468</td><td>18,4</td><td>16,7</td><td><span class="pill g">+10%</span></td></tr>
+        <tr><td><strong>Alfredo</strong></td><td>273</td><td>11,9%</td><td>141</td><td>12,4</td><td>5,0</td><td><span class="pill g">+148%</span></td></tr>
+        <tr><td><strong>Nardon</strong></td><td>207</td><td>9,1%</td><td>57</td><td>9,4</td><td>2,0</td><td><span class="pill g">+370%</span></td></tr>
+        <tr class="total-row"><td>TOTAL Social Media</td><td class="g">2.285</td><td class="g">100%</td><td>1.657*</td><td class="y">103,9</td><td>59,2</td><td><span class="pill g">+75%</span></td></tr>
       </tbody>
     </table>
     <div style="padding:8px 18px;font-size:10px;color:var(--muted)">* Fevereiro total inclui todos os canais. Fonte: production.diamond.funil_marketing · area_geracao_demanda = 'Social'.</div>
   </div>
 
   <div class="nota warn">
-    <strong>Atualizado 23/03:</strong> Dados via funil_marketing (area_geracao_demanda='Social') — 2.427 MQLs em 22 dias (01–22/03). G4 Institucional lidera com 1.400 MQLs (57,7%), +80% vs Fevereiro. Tallis 467 MQLs (+27%), Alfredo 310 (+182%), Nardon 250 (+470%). Média de 110,3/dia vs meta 123 — gap de ~13 MQLs/dia para fechar o mês em 3.800.
+    <strong>Atualizado 23/03 14h47:</strong> Dados via funil_marketing (area_geracao_demanda='Social') — 2.285 MQLs em 22 dias (01–22/03). G4 Institucional lidera com 1.167 MQLs (51,1%), +50% vs Fevereiro. Tallis 404 MQLs (+10%), Alfredo 273 (+148%), Nardon 207 (+370%). Média de 103,9/dia vs meta 123 — gap de ~19 MQLs/dia para fechar o mês em 3.800.
   </div>
 
   <!-- MQL por Perfil ABC -->
@@ -553,30 +553,30 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div class="stitle">Potencial de Receita — Social Media · Março 2026</div>
 
   <div class="nota">
-    <strong>Metodologia:</strong> Ticket médio R$ 5.800 (G4 presencial). Taxa MQL→Oportunidade: 24,3% (referência março). Taxa OPP→Won: 13,5% (referência março). MQL acumulado real: 2.427 (01–22/03). OPP e Won estimados aplicando as taxas ao MQL real de março.
+    <strong>Metodologia:</strong> Ticket médio R$ 5.800 (G4 presencial). Taxa MQL→Oportunidade: 24,3% (referência março). Taxa OPP→Won: 13,5% (referência março). MQL acumulado real: 2.285 (01–22/03). OPP e Won estimados aplicando as taxas ao MQL real de março.
   </div>
 
   <!-- KPIs receita projetada -->
   <div class="kgrid-4">
     <div class="kcard hi">
       <div class="klabel">MQL Projetado (mês)</div>
-      <div class="kval y">~3.410</div>
-      <div class="ksub m">110/dia × 31 dias · 01–22/03</div>
+      <div class="kval y">~3.220</div>
+      <div class="ksub m">104/dia × 31 dias · 01–22/03</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">OPP Estimado</div>
-      <div class="kval y">~590</div>
-      <div class="ksub m">2.427 MQL × 24,3% · 01–22/03</div>
+      <div class="kval y">~555</div>
+      <div class="ksub m">2.285 MQL × 24,3% · 01–22/03</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Won Estimado</div>
-      <div class="kval o">~80</div>
-      <div class="ksub m">590 OPP × 13,5% · 01–22/03</div>
+      <div class="kval o">~75</div>
+      <div class="ksub m">555 OPP × 13,5% · 01–22/03</div>
     </div>
     <div class="kcard hi">
       <div class="klabel">Receita Estimada</div>
-      <div class="kval sm o">R$ 464k</div>
-      <div class="ksub m">80 won × R$ 5.800 avg ticket</div>
+      <div class="kval sm o">R$ 435k</div>
+      <div class="ksub m">75 won × R$ 5.800 avg ticket</div>
     </div>
   </div>
 
@@ -601,17 +601,17 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     <table>
       <thead><tr><th>Cenário</th><th>MQL/dia</th><th>MQL mês</th><th>OPP</th><th>Won</th><th>Receita</th><th>vs meta</th></tr></thead>
       <tbody>
-        <tr><td><span class="pill r">Pessimista</span> (90/dia)</td><td>90</td><td>2.790</td><td>678</td><td>92</td><td class="y">R$ 534k</td><td class="r">-27%</td></tr>
-        <tr style="background:rgba(99,102,241,.05)"><td><span class="pill a">Base</span> (ritmo atual)</td><td class="g">110</td><td class="g">3.410</td><td class="g">829</td><td class="g">112</td><td class="g"><strong>R$ 650k</strong></td><td class="y"><strong>-10%</strong></td></tr>
+        <tr><td><span class="pill r">Pessimista</span> (85/dia)</td><td>85</td><td>2.635</td><td>640</td><td>86</td><td class="y">R$ 499k</td><td class="r">-31%</td></tr>
+        <tr style="background:rgba(99,102,241,.05)"><td><span class="pill a">Base</span> (ritmo atual)</td><td class="g">104</td><td class="g">3.220</td><td class="g">783</td><td class="g">106</td><td class="g"><strong>R$ 615k</strong></td><td class="y"><strong>-15%</strong></td></tr>
         <tr><td><span class="pill y">Acelerado</span> (122/dia)</td><td>122</td><td>3.782</td><td>919</td><td>124</td><td class="g">R$ 719k</td><td class="g">-1%</td></tr>
         <tr><td><span class="pill g">Meta</span> (3.800 MQL)</td><td>123</td><td>3.800</td><td>923</td><td>125</td><td class="g">R$ 725k</td><td class="g">meta</td></tr>
       </tbody>
     </table>
-    <div style="padding:10px 18px;font-size:10px;color:var(--muted)">* Receita = Won × R$ 5.800 ticket médio presencial. MQL acumulado real: 2.427 (01–22/03). Taxas de referência março/26: MQL→OPP 24,3% · OPP→Won 13,5%.</div>
+    <div style="padding:10px 18px;font-size:10px;color:var(--muted)">* Receita = Won × R$ 5.800 ticket médio presencial. MQL acumulado real: 2.285 (01–22/03). Taxas de referência março/26: MQL→OPP 24,3% · OPP→Won 13,5%.</div>
   </div>
 
   <div class="nota warn">
-    <strong>Atenção:</strong> Com 2.427 MQL em 22 dias (110/dia), a projeção base fecha o mês em ~3.410 MQL — gap de ~390 para a meta de 3.800. Para atingir a meta, é necessário acelerar para ~153 MQL/dia nos 9 dias restantes (+39% vs ritmo atual). Principal alavanca: G4 Institucional (57,7% dos MQLs rastreáveis).
+    <strong>Atenção:</strong> Com 2.285 MQL em 22 dias (104/dia), a projeção base fecha o mês em ~3.220 MQL — gap de ~580 para a meta de 3.800. Para atingir a meta, é necessário acelerar para ~168 MQL/dia nos 9 dias restantes (+62% vs ritmo atual). Principal alavanca: G4 Institucional (51,1% dos MQLs rastreáveis).
   </div>
 
 </div>
@@ -619,20 +619,20 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <!-- ============================= MIDIA ============================= -->
 <div class="pane" id="pane-midia">
 
-  <div class="stitle">Mídia orgânica — 01/03 a 20/03/2026</div>
+  <div class="stitle">Mídia orgânica — 01/03 a 23/03/2026</div>
 
   <div class="kgrid-5">
-    <div class="kcard"><div class="klabel">Alcance Total</div><div class="kval g">37,7M</div><div class="ksub m">01–20/03 · todos canais</div></div>
-    <div class="kcard"><div class="klabel">Tallis</div><div class="kval g">13,3M</div><div class="ksub m">maior alcance · 35,2%</div></div>
-    <div class="kcard"><div class="klabel">Alfredo</div><div class="kval">10,7M</div><div class="ksub m">28,4% do alcance total</div></div>
-    <div class="kcard"><div class="klabel">G4 Institucional</div><div class="kval">10,8M</div><div class="ksub m">28,7% do alcance</div></div>
-    <div class="kcard"><div class="klabel">Nardon</div><div class="kval">2,9M</div><div class="ksub m">7,7% do alcance</div></div>
-    <div class="kcard"><div class="klabel">Posts Feed</div><div class="kval">847</div><div class="ksub m">01–20/03 · feed + reels + carrossel</div></div>
+    <div class="kcard"><div class="klabel">Alcance Total</div><div class="kval g">50,1M</div><div class="ksub m">01–23/03 · todos canais</div></div>
+    <div class="kcard"><div class="klabel">G4 Institucional</div><div class="kval g">17,5M</div><div class="ksub m">maior alcance · 35,0%</div></div>
+    <div class="kcard"><div class="klabel">Tallis</div><div class="kval">15,8M</div><div class="ksub m">31,4% do alcance total</div></div>
+    <div class="kcard"><div class="klabel">Alfredo</div><div class="kval">13,6M</div><div class="ksub m">27,2% do alcance</div></div>
+    <div class="kcard"><div class="klabel">Nardon</div><div class="kval">3,2M</div><div class="ksub m">6,5% do alcance</div></div>
+    <div class="kcard"><div class="klabel">Posts Feed</div><div class="kval">847</div><div class="ksub m">01–23/03 · feed + reels + carrossel</div></div>
   </div>
 
   <!-- Alcance diário POR CANAL — tabela heat map -->
   <div class="tcard">
-    <div class="thead-row"><span>Alcance diário por canal</span><span class="sub">01–20/03 · verde = acima da média · vermelho = abaixo</span></div>
+    <div class="thead-row"><span>Alcance diário por canal</span><span class="sub">01–23/03 · verde = acima da média · vermelho = abaixo</span></div>
     <div style="padding:16px 18px;overflow-x:auto">
       <div style="display:grid;grid-template-columns:80px repeat(16,1fr) 72px;gap:2px;min-width:900px;font-size:10px">
         <div style="font-weight:700;padding:4px 6px">Canal</div>
@@ -669,18 +669,18 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- Ranking + tabela detalhada -->
   <div class="tcard">
-    <div class="thead-row"><span>Alcance acumulado por canal</span><span class="sub">01–20/03/2026 · 20 dias · Databricks atualizado 23/03 14h</span></div>
+    <div class="thead-row"><span>Alcance acumulado por canal</span><span class="sub">01–23/03/2026 · 23 dias · Databricks atualizado 23/03 14h47</span></div>
     <table>
       <thead><tr><th>Canal</th><th>Alcance acum.</th><th>% do total</th><th>Média/dia</th><th>Melhor dia</th><th>Pior dia</th></tr></thead>
       <tbody>
-        <tr><td><strong style="color:#eab308">Tallis Gomes</strong></td><td class="g">13,3M</td><td class="g">35,2%</td><td class="g">664k</td><td class="g">05/03 · 1,50M</td><td>20/03 · 100k</td></tr>
-        <tr><td><strong style="color:#6366f1">G4 Educação</strong></td><td>10,8M</td><td>28,7%</td><td>541k</td><td>02/03 · 1,99M</td><td>20/03 · 8k</td></tr>
-        <tr><td><strong style="color:#3b82f6">Alfredo Soares</strong></td><td>10,7M</td><td>28,4%</td><td>536k</td><td>09/03 · 2,01M</td><td>17/03 · 254k</td></tr>
-        <tr><td><strong style="color:#64748b">Bruno Nardon</strong></td><td>2,9M</td><td>7,7%</td><td>145k</td><td>08/03 · 1,86M</td><td>15/03 · 17k</td></tr>
-        <tr class="total-row"><td><strong>TOTAL (4 canais principais)</strong></td><td class="g"><strong>37,7M</strong></td><td>100%</td><td><strong>1,89M/dia</strong></td><td>—</td><td>—</td></tr>
+        <tr><td><strong style="color:#6366f1">G4 Educação</strong></td><td class="g">17,5M</td><td class="g">35,0%</td><td class="g">762k</td><td class="g">11/03 · 1,15M</td><td>17/03 · 421k</td></tr>
+        <tr><td><strong style="color:#eab308">Tallis Gomes</strong></td><td>15,8M</td><td>31,4%</td><td>685k</td><td>17/03 · 1,31M</td><td>22/03 · 159k</td></tr>
+        <tr><td><strong style="color:#3b82f6">Alfredo Soares</strong></td><td>13,6M</td><td>27,2%</td><td>592k</td><td>11/03 · 1,20M</td><td>22/03 · 213k</td></tr>
+        <tr><td><strong style="color:#64748b">Bruno Nardon</strong></td><td>3,2M</td><td>6,5%</td><td>141k</td><td>18/03 · 295k</td><td>02/03 · 66k</td></tr>
+        <tr class="total-row"><td><strong>TOTAL (4 canais principais)</strong></td><td class="g"><strong>50,1M</strong></td><td>100%</td><td><strong>2,18M/dia</strong></td><td>—</td><td>—</td></tr>
       </tbody>
     </table>
-    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.diamond.g4_social_media · SUM(reach) por account_name e created_at · 01–20/03/2026</div>
+    <div style="padding:8px 18px;font-size:10px;color:var(--muted)">Fonte: production.diamond.g4_social_media · SUM(reach) por account_name e data_ref · 01–23/03/2026</div>
   </div>
 
   <!-- Formatos -->
@@ -1152,7 +1152,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <div class="stitle">Briefing Diário — 23/03/2026 <span style="font-size:12px;color:var(--muted);font-weight:400">(Segunda-feira)</span></div>
   <div class="nota" style="margin-bottom:18px">
-    Dados do Databricks atualizados em <strong>23/03/2026 às 09h14</strong>. Referência: MQL até 22/03 (completo) · Alcance até 20/03. Use este briefing para direcionar o time no início do dia.
+    Dados do Databricks atualizados em <strong>23/03/2026 às 14h47</strong>. Referência: MQL até 22/03 (completo) · Alcance até 22/03. Use este briefing para direcionar o time no início do dia.
   </div>
 
   <!-- BLOCO 1: NÚMEROS DE ONTEM -->
@@ -1162,28 +1162,28 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px">
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #22c55e">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">MQL Social Total</div>
-      <div style="font-size:28px;font-weight:800;color:#22c55e">112</div>
-      <div style="font-size:10px;color:var(--muted)">vs 111 em 21/03 <span style="color:#22c55e">▲ +1%</span></div>
+      <div style="font-size:28px;font-weight:800;color:#22c55e">109</div>
+      <div style="font-size:10px;color:var(--muted)">vs 93 em 21/03 <span style="color:#22c55e">▲ +17%</span></div>
     </div>
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #6366f1">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">G4 Institucional</div>
-      <div style="font-size:28px;font-weight:800;color:#6366f1">80</div>
-      <div style="font-size:10px;color:var(--muted)">vs 63 em 21/03 <span style="color:#22c55e">▲ +27%</span></div>
+      <div style="font-size:28px;font-weight:800;color:#6366f1">68</div>
+      <div style="font-size:10px;color:var(--muted)">vs 40 em 21/03 <span style="color:#22c55e">▲ +70%</span></div>
     </div>
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #eab308">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Tallis Gomes</div>
       <div style="font-size:28px;font-weight:800;color:#eab308">8</div>
-      <div style="font-size:10px;color:var(--muted)">vs 14 em 21/03 <span style="color:#ef4444">▼ -43%</span></div>
+      <div style="font-size:10px;color:var(--muted)">vs 10 em 21/03 <span style="color:#ef4444">▼ -20%</span></div>
     </div>
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #3b82f6">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Alfredo Soares</div>
-      <div style="font-size:28px;font-weight:800;color:#3b82f6">19</div>
-      <div style="font-size:10px;color:var(--muted)">vs 17 em 21/03 <span style="color:#22c55e">▲ +12%</span></div>
+      <div style="font-size:28px;font-weight:800;color:#3b82f6">18</div>
+      <div style="font-size:10px;color:var(--muted)">vs 13 em 21/03 <span style="color:#22c55e">▲ +38%</span></div>
     </div>
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #64748b">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Bruno Nardon</div>
-      <div style="font-size:28px;font-weight:800;color:#94a3b8">5</div>
-      <div style="font-size:10px;color:var(--muted)">vs 17 em 21/03 <span style="color:#ef4444">▼ -71%</span></div>
+      <div style="font-size:28px;font-weight:800;color:#94a3b8">3</div>
+      <div style="font-size:10px;color:var(--muted)">vs 7 em 21/03 <span style="color:#ef4444">▼ -57%</span></div>
     </div>
   </div>
 
@@ -1228,15 +1228,15 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
   <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:20px">
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #6366f1">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">MQL Social</div>
-      <div style="font-size:28px;font-weight:800;color:#6366f1">2.427</div>
-      <div style="font-size:10px;color:var(--muted)">~110/dia</div>
-      <div class="pbar" style="margin-top:6px"><div class="pfill" style="width:64%;background:#6366f1"></div></div>
-      <div style="font-size:9px;color:var(--muted);margin-top:4px">64% da meta</div>
+      <div style="font-size:28px;font-weight:800;color:#6366f1">2.285</div>
+      <div style="font-size:10px;color:var(--muted)">~104/dia</div>
+      <div class="pbar" style="margin-top:6px"><div class="pfill" style="width:60%;background:#6366f1"></div></div>
+      <div style="font-size:9px;color:var(--muted);margin-top:4px">60% da meta</div>
     </div>
     <div class="tcard" style="padding:14px 16px">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Projeção mês</div>
-      <div style="font-size:22px;font-weight:800;color:#eab308">~3.420</div>
-      <div style="font-size:10px;color:var(--muted)">110/dia × 31d · gap ~380</div>
+      <div style="font-size:22px;font-weight:800;color:#eab308">~3.220</div>
+      <div style="font-size:10px;color:var(--muted)">104/dia × 31d · gap ~580</div>
     </div>
     <div class="tcard" style="padding:14px 16px;border-left:3px solid #6366f1">
       <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">G4 Inst.</div>
@@ -1343,17 +1343,17 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 
   <!-- TABELA ACUMULADO POR CANAL -->
   <div class="tcard" style="padding:20px 22px">
-    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Acumulado por canal — Instagram</span><span class="sub">01–20/03 · 20 dias</span></div>
+    <div class="thead-row" style="margin:-20px -22px 16px;padding:14px 22px"><span>Acumulado por canal — Instagram</span><span class="sub">01–22/03 · 22 dias</span></div>
     <table>
       <thead>
         <tr><th>Canal</th><th>MQL acum.</th><th>% do total</th><th>Média/dia</th><th>Ontem (22/03)</th><th>Anteontem (21/03)</th><th>Var.</th></tr>
       </thead>
       <tbody>
-        <tr><td style="font-weight:700;color:#6366f1">G4 Institucional</td><td class="g">1.400</td><td>57,7%</td><td>63,6</td><td class="g">80</td><td>63</td><td style="color:#22c55e">+27%</td></tr>
-        <tr><td style="font-weight:700;color:#eab308">Tallis Gomes</td><td>467</td><td>19,2%</td><td>21,2</td><td style="color:#ef4444">8</td><td>14</td><td style="color:#ef4444">-43%</td></tr>
-        <tr><td style="font-weight:700;color:#3b82f6">Alfredo Soares</td><td>310</td><td>12,8%</td><td>14,1</td><td class="g">19</td><td>17</td><td style="color:#22c55e">+12%</td></tr>
-        <tr><td style="font-weight:700;color:#64748b">Bruno Nardon</td><td>250</td><td>10,3%</td><td>11,4</td><td style="color:#ef4444">5</td><td>17</td><td style="color:#ef4444">-71%</td></tr>
-        <tr class="total-row"><td><strong>Total Social rastreável</strong></td><td class="g"><strong>2.427</strong></td><td>100%</td><td><strong>110,3</strong></td><td style="color:#22c55e"><strong>112</strong></td><td><strong>111</strong></td><td style="color:#22c55e"><strong>+1%</strong></td></tr>
+        <tr><td style="font-weight:700;color:#6366f1">G4 Institucional</td><td class="g">1.167</td><td>51,1%</td><td>53,0</td><td class="g">68</td><td>40</td><td style="color:#22c55e">+70%</td></tr>
+        <tr><td style="font-weight:700;color:#eab308">Tallis Gomes</td><td>404</td><td>17,7%</td><td>18,4</td><td style="color:#ef4444">8</td><td>10</td><td style="color:#ef4444">-20%</td></tr>
+        <tr><td style="font-weight:700;color:#3b82f6">Alfredo Soares</td><td>273</td><td>11,9%</td><td>12,4</td><td class="g">18</td><td>13</td><td style="color:#22c55e">+38%</td></tr>
+        <tr><td style="font-weight:700;color:#64748b">Bruno Nardon</td><td>207</td><td>9,1%</td><td>9,4</td><td style="color:#ef4444">3</td><td>7</td><td style="color:#ef4444">-57%</td></tr>
+        <tr class="total-row"><td><strong>Total Social Media</strong></td><td class="g"><strong>2.285</strong></td><td>100%</td><td><strong>103,9</strong></td><td style="color:#22c55e"><strong>109</strong></td><td><strong>93</strong></td><td style="color:#22c55e"><strong>+17%</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -1597,17 +1597,17 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <script>
 // ===== DADOS =====
 var DIAS_MQL = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03","21/03","22/03","23/03"];
-var MQL_DAILY = [78,117,188,116,130,91,99,95,99,89,139,122,100,114,79,99,91,107,138,113,111,112,33];
+var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,102,129,102,93,109,40];
 var META_DIA   = 123; // 3.800 / 31 dias
 
-var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03"];
-var DAILY_ALCANCE = [1495727,3278337,1596998,1522989,2982356,1515973,2028083,3710618,2825145,1026060,1638286,1076040,1196565,1813080,2722238,2224931,1113942,1827107,1653089,478870];
+var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03","21/03","22/03","23/03"];
+var DAILY_ALCANCE = [2601365,2402286,2356960,2150119,2585448,2208870,2281646,2418568,2682012,3146565,2928880,2282355,2120024,1806508,2222493,2057817,2509667,2218518,2032546,2243026,1545362,997382,347809];
 
 var CANAL_DAILY = {
-  'Tallis':  [725997,801590,455566,853975,1503726,464175,829899,860471,625316,236506,340679,434892,358348,462307,1108895,1723299,362776,494388,536688,99842], // cd-tallis · Databricks 23/03 14h
-  'Alfredo': [330641,362724,298392,442801,555528,297251,333554,438718,2008415,570881,414215,487461,281409,717932,925537,317103,253557,602263,715408,359503], // cd-alfredo
-  'G4':      [402406,1987494,777172,189085,889880,587203,801506,552292,141200,149849,790808,118597,536669,600653,670672,153756,456773,716915,298129,7968], // cd-g4
-  'Nardon':  [36683,126529,65868,37128,33222,167344,63124,1859137,50214,68824,92584,35090,20139,32188,17134,30773,40836,13541,102864,11557] // cd-nardon
+  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,283292,158631,92523], // cd-tallis · Databricks 23/03 14h47
+  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,437915,213356,106819], // cd-alfredo
+  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,650725,532326,89780], // cd-g4
+  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,173430,93069,58687] // cd-nardon
 };
 
 var MQL_CANAL_MAR = [363,262,127,89,86,45,37,30,25,15,2];
@@ -1615,7 +1615,7 @@ var MQL_CANAL_FEV = [991,744,468,195,315,114,141,57,76,113,0];
 var MQL_CANAL_LABELS = ['G4 Inst.','Incompl.','Tallis','Social DM','K Inst.','Testes','Alfredo','Outros','CM-IG','DM-K','SKL'];
 
 var MQL_HIST_MES   = ['Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26*'];
-var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 2427];
+var MQL_HIST_VALS  = [3617, 3106, 3990, 3074, 3493, 3214, 2285];
 
 // canal slug helper
 function canalSlug(name){
@@ -1684,35 +1684,35 @@ var CANAL_INSIGHTS = {
     formatos: ['Carrossel educativo de case empresarial (G4 — melhor conversão MQL)','Feed image single com copy de fricção e diagnóstico (Alfredo — 572k reach em 10/03)','Carrossel de conjuntura política (Tallis — novo #1: 577k reach em 16/03 "O Brasil é o único país...")'],
     territorios: ['G4: 244 MQL (58,1% do total rastreável) — canal dominante em conversão, 9,0M alcance','Tallis: novo #1 absoluto em 16/03 com 577k reach — conjuntura política volta a liderar alcance. Total 12,3M (37,5%)','Alfredo: 572k reach no post de 10/03 — padrão de fricção/diagnóstico confirmado. 15/03 (236k) reforça continuidade com novo URL: DV647WzCf-z','Nardon: novo top post em 08/03 com 252k reach (DVoLGG2j0O6) — melhor performance do canal. Total 2,4M (7,2%)'],
     evitar: ['Feed image sem CTA explícito no Alfredo — alcance existe, conversão não','Stories sem link direto para formulário CTA no G4 e Nardon','Reels de conteúdo genérico no G4 — carrossel performa muito acima neste canal'],
-    acoes: ['Projeção atual: ~685 MQL rastreável — concentrar esforço em G4 (244 MQL, 58,1%) para manter cadência de 2 carrosseis/dia','Tallis 16/03 (577k reach): post de conjuntura política reativou viralização. Inserir CTA de ponte para @g4.business imediatamente nos próximos 2 posts','Alfredo 15/03 (236k via DV647WzCf-z): território "justificar preço" está funcionando. Verificar se stories com link do formulário estão ativos']
+    acoes: ['Projeção atual: ~3.220 MQL rastreável — concentrar esforço em G4 (1.167 MQL, 51,1%) para manter cadência de 2 carrosseis/dia','Tallis 16/03 (577k reach): post de conjuntura política reativou viralização. Inserir CTA de ponte para @g4.business imediatamente nos próximos 2 posts','Alfredo 15/03 (236k via DV647WzCf-z): território "justificar preço" está funcionando. Verificar se stories com link do formulário estão ativos']
   },
   tallis: {
-    titulo: 'Tallis Gomes — 01–22/03 · 467 MQLs rastreáveis',
+    titulo: 'Tallis Gomes — 01–22/03 · 404 MQLs rastreáveis',
     formatos: ['Carrossel longo (7–12 slides) de conjuntura política — NOVO #1: 577k reach em 16/03 (DV9bYIrjp1m)','Carrossel de conjuntura política — padrão dominante (05/03: 492k reach, 67k likes)','Carrossel de storytelling pessoal — série "Maria" (15/03: 329k, 16/03 2º dia: 326k)'],
     territorios: ['Conjuntura política reativada — NOVO padrão líder: 16/03 (577k) supera storytelling pessoal','Conjuntura política histórica (05/03: 492k reach, 67k likes — maior em likes)','Storytelling de transformação financeira — série "Maria" (15/03: 329k, 16/03: 326k)','Visão de mundo contracorrente — C.S. Lewis + crítica ao sistema (01/03: 357k reach)'],
     evitar: ['Posts de produto/oferta direta — fora do território do canal','Reels — nenhum aparece nos top posts','Conteúdo sem posicionamento claro — audiência reage a opiniões fortes'],
-    acoes: ['Post de 16/03 (577k, DV9bYIrjp1m): novo #1 absoluto do portfólio. Inserir story de ponte para @g4.business imediatamente — audiência de conjuntura política é diferente da série "Maria"','83 MQL em 19 dias rastreáveis — manter cadência. Novo carrossel no território conjuntura política confirma que o canal voltou ao seu melhor formato','Padrão confirmado: conjuntura política (577k) > storytelling pessoal (329k) > visão contracorrente (357k) em alcance']
+    acoes: ['Post de 16/03 (577k, DV9bYIrjp1m): novo #1 absoluto do portfólio. Inserir story de ponte para @g4.business imediatamente — audiência de conjuntura política é diferente da série "Maria"','404 MQL em 22 dias rastreáveis — manter cadência. Novo carrossel no território conjuntura política confirma que o canal voltou ao seu melhor formato','Padrão confirmado: conjuntura política (577k) > storytelling pessoal (329k) > visão contracorrente (357k) em alcance']
   },
   alfredo: {
-    titulo: 'Alfredo Soares — 01–22/03 · 310 MQLs rastreáveis',
+    titulo: 'Alfredo Soares — 01–22/03 · 273 MQLs rastreáveis',
     formatos: ['Feed image single com copy de fricção/diagnóstico — padrão dominante (10/03: 572k reach)','Caption com diagnóstico direto do erro do empresário — gera mais likes e compartilhamento','Feed image de "verdade sobre valor percebido" — NOVO: 15/03 (236k reach, DV647WzCf-z)'],
     territorios: ['"Fricção no processo de compra/produto" — 10/03 (572k reach, 9k likes, 1,4k shares)','Script de vendas vs. método — 10/03 (187k reach): "empurrar produto com grito"','Justificar preço vs. percepção de valor — 15/03 (236k, DV647WzCf-z): novo território confirmado','Empreendedorismo no cotidiano — 14/03 (158k, DV3XDQIjViH): "Empreender é isso aí"'],
     evitar: ['Motivação genérica sem diagnóstico concreto — alcance abaixo de 50k','Reels — não aparece nos top posts','Posts sem CTA no story do mesmo dia — 572k de alcance com conversão baixa indica funil quebrado no story'],
-    acoes: ['Post de 15/03 (236k, DV647WzCf-z): território "justificar preço" é o 2º melhor do canal. Criar série: "Se você ainda precisa [X], o problema não é [X], é [causa raiz]"','85 MQL em 19 dias — ritmo estável. 9,1M de alcance total (27,8%). Verificar se stories com link do formulário estão ativos nos dias de maior alcance','Próximo post: "Se você ainda precisa [calcular margem na ponta], o problema não é [o cálculo], é [sua precificação]" — dentro do mesmo padrão de 15/03']
+    acoes: ['Post de 15/03 (236k, DV647WzCf-z): território "justificar preço" é o 2º melhor do canal. Criar série: "Se você ainda precisa [X], o problema não é [X], é [causa raiz]"','273 MQL em 22 dias — ritmo estável. 13,6M de alcance total (27,2%). Verificar se stories com link do formulário estão ativos nos dias de maior alcance','Próximo post: "Se você ainda precisa [calcular margem na ponta], o problema não é [o cálculo], é [sua precificação]" — dentro do mesmo padrão de 15/03']
   },
   g4: {
-    titulo: 'G4 Educação — 01–22/03 · 1.400 MQLs rastreáveis',
+    titulo: 'G4 Educação — 01–22/03 · 1.167 MQLs rastreáveis',
     formatos: ['Carrossel educativo de case empresarial — formato dominante absoluto (5 dos 5 top posts)','Estrutura "Como [marca conhecida] fez [X inesperado]?" — padrão de 4 dos 5 top posts','6 a 10 slides com Problema → Decisão → Resultado → Lição aplicável'],
     territorios: ['Marcas globais com reviravolta estratégica (New Balance 165k reach, Tupperware 75k)','Comportamento de mercado antecipado (McDonald\'s + canetas emagrecedoras: 57k reach)','Marcas brasileiras que venceram gigantes — território diferenciado, menos saturado','Negociação e frameworks práticos de gestão'],
     evitar: ['Posts institucionais de evento sem narrativa de aprendizado — alcance despenca','Conteúdo de oferta direta — prejudica alcance orgânico','Reels — nenhum aparece nos top posts deste canal'],
-    acoes: ['244 MQL em 19 dias — 58,1% do total rastreável. 9,0M de alcance (27,6%). Manter cadência de 1 carrossel/dia e aumentar para 2/dia nas quartas','Próximos cases sugeridos: "Como a Ambev transformou o bar em cliente recorrente", "O que o Nubank fez diferente para chegar a 100M de clientes", "Como uma marca brasileira D2C venceu a Unilever no seu nicho"','Padrão de título confirmado: "Como [marca] fez [X que parecia impossível]?" — usar em todos os próximos carrosseis']
+    acoes: ['1.167 MQL em 22 dias — 51,1% do total rastreável. 17,5M de alcance (35,0%). Manter cadência de 1 carrossel/dia e aumentar para 2/dia nas quartas','Próximos cases sugeridos: "Como a Ambev transformou o bar em cliente recorrente", "O que o Nubank fez diferente para chegar a 100M de clientes", "Como uma marca brasileira D2C venceu a Unilever no seu nicho"','Padrão de título confirmado: "Como [marca] fez [X que parecia impossível]?" — usar em todos os próximos carrosseis']
   },
   nardon: {
-    titulo: 'Bruno Nardon — 01–22/03 · 250 MQLs rastreáveis',
+    titulo: 'Bruno Nardon — 01–22/03 · 207 MQLs rastreáveis',
     formatos: ['Feed image single com declaração-chave — NOVO top: 08/03 (252k reach, DVoLGG2j0O6)','Feed image acumulando reach em vários dias — mesmo post repetindo nos dias seguintes','Carrossel de método estrutural — save rate consistentemente alto (>3%)'],
     territorios: ['"O melhor elogio é a cópia" — top post do canal: 252k reach em 08/03 (DVoLGG2j0O6)','Rituais e rotinas de alta performance — maior save rate do canal','Decisões de escala e experiências de founder (Kanui, construção de empresa)','Tendências com aplicação prática (IA, mercado, liderança)'],
     evitar: ['Stories sem contexto — performance abaixo da média','Posts de IA genérico — pode saturar o território','Conteúdo sem link para @g4.business — canal tem boa taxa de conversão mas MQL ainda baixo'],
-    acoes: ['"O melhor elogio é a cópia" (DVoLGG2j0O6) acumulou 670k+ reach. Criar série: "O melhor indicador de que você acertou é [X]", "Quando o mercado copia você, é sinal de que [Y]"','8 MQL rastreáveis em 19 dias — 1,9% do total. Canal com 2,4M alcance (7,2%) mas conversão muito baixa. Story com link é ação prioritária','Próximo carrossel de método: "Como tomo decisões de contratação sem me arrepender" — dentro do território de alta performance de founder']
+    acoes: ['"O melhor elogio é a cópia" (DVoLGG2j0O6) acumulou 670k+ reach. Criar série: "O melhor indicador de que você acertou é [X]", "Quando o mercado copia você, é sinal de que [Y]"','207 MQL rastreáveis em 22 dias — 9,1% do total. Canal com 3,2M alcance (6,5%) mas conversão baixa. Story com link é ação prioritária','Próximo carrossel de método: "Como tomo decisões de contratação sem me arrepender" — dentro do território de alta performance de founder']
   },
   skills: {
     titulo: 'G4 Skills — padrão dos top posts (01–13/03)',
@@ -1767,10 +1767,10 @@ function toggleIns(id){
 // ===== FUNIL VISUAL =====
 (function(){
   var data=[
-    {label:'MQL',      val:2427, ref:3214, color:'#6366f1'},
-    {label:'SAL',      val:1820, ref:2474, color:'#3b82f6'},
-    {label:'Opp',      val:485,  ref:768,  color:'#eab308'},
-    {label:'Won',      val:66,   ref:139,  color:'#22c55e'}
+    {label:'MQL',      val:2285, ref:3214, color:'#6366f1'},
+    {label:'SAL',      val:1718, ref:2474, color:'#3b82f6'},
+    {label:'Opp',      val:555,  ref:768,  color:'#eab308'},
+    {label:'Won',      val:75,   ref:139,  color:'#22c55e'}
   ];
   var max=data[0].val;
   var html=data.map(function(d,i){
@@ -1817,18 +1817,18 @@ function toggleIns(id){
 
 // ===== MINI GRÁFICOS POR CANAL: Alcance × MQL =====
 (function(){
-  // MQL por canal por dia — 01 a 22/03 (Databricks atualizado 23/03 14h)
+  // MQL por canal por dia — 01 a 22/03 (Databricks atualizado 23/03 14h47)
   var MQL_CANAL_DIA = {
-    'Tallis':  [23,28,64,21,28,19,16,18,17,18,24,17,17,15,23,19,20,14,30,14,14,8],
-    'Alfredo': [7,9,18,9,16,14,10,9,16,19,30,10,17,3,7,15,13,15,18,19,17,19],
-    'G4':      [43,73,96,79,78,49,47,37,56,45,65,82,65,89,43,58,52,69,69,62,63,80],
-    'Nardon':  [5,7,10,7,8,9,26,31,10,7,20,13,1,7,6,7,6,9,21,18,17,5]
+    'Tallis':  [23,25,57,21,25,17,13,15,16,17,16,14,12,10,18,19,15,14,28,11,10,8],
+    'Alfredo': [6,8,16,9,15,14,9,7,11,16,28,8,15,1,5,14,13,15,17,15,13,18],
+    'G4':      [41,65,90,63,57,43,45,33,51,41,57,73,48,49,37,49,45,58,58,56,40,68],
+    'Nardon':  [3,5,9,6,8,9,25,30,8,5,19,12,1,7,5,6,6,4,15,14,7,3]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [725997,801590,455566,853975,1503726,464175,829899,860471,625316,236506,340679,434892,358348,462307,1108895,1723299,362776,494388,536688,99842,null,null], // alc-tallis · Databricks 23/03 14h · 21-22 sem dados
-    'Alfredo': [330641,362724,298392,442801,555528,297251,333554,438718,2008415,570881,414215,487461,281409,717932,925537,317103,253557,602263,715408,359503,null,null], // alc-alfredo
-    'G4':      [402406,1987494,777172,189085,889880,587203,801506,552292,141200,149849,790808,118597,536669,600653,670672,153756,456773,716915,298129,7968,null,null], // alc-g4
-    'Nardon':  [36683,126529,65868,37128,33222,167344,63124,1859137,50214,68824,92584,35090,20139,32188,17134,30773,40836,13541,102864,11557,null,null] // alc-nardon
+    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,283292,158631], // alc-tallis · Databricks 23/03 14h47
+    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,437915,213356], // alc-alfredo
+    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,650725,532326], // alc-g4
+    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,173430,93069] // alc-nardon
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
