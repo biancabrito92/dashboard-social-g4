@@ -229,11 +229,11 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
 <div class="header">
   <div class="header-left">
     <h1>Social Media Dashboard — G4</h1>
-    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 24/03/2026 22h13</p>
+    <p>Março 2026 · Mídia orgânica + MQL + Receita · Atualizado 25/03/2026 01h16</p>
   </div>
   <div class="header-right">
     <span class="badge live">Mídia: até 09/03</span>
-    <span class="badge info">MQL: até 24/03 · 2503 Social acumulado</span>
+    <span class="badge info">MQL: até 25/03 · 2503 Social acumulado</span>
     <span class="badge warn">Pipeline: latência ~2 dias</span>
   </div>
 </div>
@@ -257,7 +257,7 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
     <div class="kcard hi">
       <div class="klabel">MQLs Social Media</div>
       <div class="kval g" id="kpi-mql-total">2503</div>
-      <div class="ksub m" id="kpi-mql-sub">01–24/03 · ~104/dia</div>
+      <div class="ksub m" id="kpi-mql-sub">01–25/03 · ~104/dia</div>
       <div class="pbar"><div class="pfill g" style="width:60%"></div></div>
     </div>
     <div class="kcard hi">
@@ -272,15 +272,15 @@ tr.total-row td{font-weight:700;border-top:2px solid var(--border)}
       <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:89%;background:#eab308" id="kpi-ontem-bar" style="width:70%;background:#22c55e"></div></div>
     </div>
     <div class="kcard" style="border-color:#6366f144;background:rgba(99,102,241,.06)">
-      <div class="klabel" style="color:#a5b4fc">Hoje (24/03) — em curso</div>
-      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">87</div>
-      <div class="ksub m" id="mql-hoje-sub">atualizado 22h · meta: 123</div>
-      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:5%;background:#6366f1" id="mql-hoje-bar" style="width:70%;background:#6366f1"></div></div>
+      <div class="klabel" style="color:#a5b4fc">Hoje (25/03) — em curso</div>
+      <div class="kval" style="color:#f1f5f9" id="mql-hoje-val">0</div>
+      <div class="ksub m" id="mql-hoje-sub">atualizado 1h · meta: 123</div>
+      <div class="pbar" style="margin-top:8px"><div class="pfill" style="width:5%;background:#6366f1" id="mql-hoje-bar" style="width:0%;background:#6366f1"></div></div>
     </div>
     <div class="kcard" style="border-color:#eab30844;background:rgba(234,179,8,.06)">
       <div class="klabel" style="color:#fde047">Semana S12</div>
-      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~98</div>
-      <div class="ksub m" id="mql-proj-dia-sub">87 realizados · -25 vs meta 123</div>
+      <div class="kval" id="mql-proj-dia-val" style="color:#eab308">~0</div>
+      <div class="ksub m" id="mql-proj-dia-sub">0 realizados · -123 vs meta 123</div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
@@ -1601,13 +1601,13 @@ var MQL_DAILY = [75,111,178,115,126,89,94,89,91,83,128,116,93,107,71,98,86,102,1
 var META_DIA   = 123; // 3.800 / 31 dias
 
 var DIAS_MIDIA = ["01/03","02/03","03/03","04/03","05/03","06/03","07/03","08/03","09/03","10/03","11/03","12/03","13/03","14/03","15/03","16/03","17/03","18/03","19/03","20/03","21/03","22/03","23/03","24/03"];
-var DAILY_ALCANCE = [2793454,2542763,2437688,2266349,2707350,2310231,2342994,2541261,2774244,3226977,3018425,2391410,2235686,1890046,2327331,2146396,2599875,2356260,2131286,2338143,2448205,2294335,3169002,1241637];
+var DAILY_ALCANCE = [2793454,2542763,2437688,2266349,2707350,2310231,2342994,2541261,2774244,3226977,3018425,2391410,2235686,1890046,2327331,2146396,2599875,2356260,2131286,2338143,2448205,2294335,3169070,2079234];
 
 var CANAL_DAILY = {
-  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,686002,638533,990928,442120], // cd-tallis · Databricks 23/03 14h47
-  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,705700,759403,1063780,466023], // cd-alfredo
-  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,768768,669523,889987,221528], // cd-g4
-  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,203866,141652,121870,67223] // cd-nardon
+  'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,686002,638533,990928,765569], // cd-tallis · Databricks 23/03 14h47
+  'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,705700,759403,1063780,728665], // cd-alfredo
+  'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,768768,669523,890041,419833], // cd-g4
+  'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,203866,141652,121870,100579] // cd-nardon
 };
 
 var MQL_CANAL_MAR = [363,262,127,89,86,45,37,30,25,15,2];
@@ -1825,10 +1825,10 @@ function toggleIns(id){
     'Nardon':  [3,5,9,6,8,9,25,30,8,5,19,12,1,7,5,6,6,4,15,14,7,3]
   };
   var ALCANCE_5DIAS = {
-    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,686002,638533,990928,442120,null], // alc-tallis · Databricks 23/03 14h47
-    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,705700,759403,1063780,466023,null], // alc-alfredo
-    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,768768,669523,889987,221528,null], // alc-g4
-    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,203866,141652,121870,67223,null] // alc-nardon
+    'Tallis':  [1089881,947652,896865,662221,945477,983863,694992,952728,855178,705950,374964,418182,444241,454428,771532,805883,1307612,834177,583725,496570,686002,638533,990928,765569,null], // alc-tallis · Databricks 23/03 14h47
+    'Alfredo': [647261,573700,561078,529636,732247,370638,533306,457486,529663,1132490,1196801,570777,539486,440152,565272,637275,691273,513273,717530,918165,705700,759403,1063780,728665,null], // alc-alfredo
+    'G4':      [722063,815227,809308,856534,822619,783721,939207,928618,1091555,1117808,1147584,1043501,978997,798193,754782,517367,420888,576554,531661,603123,768768,669523,890041,419833,null], // alc-g4
+    'Nardon':  [142160,65707,89709,101728,85105,70648,114141,79736,205616,190317,209531,249895,157300,113735,130907,97292,89894,294514,199630,225168,203866,141652,121870,100579,null] // alc-nardon
   };
   var CANAL_CONFIG = {
     'Tallis':  {id:'ch-canal-tallis',  cor:'#eab308', corAlpha:'rgba(234,179,8,.35)'},
